@@ -85,14 +85,14 @@ namespace SlidingPuzzle
             {
                 for (int j = 0; j < size; j++)
                 {
-                    if (pieceArray[j, i].value != winIterator && winIterator < 9)
+                    if (pieceArray[j, i].value != winIterator && winIterator < size*size)
                         win = false;
                     winIterator++;
                 }
             }
             if (win)
             {
-                MessageBox.Show("Ganaste campeon");
+                MessageBox.Show("Ganaste campeon", "Muy bien");
             }
         }
 
