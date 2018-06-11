@@ -92,7 +92,7 @@ namespace SlidingPuzzle
             }
             if (win)
             {
-                MessageBox.Show("Ganaste campeon", "Muy bien");
+                MessageBox.Show("Ganaste campeon!", "Muy bien");
             }
         }
 
