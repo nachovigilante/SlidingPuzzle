@@ -78,6 +78,7 @@
             this.btnBegin.TabIndex = 4;
             this.btnBegin.Text = "Empezar";
             this.btnBegin.UseVisualStyleBackColor = true;
+            this.btnBegin.Click += new System.EventHandler(this.btnBegin_Click);
             // 
             // lblMoves
             // 
