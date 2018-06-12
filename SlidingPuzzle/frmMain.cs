@@ -16,8 +16,8 @@ namespace SlidingPuzzle
         static int offset = 40;
         static int squareSize = 100;
         static int size = 3;
-        static int button_gap = 200;
-        int formSizeX = offset * 2 + gap * size + button_gap;
+        static int buttonGap = 200;
+        int formSizeX = offset * 2 + gap * size + buttonGap;
         int formSizeY = offset * 2 + gap * size + offset / 2;
         Board b = new Board(size, gap, offset, squareSize);
         public frmMain()
@@ -30,6 +30,7 @@ namespace SlidingPuzzle
             this.Size = new Size(formSizeX, formSizeY);
             b.showPieces(this);
             b.checkPosiblePlays();
+            grpControls.Location = new Point(formSizeX - (buttonGap + 20), (formSizeY - grpControls.Size.Height)/2 - 22);
         }
 
         private void Form1_Activated(object sender, EventArgs e)
@@ -43,11 +44,6 @@ namespace SlidingPuzzle
         }
 
         private void tmrTick_Tick(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label1_Click_1(object sender, EventArgs e)
         {
 
         }

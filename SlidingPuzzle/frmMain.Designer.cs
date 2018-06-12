@@ -31,12 +31,12 @@
             this.components = new System.ComponentModel.Container();
             this.tmrTick = new System.Windows.Forms.Timer(this.components);
             this.grpControls = new System.Windows.Forms.GroupBox();
-            this.lblTimeTitle = new System.Windows.Forms.Label();
-            this.lblTime = new System.Windows.Forms.Label();
+            this.btnSolve = new System.Windows.Forms.Button();
+            this.btnBegin = new System.Windows.Forms.Button();
             this.lblMoves = new System.Windows.Forms.Label();
             this.lblMovesTitle = new System.Windows.Forms.Label();
-            this.btnBegin = new System.Windows.Forms.Button();
-            this.btnSolve = new System.Windows.Forms.Button();
+            this.lblTime = new System.Windows.Forms.Label();
+            this.lblTimeTitle = new System.Windows.Forms.Label();
             this.grpControls.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -55,35 +55,34 @@
             this.grpControls.Controls.Add(this.lblTimeTitle);
             this.grpControls.Location = new System.Drawing.Point(236, 22);
             this.grpControls.Name = "grpControls";
-            this.grpControls.Size = new System.Drawing.Size(170, 374);
+            this.grpControls.Size = new System.Drawing.Size(170, 350);
             this.grpControls.TabIndex = 0;
             this.grpControls.TabStop = false;
             // 
-            // lblTimeTitle
+            // btnSolve
             // 
-            this.lblTimeTitle.AutoSize = true;
-            this.lblTimeTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTimeTitle.Location = new System.Drawing.Point(15, 176);
-            this.lblTimeTitle.Name = "lblTimeTitle";
-            this.lblTimeTitle.Size = new System.Drawing.Size(140, 20);
-            this.lblTimeTitle.TabIndex = 0;
-            this.lblTimeTitle.Text = "Tiempo en partida:";
+            this.btnSolve.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSolve.Location = new System.Drawing.Point(26, 97);
+            this.btnSolve.Name = "btnSolve";
+            this.btnSolve.Size = new System.Drawing.Size(119, 44);
+            this.btnSolve.TabIndex = 5;
+            this.btnSolve.Text = "Resolver";
+            this.btnSolve.UseVisualStyleBackColor = true;
             // 
-            // lblTime
+            // btnBegin
             // 
-            this.lblTime.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTime.Location = new System.Drawing.Point(3, 204);
-            this.lblTime.Name = "lblTime";
-            this.lblTime.Size = new System.Drawing.Size(164, 31);
-            this.lblTime.TabIndex = 1;
-            this.lblTime.Text = "0:00";
-            this.lblTime.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.lblTime.UseCompatibleTextRendering = true;
+            this.btnBegin.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnBegin.Location = new System.Drawing.Point(26, 30);
+            this.btnBegin.Name = "btnBegin";
+            this.btnBegin.Size = new System.Drawing.Size(119, 44);
+            this.btnBegin.TabIndex = 4;
+            this.btnBegin.Text = "Empezar";
+            this.btnBegin.UseVisualStyleBackColor = true;
             // 
             // lblMoves
             // 
             this.lblMoves.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblMoves.Location = new System.Drawing.Point(3, 290);
+            this.lblMoves.Location = new System.Drawing.Point(3, 292);
             this.lblMoves.Name = "lblMoves";
             this.lblMoves.Size = new System.Drawing.Size(164, 31);
             this.lblMoves.TabIndex = 3;
@@ -95,31 +94,32 @@
             // 
             this.lblMovesTitle.AutoSize = true;
             this.lblMovesTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblMovesTitle.Location = new System.Drawing.Point(35, 263);
+            this.lblMovesTitle.Location = new System.Drawing.Point(35, 265);
             this.lblMovesTitle.Name = "lblMovesTitle";
             this.lblMovesTitle.Size = new System.Drawing.Size(101, 20);
             this.lblMovesTitle.TabIndex = 2;
             this.lblMovesTitle.Text = "Movimientos:";
             // 
-            // btnBegin
+            // lblTime
             // 
-            this.btnBegin.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnBegin.Location = new System.Drawing.Point(26, 28);
-            this.btnBegin.Name = "btnBegin";
-            this.btnBegin.Size = new System.Drawing.Size(119, 44);
-            this.btnBegin.TabIndex = 4;
-            this.btnBegin.Text = "Empezar";
-            this.btnBegin.UseVisualStyleBackColor = true;
+            this.lblTime.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTime.Location = new System.Drawing.Point(3, 206);
+            this.lblTime.Name = "lblTime";
+            this.lblTime.Size = new System.Drawing.Size(164, 31);
+            this.lblTime.TabIndex = 1;
+            this.lblTime.Text = "0:00";
+            this.lblTime.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.lblTime.UseCompatibleTextRendering = true;
             // 
-            // btnSolve
+            // lblTimeTitle
             // 
-            this.btnSolve.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSolve.Location = new System.Drawing.Point(26, 95);
-            this.btnSolve.Name = "btnSolve";
-            this.btnSolve.Size = new System.Drawing.Size(119, 44);
-            this.btnSolve.TabIndex = 5;
-            this.btnSolve.Text = "Resolver";
-            this.btnSolve.UseVisualStyleBackColor = true;
+            this.lblTimeTitle.AutoSize = true;
+            this.lblTimeTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTimeTitle.Location = new System.Drawing.Point(15, 178);
+            this.lblTimeTitle.Name = "lblTimeTitle";
+            this.lblTimeTitle.Size = new System.Drawing.Size(140, 20);
+            this.lblTimeTitle.TabIndex = 0;
+            this.lblTimeTitle.Text = "Tiempo en partida:";
             // 
             // frmMain
             // 
