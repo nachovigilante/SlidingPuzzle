@@ -120,7 +120,6 @@
             // tmrTickExtern
             // 
             this.tmrTickExtern.Enabled = true;
-            this.tmrTickExtern.Interval = 500;
             this.tmrTickExtern.Tick += new System.EventHandler(this.tmrTickExtern_Tick);
             // 
             // frmMain
