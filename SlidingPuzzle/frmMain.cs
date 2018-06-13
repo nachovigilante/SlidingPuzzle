@@ -63,6 +63,8 @@ namespace SlidingPuzzle
         {
             lblTime.Text = b.getPlayTime();
             lblMoves.Text = b.getMoves();
+            if (!b.playing)
+                btnBegin.Text = "Empezar";
         }
     }
 }

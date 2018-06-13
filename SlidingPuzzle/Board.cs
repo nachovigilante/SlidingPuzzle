@@ -108,8 +108,9 @@ namespace SlidingPuzzle
                 }
                 if (win)
                 {
-                    MessageBox.Show("Ganaste campeon!", "Muy bien");
                     playing = false;
+                    tmrTick.Enabled = false;
+                    MessageBox.Show("Ganaste campeon!", "Muy bien");
                 }
             }
         }
@@ -131,8 +132,8 @@ namespace SlidingPuzzle
             pieceArray[zeroX, zeroY].y = zeroY;
 
             checkPosiblePlays();
-            checkIfWin();
             moves++;
+            checkIfWin();
         }
 
         public void tmrTick_Tick(object sender, EventArgs e)
