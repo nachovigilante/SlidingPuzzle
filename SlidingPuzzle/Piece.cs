@@ -47,7 +47,7 @@ namespace SlidingPuzzle
 
         private void pb_Click(object sender, EventArgs e)
         {
-            if (moveable)
+            if (moveable && br.playing)
                 br.moveToZero(x, y);
         }
 
