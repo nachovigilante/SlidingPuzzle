@@ -35,11 +35,6 @@ namespace SlidingPuzzle
             grpControls.Location = new Point(formSizeX - (buttonGap + 20), (formSizeY - grpControls.Size.Height) / 2 - 22);
         }
 
-        private void Form1_Activated(object sender, EventArgs e)
-        {
-
-        }
-
         private void btnBegin_Click(object sender, EventArgs e)
         {
             if (btnBegin.Text == "Empezar")

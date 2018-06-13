@@ -132,7 +132,6 @@
             this.MaximizeBox = false;
             this.Name = "frmMain";
             this.Text = "Rompecabezas de X";
-            this.Activated += new System.EventHandler(this.Form1_Activated);
             this.Load += new System.EventHandler(this.Form1_Load);
             this.grpControls.ResumeLayout(false);
             this.grpControls.PerformLayout();
