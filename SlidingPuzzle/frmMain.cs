@@ -50,6 +50,10 @@ namespace SlidingPuzzle
 
         private void btnBegin_Click(object sender, EventArgs e)
         {
+            if (btnBegin.Text == "Empezar")
+                btnBegin.Text = "Rendirse";
+            else
+                btnBegin.Text = "Empezar";
             time = 0;
             tmrTick.Enabled = !tmrTick.Enabled;
         }
