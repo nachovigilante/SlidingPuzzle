@@ -12,7 +12,7 @@ namespace SlidingPuzzle
 {
     public partial class frmMain : Form
     {
-        int time = 0;
+        string time;
         static int gap = 120;
         static int offset = 40;
         static int squareSize = 100;
@@ -20,7 +20,7 @@ namespace SlidingPuzzle
         static int buttonGap = 200;
         int formSizeX = offset * 2 + gap * size + buttonGap;
         int formSizeY = offset * 2 + gap * size + offset / 2;
-        Board b = new Board(size, gap, offset, squareSize);
+        Board b;
         public frmMain()
         {
             InitializeComponent();
@@ -28,6 +28,7 @@ namespace SlidingPuzzle
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            b = new Board(size, gap, offset, squareSize);
             this.Size = new Size(formSizeX, formSizeY);
             b.showPieces(this);
             b.checkPosiblePlays();
@@ -39,23 +40,28 @@ namespace SlidingPuzzle
             
         }
 
-        private void tmrTick_Tick(object sender, EventArgs e)
-        {
-            time++;
-            int hours = (time / 60) / 60;
-            int minutes = time / 60;
-            int seconds = (time - minutes * 60);
-            lblTime.Text = (hours < 10 & hours > 0 ? "0" : "") + (hours > 0 ? hours.ToString() + ":" : "") + minutes.ToString() + ":" + (seconds < 10 ? "0" + seconds.ToString() : seconds.ToString());
-        }
-
         private void btnBegin_Click(object sender, EventArgs e)
         {
             if (btnBegin.Text == "Empezar")
+            {
                 btnBegin.Text = "Rendirse";
+                b.playing = true;
+            }
             else
+            {
                 btnBegin.Text = "Empezar";
-            time = 0;
-            tmrTick.Enabled = !tmrTick.Enabled;
+                b.playing = false;
+            }
+            b.time = 0;
+            b.moves = 0;
+            
+            b.tmrTick.Enabled = !b.tmrTick.Enabled;
+        }
+
+        private void tmrTickExtern_Tick(object sender, EventArgs e)
+        {
+            lblTime.Text = b.getPlayTime();
+            lblMoves.Text = b.getMoves();
         }
     }
 }

@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.tmrTick = new System.Windows.Forms.Timer(this.components);
             this.grpControls = new System.Windows.Forms.GroupBox();
             this.btnSolve = new System.Windows.Forms.Button();
             this.btnBegin = new System.Windows.Forms.Button();
@@ -37,13 +36,9 @@
             this.lblMovesTitle = new System.Windows.Forms.Label();
             this.lblTime = new System.Windows.Forms.Label();
             this.lblTimeTitle = new System.Windows.Forms.Label();
+            this.tmrTickExtern = new System.Windows.Forms.Timer(this.components);
             this.grpControls.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // tmrTick
-            // 
-            this.tmrTick.Interval = 1000;
-            this.tmrTick.Tick += new System.EventHandler(this.tmrTick_Tick);
             // 
             // grpControls
             // 
@@ -122,6 +117,12 @@
             this.lblTimeTitle.TabIndex = 0;
             this.lblTimeTitle.Text = "Tiempo en partida:";
             // 
+            // tmrTickExtern
+            // 
+            this.tmrTickExtern.Enabled = true;
+            this.tmrTickExtern.Interval = 500;
+            this.tmrTickExtern.Tick += new System.EventHandler(this.tmrTickExtern_Tick);
+            // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -141,8 +142,6 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.Timer tmrTick;
         private System.Windows.Forms.GroupBox grpControls;
         private System.Windows.Forms.Label lblTimeTitle;
         private System.Windows.Forms.Label label1;
@@ -152,6 +151,7 @@
         private System.Windows.Forms.Label lblMovesTitle;
         private System.Windows.Forms.Button btnBegin;
         private System.Windows.Forms.Button btnSolve;
+        private System.Windows.Forms.Timer tmrTickExtern;
     }
 }
 

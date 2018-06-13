@@ -16,6 +16,9 @@ namespace SlidingPuzzle
         public int zeroY = 0;
         public Timer tmrTick;
         public int time;
+        public bool playing;
+        public int moves = 0;
+
         //public Queue<int> moveablePieces = new Queue<int>(); 
 
         public void showPieces(Form form){
@@ -116,18 +119,29 @@ namespace SlidingPuzzle
 
             checkPosiblePlays();
             checkIfWin();
+            moves++;
         }
 
         public void tmrTick_Tick(object sender, EventArgs e)
         {
-            time++;
+            if(playing)
+                time++;
+        }
+
+        public string getPlayTime()
+        {
             int hours = (time / 60) / 60;
             int minutes = time / 60;
             int seconds = (time - minutes * 60);
-            //lblTime.Text = (hours < 10 & hours > 0 ? "0" : "") + (hours > 0 ? hours.ToString() + ":" : "") + minutes.ToString() + ":" + (seconds < 10 ? "0" + seconds.ToString() : seconds.ToString());
+            return (hours < 10 & hours > 0 ? "0" : "") + (hours > 0 ? hours.ToString() + ":" : "") + minutes.ToString() + ":" + (seconds < 10 ? "0" + seconds.ToString() : seconds.ToString());
         }
 
-        public Board(int s, int gap, int offset, int squareSize, Board br)
+        public string getMoves()
+        {
+            return moves.ToString();
+        }
+
+        public Board(int s, int gap, int offset, int squareSize)
         {
             size = s;
             int valueI = 0;
