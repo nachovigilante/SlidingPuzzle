@@ -32,12 +32,12 @@ namespace SlidingPuzzle
             this.Size = new Size(formSizeX, formSizeY);
             b.showPieces(this);
             b.checkPosiblePlays();
-            grpControls.Location = new Point(formSizeX - (buttonGap + 20), (formSizeY - grpControls.Size.Height)/2 - 22);
+            grpControls.Location = new Point(formSizeX - (buttonGap + 20), (formSizeY - grpControls.Size.Height) / 2 - 22);
         }
 
         private void Form1_Activated(object sender, EventArgs e)
         {
-            
+
         }
 
         private void btnBegin_Click(object sender, EventArgs e)
@@ -45,6 +45,7 @@ namespace SlidingPuzzle
             if (btnBegin.Text == "Empezar")
             {
                 btnBegin.Text = "Rendirse";
+                b.shuffle();
                 b.playing = true;
             }
             else
@@ -54,7 +55,7 @@ namespace SlidingPuzzle
             }
             b.time = 0;
             b.moves = 0;
-            
+
             b.tmrTick.Enabled = !b.tmrTick.Enabled;
         }
 

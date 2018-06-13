@@ -13,14 +13,14 @@ namespace SlidingPuzzle
     class Piece
     {
         public int value { get; internal set; }
-        //Point pos { get; set; }
         public int x { get; set; }
         public int y { get; set; }
         public bool moveable = false;
         public PictureBox pb { get; set; }
         public Board br;
-        
-        public void showPiece(Form form){
+
+        public void showPiece(Form form)
+        {
             form.Controls.Add(this.pb);
         }
 
@@ -30,7 +30,6 @@ namespace SlidingPuzzle
             this.x = x;
             this.y = y;
             br = b;
-            //this.pos = p;
             pb = new PictureBox();
             pb.Click += pb_Click;
             pb.Name = "pb_" + v;
@@ -40,9 +39,8 @@ namespace SlidingPuzzle
             pb.BackgroundImageLayout = ImageLayout.Stretch;
             pb.Location = new Point(this.x * gap + offset, this.y * gap + offset);
             pb.Anchor = AnchorStyles.Left;
-            if(v == 0)
+            if (v == 0)
                 pb.Visible = false;
-            //InitializeComponent();
         }
 
         private void pb_Click(object sender, EventArgs e)

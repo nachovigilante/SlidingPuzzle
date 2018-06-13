@@ -18,10 +18,21 @@ namespace SlidingPuzzle
         public int time;
         public bool playing;
         public int moves = 0;
+        public static Random r = new Random();
 
-        //public Queue<int> moveablePieces = new Queue<int>(); 
+        public void shuffle()
+        {
+            for (int i = 0; i < 200 * size; i++)
+            {
+                int pieceX = r.Next(0, size);
+                int pieceY = r.Next(0, size);
+                if (pieceArray[pieceX, pieceY].moveable)
+                    moveToZero(pieceX, pieceY);
+            }
+        }
 
-        public void showPieces(Form form){
+        public void showPieces(Form form)
+        {
             foreach (Piece p in pieceArray)
             {
                 p.showPiece(form);
@@ -53,14 +64,12 @@ namespace SlidingPuzzle
 
         private void findMoveablePieces()
         {
-            for(int i = -1; i < 2; i += 2)
+            for (int i = -1; i < 2; i += 2)
             {
                 if (pieceExists(zeroX + i, zeroY))
                     pieceArray[zeroX + i, zeroY].moveable = true;
-                    //moveablePieces.Enqueue(pieceArray[zeroX + i, zeroY].value);
                 if (pieceExists(zeroX, zeroY + i))
                     pieceArray[zeroX, zeroY + i].moveable = true;
-                    //moveablePieces.Enqueue(pieceArray[zeroX, zeroY + i].value);
             }
         }
 
@@ -84,20 +93,24 @@ namespace SlidingPuzzle
 
         private void checkIfWin()
         {
-            int winIterator = 1;
-            bool win = true;
-            for (int i = 0; i < size; i++)
+            if (playing)
             {
-                for (int j = 0; j < size; j++)
+                int winIterator = 1;
+                bool win = true;
+                for (int i = 0; i < size; i++)
                 {
-                    if (pieceArray[j, i].value != winIterator && winIterator < size*size)
-                        win = false;
-                    winIterator++;
+                    for (int j = 0; j < size; j++)
+                    {
+                        if (pieceArray[j, i].value != winIterator && winIterator < size * size)
+                            win = false;
+                        winIterator++;
+                    }
                 }
-            }
-            if (win)
-            {
-                MessageBox.Show("Ganaste campeon!", "Muy bien");
+                if (win)
+                {
+                    MessageBox.Show("Ganaste campeon!", "Muy bien");
+                    playing = false;
+                }
             }
         }
 
@@ -124,7 +137,7 @@ namespace SlidingPuzzle
 
         public void tmrTick_Tick(object sender, EventArgs e)
         {
-            if(playing)
+            if (playing)
                 time++;
         }
 
@@ -153,7 +166,7 @@ namespace SlidingPuzzle
             {
                 for (int j = 0; j < size; j++)
                 {
-                    if(valueI == size*size )
+                    if (valueI == size * size)
                         pieceArray[j, i] = new Piece(0, j, i, this, gap, offset, squareSize);
                     else
                         pieceArray[j, i] = new Piece(valueI, j, i, this, gap, offset, squareSize);
