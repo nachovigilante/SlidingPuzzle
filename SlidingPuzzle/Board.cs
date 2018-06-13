@@ -144,7 +144,7 @@ namespace SlidingPuzzle
         public Board(int s, int gap, int offset, int squareSize)
         {
             size = s;
-            int valueI = 0;
+            int valueI = 1;
             pieceArray = new Piece[s, s];
             tmrTick = new Timer();
             tmrTick.Tick += tmrTick_Tick;
@@ -153,7 +153,10 @@ namespace SlidingPuzzle
             {
                 for (int j = 0; j < size; j++)
                 {
-                    pieceArray[j, i] = new Piece(valueI, j, i, this, gap, offset, squareSize);
+                    if(valueI == size*size )
+                        pieceArray[j, i] = new Piece(0, j, i, this, gap, offset, squareSize);
+                    else
+                        pieceArray[j, i] = new Piece(valueI, j, i, this, gap, offset, squareSize);
                     valueI++;
                 }
             }
