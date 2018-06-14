@@ -1,11 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace SlidingPuzzle
@@ -16,8 +10,8 @@ namespace SlidingPuzzle
         public Piece[,] pieceArray;
         public int zeroX = 0;
         public int zeroY = 0;
-        public System.Windows.Forms.Timer tmrTick;
-        public System.Windows.Forms.Timer tmrAnimate;
+        public Timer tmrTick;
+        public Timer tmrAnimate;
         public int time;
         public bool playing;
         public int moves = 0;
@@ -99,11 +93,6 @@ namespace SlidingPuzzle
             pieceArray[zeroX, zeroY].pb.Location = pieceArray[pieceX, pieceY].pb.Location;
             animatePieceX = pieceX;
             animatePieceY = pieceY;
-            /*for(int i = 0; i < 10; i++)
-            {
-                pieceArray[animatePieceX, animatePieceY].pb.Location = Lerp(pieceArray[animatePieceX, animatePieceY].pb.Location, zeroLocation, (float)0.5);
-                Thread.Sleep(50);
-            }*/
             tmrAnimate.Enabled = true;
         }
 
@@ -221,10 +210,10 @@ namespace SlidingPuzzle
             size = s;
             int valueI = 1;
             pieceArray = new Piece[s, s];
-            tmrTick = new System.Windows.Forms.Timer();
+            tmrTick = new Timer();
             tmrTick.Tick += tmrTick_Tick;
             tmrTick.Interval = 1000;
-            tmrAnimate = new System.Windows.Forms.Timer();
+            tmrAnimate = new Timer();
             tmrAnimate.Tick += tmrAnimate_Tick;
             tmrAnimate.Interval = animationSpeed;
             for (int i = 0; i < size; i++)
