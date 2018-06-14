@@ -46,7 +46,7 @@ namespace SlidingPuzzle
         private void pb_Click(object sender, EventArgs e)
         {
             if (moveable && br.playing)
-                br.moveToZero(x, y);
+                br.moveToZero(x, y, true);
         }
 
         private void loadRightImage(PictureBox pb, int v)
