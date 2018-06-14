@@ -45,7 +45,7 @@ namespace SlidingPuzzle
 
         private void pb_Click(object sender, EventArgs e)
         {
-            if (moveable && br.playing)
+            if (moveable && br.playing && br.tmrAnimate.Enabled == false)
                 br.moveToZero(x, y, true);
         }
 

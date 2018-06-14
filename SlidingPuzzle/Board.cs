@@ -23,6 +23,7 @@ namespace SlidingPuzzle
         public int moves = 0;
         public int animatePieceX;
         public int animatePieceY;
+        public int animationSpeed = 45;
         int animateIterator = 0;
         Point zeroLocation = new Point();
         public static Random r = new Random();
@@ -98,16 +99,29 @@ namespace SlidingPuzzle
             pieceArray[zeroX, zeroY].pb.Location = pieceArray[pieceX, pieceY].pb.Location;
             animatePieceX = pieceX;
             animatePieceY = pieceY;
-            //pieceArray[animatePieceX, animatePieceY].pb.Location = Lerp(pieceArray[animatePieceX, animatePieceY].pb.Location, zeroLocation, (float)0.5);
-            animateIterator++;
+            /*for(int i = 0; i < 10; i++)
+            {
+                pieceArray[animatePieceX, animatePieceY].pb.Location = Lerp(pieceArray[animatePieceX, animatePieceY].pb.Location, zeroLocation, (float)0.5);
+                Thread.Sleep(50);
+            }*/
             tmrAnimate.Enabled = true;
         }
 
-        public void movePiece()
+        public void finishMovement(int pieceX, int pieceY)
         {
-            pieceArray[animatePieceX, animatePieceY].pb.Location = Lerp(pieceArray[animatePieceX, animatePieceY].pb.Location, zeroLocation, (float)0.5);
-            Debug.WriteLine("X: " + animatePieceX);
-            Debug.WriteLine("Y: " + animatePieceY);
+            Piece auxPiece = pieceArray[pieceX, pieceY];
+            pieceArray[pieceX, pieceY] = pieceArray[zeroX, zeroY];
+            pieceArray[zeroX, zeroY] = auxPiece;
+
+            pieceArray[pieceX, pieceY].x = pieceX;
+            pieceArray[pieceX, pieceY].y = pieceY;
+            pieceArray[zeroX, zeroY].x = zeroX;
+            pieceArray[zeroX, zeroY].y = zeroY;
+
+            checkPosiblePlays();
+            moves++;
+            checkIfWin();
+
         }
 
         public void resetMoveables()
@@ -162,20 +176,9 @@ namespace SlidingPuzzle
                 aux = pieceArray[pieceX, pieceY].pb.Location;
                 pieceArray[pieceX, pieceY].pb.Location = pieceArray[zeroX, zeroY].pb.Location;
                 pieceArray[zeroX, zeroY].pb.Location = aux;
+
+                finishMovement(pieceX, pieceY);
             }
-
-            Piece auxPiece = pieceArray[pieceX, pieceY];
-            pieceArray[pieceX, pieceY] = pieceArray[zeroX, zeroY];
-            pieceArray[zeroX, zeroY] = auxPiece;
-
-            pieceArray[pieceX, pieceY].x = pieceX;
-            pieceArray[pieceX, pieceY].y = pieceY;
-            pieceArray[zeroX, zeroY].x = zeroX;
-            pieceArray[zeroX, zeroY].y = zeroY;
-
-            checkPosiblePlays();
-            moves++;
-            checkIfWin();
         }
 
         public void tmrTick_Tick(object sender, EventArgs e)
@@ -186,18 +189,18 @@ namespace SlidingPuzzle
 
         public void tmrAnimate_Tick(object sender, EventArgs e)
         {
-            pieceArray[animatePieceX, animatePieceY].pb.Location = Lerp(pieceArray[animatePieceX, animatePieceY].pb.Location, zeroLocation, (float)0.5);
-            //movePiece();
-            /*if (animateIterator < 5)
+            if (animateIterator < ((animationSpeed * 7) / 40))
             {
-                pieceArray[animatePieceX, animatePieceY].pb.Location = Lerp(pieceArray[animatePieceX, animatePieceY].pb.Location, zeroLocation, (float)0.1);
-                pieceArray[animatePieceX, animatePieceY].pb.Refresh();
+                pieceArray[animatePieceX, animatePieceY].pb.Location = Lerp(pieceArray[animatePieceX, animatePieceY].pb.Location, zeroLocation, (float)0.5);
+                //Console.WriteLine(pieceArray[animatePieceX, animatePieceY].pb.Location);
                 animateIterator++;
             }else
             {
                 animateIterator = 0;
+                pieceArray[animatePieceX, animatePieceY].pb.Location = zeroLocation;
+                finishMovement(animatePieceX, animatePieceY);
                 tmrAnimate.Enabled = false;
-            }*/
+            }
         }
 
         public string getPlayTime()
@@ -223,7 +226,7 @@ namespace SlidingPuzzle
             tmrTick.Interval = 1000;
             tmrAnimate = new System.Windows.Forms.Timer();
             tmrAnimate.Tick += tmrAnimate_Tick;
-            tmrAnimate.Interval = 50;
+            tmrAnimate.Interval = animationSpeed;
             for (int i = 0; i < size; i++)
             {
                 for (int j = 0; j < size; j++)

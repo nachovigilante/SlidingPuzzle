@@ -67,9 +67,5 @@ namespace SlidingPuzzle
                 btnBegin.Text = "Empezar";
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-            b.movePiece();
-        }
     }
 }
