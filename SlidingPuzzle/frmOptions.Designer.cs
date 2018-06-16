@@ -45,6 +45,7 @@
             this.btnFile = new System.Windows.Forms.Button();
             this.btnLoadIamge = new System.Windows.Forms.Button();
             this.lblDefault = new System.Windows.Forms.Label();
+            this.lblPreview = new System.Windows.Forms.Label();
             this.grpAnimations.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.trkFlu)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.trkAnimations)).BeginInit();
@@ -178,7 +179,7 @@
             // lblFile
             // 
             this.lblFile.AutoSize = true;
-            this.lblFile.Location = new System.Drawing.Point(59, 360);
+            this.lblFile.Location = new System.Drawing.Point(59, 368);
             this.lblFile.Name = "lblFile";
             this.lblFile.Size = new System.Drawing.Size(173, 13);
             this.lblFile.TabIndex = 8;
@@ -186,7 +187,7 @@
             // 
             // btnFile
             // 
-            this.btnFile.Location = new System.Drawing.Point(238, 353);
+            this.btnFile.Location = new System.Drawing.Point(62, 401);
             this.btnFile.Name = "btnFile";
             this.btnFile.Size = new System.Drawing.Size(134, 27);
             this.btnFile.TabIndex = 0;
@@ -196,7 +197,7 @@
             // 
             // btnLoadIamge
             // 
-            this.btnLoadIamge.Location = new System.Drawing.Point(387, 353);
+            this.btnLoadIamge.Location = new System.Drawing.Point(202, 401);
             this.btnLoadIamge.Name = "btnLoadIamge";
             this.btnLoadIamge.Size = new System.Drawing.Size(124, 27);
             this.btnLoadIamge.TabIndex = 9;
@@ -213,11 +214,21 @@
             this.lblDefault.TabIndex = 10;
             this.lblDefault.Text = "(3x3 por default)";
             // 
+            // lblPreview
+            // 
+            this.lblPreview.AutoSize = true;
+            this.lblPreview.Location = new System.Drawing.Point(59, 450);
+            this.lblPreview.Name = "lblPreview";
+            this.lblPreview.Size = new System.Drawing.Size(65, 13);
+            this.lblPreview.TabIndex = 11;
+            this.lblPreview.Text = "Vista previa:";
+            // 
             // frmOptions
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(637, 738);
+            this.Controls.Add(this.lblPreview);
             this.Controls.Add(this.lblDefault);
             this.Controls.Add(this.btnLoadIamge);
             this.Controls.Add(this.btnFile);
@@ -258,5 +269,6 @@
         private System.Windows.Forms.Button btnFile;
         private System.Windows.Forms.Button btnLoadIamge;
         private System.Windows.Forms.Label lblDefault;
+        private System.Windows.Forms.Label lblPreview;
     }
 }

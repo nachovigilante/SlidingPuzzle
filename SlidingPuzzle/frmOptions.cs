@@ -87,7 +87,7 @@ namespace SlidingPuzzle
                             pbArray[x, y].Size = new Size(tileSize, tileSize);
                             pbArray[x, y].BackColor = Color.White;
                             pbArray[x, y].BackgroundImageLayout = ImageLayout.Stretch;
-                            pbArray[x, y].Location = new Point(lblFile.Location.X + tileSize * x + 5 * x, lblFile.Location.Y + 5 * y + tileSize * y + 50);
+                            pbArray[x, y].Location = new Point(lblPreview.Location.X + tileSize * x + 5 * x, lblPreview.Location.Y + 5 * y + tileSize * y + 30);
                             pbArray[x, y].Anchor = AnchorStyles.Left;
                             pbArray[x, y].Visible = true;
                             pbArray[x, y].BringToFront();
