@@ -35,48 +35,50 @@ namespace SlidingPuzzle
             pb.Anchor = AnchorStyles.Left;
             loadRightImage(pb, v);
             this.animationsActive = animationsActive;
-            /*if (v == 0)
-                pb.Visible = false;*/
         }
 
         public void pb_Click(object sender, EventArgs e)
         {
-            if (moveable && b.playing && b.tmrAnimate.Enabled == false)
-                b.moveToZero(x, y, animationsActive);
+            if (b.playing && b.tmrAnimate.Enabled == false)
+            {
+                int min;
+                if (moveable)
+                    b.moveToZero(x, y, animationsActive);
+                else if(b.zeroX - x == 0)
+                {
+                    if (b.zeroY > y)
+                        min = -(b.size - 1);
+                    else
+                        min = b.size - 1;
+                    for(int i = -(b.size-1); i < b.size-1; i++)
+                    {
+                        if(b.pieceExists(x, y + i))
+                        {
+                            if(b.pieceArray[x, y + i].moveable)
+                                b.moveToZero(x, y + i, false);
+                        }
+                    }
+                }else if(b.zeroY - y == 0)
+                {
+                    if (b.zeroX > x)
+                        min = -(b.size - 1);
+                    else
+                        min = b.size - 1;
+                    for (int i = -(b.size-1); i < b.size-1; i++)
+                    {
+                        if (b.pieceExists(x + i, y))
+                        {
+                            if (b.pieceArray[x + i, y].moveable)
+                                b.moveToZero(x + i, y, false);
+                        }
+                    }
+                }
+            }
         }
 
         private void loadRightImage(PictureBox pb, int v)
         {
-            //if(value != 0)
-                pb.Image = b.bmpArray[x, y];
-            /*switch (v)
-            {
-                case 1:
-                    pb.BackgroundImage = Properties.Resources._1;
-                    break;
-                case 2:
-                    pb.BackgroundImage = Properties.Resources._2;
-                    break;
-                case 3:
-                    pb.BackgroundImage = Properties.Resources._3;
-                    break;
-                case 4:
-                    pb.BackgroundImage = Properties.Resources._4;
-                    break;
-                case 5:
-                    pb.BackgroundImage = Properties.Resources._5;
-                    break;
-                case 6:
-                    pb.BackgroundImage = Properties.Resources._6;
-                    break;
-                case 7:
-                    pb.BackgroundImage = Properties.Resources._7;
-                    break;
-                case 8:
-                    pb.BackgroundImage = Properties.Resources._8;
-                    break;
-            }*/
-
+            pb.Image = b.bmpArray[x, y];
         }
     }
 }
