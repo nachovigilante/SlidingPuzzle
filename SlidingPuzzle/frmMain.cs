@@ -18,13 +18,15 @@ namespace SlidingPuzzle
         public int size;
         static int buttonGap = 200;
         public int animationSpeed = 30;
+        public bool keyMoves = true;
         Board b;
         public Bitmap[,] bmpArray;
         public bool animationsActive = true;
-        public frmMain(bool animationsActive, int animationSpeed)
+        public frmMain(bool animationsActive, int animationSpeed, bool keyMoves)
         {
             this.animationsActive = animationsActive;
             this.animationSpeed = animationSpeed;
+            this.keyMoves = keyMoves;
             InitializeComponent();
         }
 
@@ -114,32 +116,35 @@ namespace SlidingPuzzle
 
         private void useKey(Keys keyCode)
         {
-            if (keyCode == Keys.Up)
+            if (keyMoves)
             {
-                if (b.pieceExists(b.zeroX, b.zeroY + 1))
+                if (keyCode == Keys.Up)
                 {
-                    b.pieceArray[b.zeroX, b.zeroY + 1].pb_Click(b.pieceArray[b.zeroX, b.zeroY + 1].pb, null);
+                    if (b.pieceExists(b.zeroX, b.zeroY + 1))
+                    {
+                        b.pieceArray[b.zeroX, b.zeroY + 1].pb_Click(b.pieceArray[b.zeroX, b.zeroY + 1].pb, null);
+                    }
                 }
-            }
-            else if (keyCode == Keys.Down)
-            {
-                if (b.pieceExists(b.zeroX, b.zeroY - 1))
+                else if (keyCode == Keys.Down)
                 {
-                    b.pieceArray[b.zeroX, b.zeroY - 1].pb_Click(b.pieceArray[b.zeroX, b.zeroY - 1].pb, null);
+                    if (b.pieceExists(b.zeroX, b.zeroY - 1))
+                    {
+                        b.pieceArray[b.zeroX, b.zeroY - 1].pb_Click(b.pieceArray[b.zeroX, b.zeroY - 1].pb, null);
+                    }
                 }
-            }
-            else if (keyCode == Keys.Right)
-            {
-                if (b.pieceExists(b.zeroX - 1, b.zeroY))
+                else if (keyCode == Keys.Right)
                 {
-                    b.pieceArray[b.zeroX - 1, b.zeroY].pb_Click(b.pieceArray[b.zeroX - 1, b.zeroY].pb, null);
+                    if (b.pieceExists(b.zeroX - 1, b.zeroY))
+                    {
+                        b.pieceArray[b.zeroX - 1, b.zeroY].pb_Click(b.pieceArray[b.zeroX - 1, b.zeroY].pb, null);
+                    }
                 }
-            }
-            else if (keyCode == Keys.Left)
-            {
-                if (b.pieceExists(b.zeroX + 1, b.zeroY))
+                else if (keyCode == Keys.Left)
                 {
-                    b.pieceArray[b.zeroX + 1, b.zeroY].pb_Click(b.pieceArray[b.zeroX + 1, b.zeroY].pb, null);
+                    if (b.pieceExists(b.zeroX + 1, b.zeroY))
+                    {
+                        b.pieceArray[b.zeroX + 1, b.zeroY].pb_Click(b.pieceArray[b.zeroX + 1, b.zeroY].pb, null);
+                    }
                 }
             }
         }

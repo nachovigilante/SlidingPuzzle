@@ -38,6 +38,7 @@
             this.cboSize = new System.Windows.Forms.ComboBox();
             this.toolTipAnimations = new System.Windows.Forms.ToolTip(this.components);
             this.chkKeys = new System.Windows.Forms.CheckBox();
+            this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.lblKeys = new System.Windows.Forms.Label();
             this.lblFile = new System.Windows.Forms.Label();
             this.btnFile = new System.Windows.Forms.Button();
@@ -47,7 +48,6 @@
             this.button1 = new System.Windows.Forms.Button();
             this.grpControls = new System.Windows.Forms.GroupBox();
             this.lblMulti = new System.Windows.Forms.Label();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.grpTab = new System.Windows.Forms.GroupBox();
             this.grpAnimations.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.trkAnimations)).BeginInit();
@@ -156,6 +156,21 @@
             this.toolTipAnimations.SetToolTip(this.chkKeys, "las animaciones pueden aumentar el tiempo y pueden ser molestas, no se recomienda" +
         "n si quiere resolverlo con un mejor tiempo");
             this.chkKeys.UseVisualStyleBackColor = true;
+            this.chkKeys.CheckedChanged += new System.EventHandler(this.chkKeys_CheckedChanged);
+            // 
+            // checkBox1
+            // 
+            this.checkBox1.AutoSize = true;
+            this.checkBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.checkBox1.Checked = true;
+            this.checkBox1.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.checkBox1.Location = new System.Drawing.Point(269, 31);
+            this.checkBox1.Name = "checkBox1";
+            this.checkBox1.Size = new System.Drawing.Size(15, 14);
+            this.checkBox1.TabIndex = 9;
+            this.toolTipAnimations.SetToolTip(this.checkBox1, "las animaciones pueden aumentar el tiempo y pueden ser molestas, no se recomienda" +
+        "n si quiere resolverlo con un mejor tiempo");
+            this.checkBox1.UseVisualStyleBackColor = true;
             // 
             // lblKeys
             // 
@@ -244,20 +259,6 @@
             this.lblMulti.Size = new System.Drawing.Size(102, 13);
             this.lblMulti.TabIndex = 8;
             this.lblMulti.Text = "Movimiento múltiple:";
-            // 
-            // checkBox1
-            // 
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.checkBox1.Checked = true;
-            this.checkBox1.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.checkBox1.Location = new System.Drawing.Point(269, 31);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(15, 14);
-            this.checkBox1.TabIndex = 9;
-            this.toolTipAnimations.SetToolTip(this.checkBox1, "las animaciones pueden aumentar el tiempo y pueden ser molestas, no se recomienda" +
-        "n si quiere resolverlo con un mejor tiempo");
-            this.checkBox1.UseVisualStyleBackColor = true;
             // 
             // grpTab
             // 

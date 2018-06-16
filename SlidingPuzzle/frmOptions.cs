@@ -26,6 +26,7 @@ namespace SlidingPuzzle
         private bool imageLoaded = false;
         bool animationsActive = true;
         public int animationSpeed = 30;
+        public bool keyMoves = true;
 
         private void chkAnimations_CheckedChanged(object sender, EventArgs e)
         {
@@ -139,6 +140,7 @@ namespace SlidingPuzzle
             menuForm.size = size;
             menuForm.animationsActive = animationsActive;
             menuForm.animationSpeed = animationSpeed;
+            menuForm.keyMoves = keyMoves;
             menuForm.Show();
             Hide();
         }
@@ -147,6 +149,11 @@ namespace SlidingPuzzle
         {
             animationSpeed = 55 - 5 * trkAnimations.Value;
             //Console.WriteLine(animationSpeed);
+        }
+
+        private void chkKeys_CheckedChanged(object sender, EventArgs e)
+        {
+            keyMoves = !keyMoves;
         }
     }
 }
