@@ -39,7 +39,7 @@ namespace SlidingPuzzle
                 pb.Visible = false;*/
         }
 
-        private void pb_Click(object sender, EventArgs e)
+        public void pb_Click(object sender, EventArgs e)
         {
             if (moveable && b.playing && b.tmrAnimate.Enabled == false)
                 b.moveToZero(x, y, animationsActive);

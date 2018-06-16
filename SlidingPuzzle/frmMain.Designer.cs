@@ -53,6 +53,7 @@
             this.grpControls.Size = new System.Drawing.Size(170, 350);
             this.grpControls.TabIndex = 0;
             this.grpControls.TabStop = false;
+            this.grpControls.PreviewKeyDown += new System.Windows.Forms.PreviewKeyDownEventHandler(this.grpControls_PreviewKeyDown);
             // 
             // btnSolve
             // 
@@ -63,6 +64,8 @@
             this.btnSolve.TabIndex = 5;
             this.btnSolve.Text = "Resolver";
             this.btnSolve.UseVisualStyleBackColor = true;
+            this.btnSolve.KeyDown += new System.Windows.Forms.KeyEventHandler(this.btnSolve_KeyDown);
+            this.btnSolve.PreviewKeyDown += new System.Windows.Forms.PreviewKeyDownEventHandler(this.btnSolve_PreviewKeyDown);
             // 
             // btnBegin
             // 
@@ -74,6 +77,8 @@
             this.btnBegin.Text = "Empezar";
             this.btnBegin.UseVisualStyleBackColor = true;
             this.btnBegin.Click += new System.EventHandler(this.btnBegin_Click);
+            this.btnBegin.KeyDown += new System.Windows.Forms.KeyEventHandler(this.btnBegin_KeyDown);
+            this.btnBegin.PreviewKeyDown += new System.Windows.Forms.PreviewKeyDownEventHandler(this.btnBegin_PreviewKeyDown);
             // 
             // lblMoves
             // 
@@ -133,6 +138,8 @@
             this.Name = "frmMain";
             this.Text = "Rompecabezas de X";
             this.Load += new System.EventHandler(this.Form1_Load);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.frmMain_KeyDown);
+            this.PreviewKeyDown += new System.Windows.Forms.PreviewKeyDownEventHandler(this.frmMain_PreviewKeyDown);
             this.grpControls.ResumeLayout(false);
             this.grpControls.PerformLayout();
             this.ResumeLayout(false);

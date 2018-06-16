@@ -68,5 +68,103 @@ namespace SlidingPuzzle
                 btnBegin.Text = "Empezar";
         }
 
+        private void frmMain_KeyDown(object sender, KeyEventArgs e)
+        {
+            useKey(e.KeyCode);
+        }
+
+        private void frmMain_PreviewKeyDown(object sender, PreviewKeyDownEventArgs e)
+        {
+            switch (e.KeyCode)
+            {
+                case Keys.Down:
+                case Keys.Up:
+                case Keys.Left:
+                case Keys.Right:
+                    e.IsInputKey = true;
+                    break;
+            }
+        }
+
+        private void grpControls_PreviewKeyDown(object sender, PreviewKeyDownEventArgs e)
+        {
+            switch (e.KeyCode)
+            {
+                case Keys.Down:
+                case Keys.Up:
+                case Keys.Left:
+                case Keys.Right:
+                    e.IsInputKey = true;
+                    break;
+            }
+        }
+
+        private void btnBegin_PreviewKeyDown(object sender, PreviewKeyDownEventArgs e)
+        {
+            switch (e.KeyCode)
+            {
+                case Keys.Down:
+                case Keys.Up:
+                case Keys.Left:
+                case Keys.Right:
+                    e.IsInputKey = true;
+                    break;
+            }
+        }
+
+        private void useKey(Keys keyCode)
+        {
+            if (keyCode == Keys.Up)
+            {
+                if (b.pieceExists(b.zeroX, b.zeroY + 1))
+                {
+                    b.pieceArray[b.zeroX, b.zeroY + 1].pb_Click(b.pieceArray[b.zeroX, b.zeroY + 1].pb, null);
+                }
+            }
+            else if (keyCode == Keys.Down)
+            {
+                if (b.pieceExists(b.zeroX, b.zeroY - 1))
+                {
+                    b.pieceArray[b.zeroX, b.zeroY - 1].pb_Click(b.pieceArray[b.zeroX, b.zeroY - 1].pb, null);
+                }
+            }
+            else if (keyCode == Keys.Right)
+            {
+                if (b.pieceExists(b.zeroX - 1, b.zeroY))
+                {
+                    b.pieceArray[b.zeroX - 1, b.zeroY].pb_Click(b.pieceArray[b.zeroX - 1, b.zeroY].pb, null);
+                }
+            }
+            else if (keyCode == Keys.Left)
+            {
+                if (b.pieceExists(b.zeroX + 1, b.zeroY))
+                {
+                    b.pieceArray[b.zeroX + 1, b.zeroY].pb_Click(b.pieceArray[b.zeroX + 1, b.zeroY].pb, null);
+                }
+            }
+        }
+
+        private void btnBegin_KeyDown(object sender, KeyEventArgs e)
+        {
+            useKey(e.KeyCode);
+        }
+
+        private void btnSolve_KeyDown(object sender, KeyEventArgs e)
+        {
+            useKey(e.KeyCode);
+        }
+
+        private void btnSolve_PreviewKeyDown(object sender, PreviewKeyDownEventArgs e)
+        {
+            switch (e.KeyCode)
+            {
+                case Keys.Down:
+                case Keys.Up:
+                case Keys.Left:
+                case Keys.Right:
+                    e.IsInputKey = true;
+                    break;
+            }
+        }
     }
 }
