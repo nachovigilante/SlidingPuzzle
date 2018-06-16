@@ -57,7 +57,7 @@
             this.chkAnimations.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.chkAnimations.Checked = true;
             this.chkAnimations.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.chkAnimations.Location = new System.Drawing.Point(170, 86);
+            this.chkAnimations.Location = new System.Drawing.Point(184, 86);
             this.chkAnimations.Name = "chkAnimations";
             this.chkAnimations.Size = new System.Drawing.Size(15, 14);
             this.chkAnimations.TabIndex = 0;
@@ -69,7 +69,7 @@
             // lblAnimations
             // 
             this.lblAnimations.AutoSize = true;
-            this.lblAnimations.Location = new System.Drawing.Point(59, 86);
+            this.lblAnimations.Location = new System.Drawing.Point(73, 86);
             this.lblAnimations.Name = "lblAnimations";
             this.lblAnimations.Size = new System.Drawing.Size(107, 13);
             this.lblAnimations.TabIndex = 1;
@@ -81,7 +81,7 @@
             this.grpAnimations.Controls.Add(this.lblFlu);
             this.grpAnimations.Controls.Add(this.trkAnimations);
             this.grpAnimations.Controls.Add(this.lblVel);
-            this.grpAnimations.Location = new System.Drawing.Point(52, 122);
+            this.grpAnimations.Location = new System.Drawing.Point(66, 122);
             this.grpAnimations.Name = "grpAnimations";
             this.grpAnimations.Size = new System.Drawing.Size(200, 182);
             this.grpAnimations.TabIndex = 3;
@@ -125,7 +125,7 @@
             // lblSize
             // 
             this.lblSize.AutoSize = true;
-            this.lblSize.Location = new System.Drawing.Point(59, 50);
+            this.lblSize.Location = new System.Drawing.Point(73, 50);
             this.lblSize.Name = "lblSize";
             this.lblSize.Size = new System.Drawing.Size(101, 13);
             this.lblSize.TabIndex = 4;
@@ -139,7 +139,7 @@
             "3x3",
             "4x4",
             "5x5"});
-            this.cboSize.Location = new System.Drawing.Point(166, 46);
+            this.cboSize.Location = new System.Drawing.Point(180, 46);
             this.cboSize.Name = "cboSize";
             this.cboSize.Size = new System.Drawing.Size(66, 21);
             this.cboSize.TabIndex = 5;
@@ -159,7 +159,7 @@
             this.chkKeys.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.chkKeys.Checked = true;
             this.chkKeys.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.chkKeys.Location = new System.Drawing.Point(170, 323);
+            this.chkKeys.Location = new System.Drawing.Point(184, 323);
             this.chkKeys.Name = "chkKeys";
             this.chkKeys.Size = new System.Drawing.Size(15, 14);
             this.chkKeys.TabIndex = 7;
@@ -170,7 +170,7 @@
             // lblKeys
             // 
             this.lblKeys.AutoSize = true;
-            this.lblKeys.Location = new System.Drawing.Point(59, 323);
+            this.lblKeys.Location = new System.Drawing.Point(73, 323);
             this.lblKeys.Name = "lblKeys";
             this.lblKeys.Size = new System.Drawing.Size(97, 13);
             this.lblKeys.TabIndex = 6;
@@ -179,15 +179,15 @@
             // lblFile
             // 
             this.lblFile.AutoSize = true;
-            this.lblFile.Location = new System.Drawing.Point(59, 368);
+            this.lblFile.Location = new System.Drawing.Point(73, 368);
             this.lblFile.Name = "lblFile";
-            this.lblFile.Size = new System.Drawing.Size(173, 13);
+            this.lblFile.Size = new System.Drawing.Size(271, 13);
             this.lblFile.TabIndex = 8;
-            this.lblFile.Text = "Agregar una imágen personalizada:";
+            this.lblFile.Text = "Agregar una imágen personalizada (debe ser cuadrada):";
             // 
             // btnFile
             // 
-            this.btnFile.Location = new System.Drawing.Point(62, 401);
+            this.btnFile.Location = new System.Drawing.Point(76, 401);
             this.btnFile.Name = "btnFile";
             this.btnFile.Size = new System.Drawing.Size(155, 27);
             this.btnFile.TabIndex = 0;
@@ -198,7 +198,7 @@
             // lblDefault
             // 
             this.lblDefault.AutoSize = true;
-            this.lblDefault.Location = new System.Drawing.Point(249, 50);
+            this.lblDefault.Location = new System.Drawing.Point(263, 50);
             this.lblDefault.Name = "lblDefault";
             this.lblDefault.Size = new System.Drawing.Size(83, 13);
             this.lblDefault.TabIndex = 10;
@@ -207,7 +207,7 @@
             // lblPreview
             // 
             this.lblPreview.AutoSize = true;
-            this.lblPreview.Location = new System.Drawing.Point(59, 450);
+            this.lblPreview.Location = new System.Drawing.Point(73, 450);
             this.lblPreview.Name = "lblPreview";
             this.lblPreview.Size = new System.Drawing.Size(65, 13);
             this.lblPreview.TabIndex = 11;
@@ -215,7 +215,7 @@
             // 
             // btnLoadDefault
             // 
-            this.btnLoadDefault.Location = new System.Drawing.Point(223, 401);
+            this.btnLoadDefault.Location = new System.Drawing.Point(237, 401);
             this.btnLoadDefault.Name = "btnLoadDefault";
             this.btnLoadDefault.Size = new System.Drawing.Size(155, 27);
             this.btnLoadDefault.TabIndex = 9;
@@ -227,7 +227,8 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(637, 738);
+            this.ClientSize = new System.Drawing.Size(458, 738);
+            this.ControlBox = false;
             this.Controls.Add(this.lblPreview);
             this.Controls.Add(this.lblDefault);
             this.Controls.Add(this.btnLoadDefault);
@@ -240,6 +241,7 @@
             this.Controls.Add(this.grpAnimations);
             this.Controls.Add(this.lblAnimations);
             this.Controls.Add(this.chkAnimations);
+            this.MaximizeBox = false;
             this.Name = "frmOptions";
             this.Text = "Opciones";
             this.Load += new System.EventHandler(this.frmOptions_Load);

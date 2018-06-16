@@ -32,6 +32,7 @@ namespace SlidingPuzzle
 
         public void loadImage()
         {
+            loadPreview();
             Bitmap resizedImage = new Bitmap(imageToUse, new Size(300, 300));
             bmpArray = new Bitmap[size, size];
             int tileSize = (int)Math.Floor((float)resizedImage.Width / size);
@@ -68,7 +69,6 @@ namespace SlidingPuzzle
                 if (dlg.ShowDialog() == DialogResult.OK)
                 {
                     imageToUse = new Bitmap(dlg.FileName);
-                    loadPreview();
                     loadImage();
                 }
             }
@@ -110,7 +110,6 @@ namespace SlidingPuzzle
             size = 3 + cboSize.SelectedIndex;
             if (imageLoaded)
             {
-                loadPreview();
                 loadImage();
             }
         }
@@ -118,7 +117,6 @@ namespace SlidingPuzzle
         private void loadDefault()
         {
             imageToUse = new Bitmap(Properties.Resources.night);
-            loadPreview();
             loadImage();
         }
 
