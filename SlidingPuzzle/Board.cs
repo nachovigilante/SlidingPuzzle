@@ -19,6 +19,7 @@ namespace SlidingPuzzle
         public int animatePieceY;
         public int animationSpeed = 45;
         int animateIterator = 0;
+        public Bitmap[,] bmpArray;
         Point zeroLocation = new Point();
         public static Random r = new Random();
 
@@ -210,9 +211,15 @@ namespace SlidingPuzzle
             return moves.ToString();
         }
 
-        public Board(int s, int gap, int offset, int squareSize)
+        public Board(int s, int gap, int offset, int squareSize, Bitmap[,] bmpArray)
         {
             size = s;
+            if (bmpArray != null)
+                this.bmpArray = bmpArray;
+            else
+            {
+                this.bmpArray = new Bitmap[s, s];
+            }
             int valueI = 1;
             pieceArray = new Piece[s, s];
             tmrTick = new Timer();

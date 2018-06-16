@@ -12,8 +12,7 @@ namespace SlidingPuzzle
 {
     public partial class frmMain : Form
     {
-        string time;
-        static int gap = 120;
+        static int gap = 100;
         static int offset = 40;
         static int squareSize = 100;
         static int size = 3;
@@ -21,6 +20,7 @@ namespace SlidingPuzzle
         int formSizeX = offset * 2 + gap * size + buttonGap;
         int formSizeY = offset * 2 + gap * size + offset / 2;
         Board b;
+        public Bitmap[,] bmpArray;
         public frmMain()
         {
             InitializeComponent();
@@ -28,7 +28,7 @@ namespace SlidingPuzzle
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            b = new Board(size, gap, offset, squareSize);
+            b = new Board(size, gap, offset, squareSize, bmpArray);
             this.Size = new Size(formSizeX, formSizeY);
             b.showPieces(this);
             b.checkPosiblePlays();

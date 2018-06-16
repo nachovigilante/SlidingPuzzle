@@ -17,9 +17,33 @@ namespace SlidingPuzzle
             InitializeComponent();
         }
 
+        int size = 3;
+        Bitmap[,] bmpArray;
+        Bitmap imageToUse;
+
         private void chkAnimations_CheckedChanged(object sender, EventArgs e)
         {
 
+        }
+
+        public void passImage()
+        {
+            Bitmap resizedImage = new Bitmap(imageToUse, new Size(300, 300));
+            bmpArray = new Bitmap[size, size];
+            int tileSize = (int)Math.Floor((float)resizedImage.Width / size);
+            for (int x = 0; x < size; x++)
+            {
+                for (int y = 0; y < size; y++)
+                {
+                    Rectangle cloneRect = new Rectangle(tileSize * x, tileSize * y, tileSize, tileSize);
+                    System.Drawing.Imaging.PixelFormat format = resizedImage.PixelFormat;
+                    Bitmap tile = resizedImage.Clone(cloneRect, format);
+                    bmpArray[x, y] = tile;
+                }
+            }
+            frmMain form = new frmMain();
+            form.bmpArray = bmpArray;
+            form.Show();
         }
 
         private void btnFile_Click(object sender, EventArgs e)
@@ -31,8 +55,8 @@ namespace SlidingPuzzle
 
                 if (dlg.ShowDialog() == DialogResult.OK)
                 {
-                    Bitmap userImage = new Bitmap(dlg.FileName);
-                    Bitmap resizedImage = new Bitmap(userImage, new Size(200, 200));
+                    imageToUse = new Bitmap(dlg.FileName);
+                    Bitmap resizedImage = new Bitmap(imageToUse, new Size(200, 200));
                     int size = 3;
                     PictureBox[,] pbArray = new PictureBox[size, size];
                     int tileSize = (int)Math.Floor((float)resizedImage.Width / size);
@@ -43,7 +67,6 @@ namespace SlidingPuzzle
                             Rectangle cloneRect = new Rectangle(tileSize * x, tileSize * y, tileSize, tileSize);
                             System.Drawing.Imaging.PixelFormat format = resizedImage.PixelFormat;
                             Bitmap tile = resizedImage.Clone(cloneRect, format);
-
                             pbArray[x, y] = new PictureBox();
                             Controls.Add(pbArray[x, y]);
                             pbArray[x, y].Name = "pbArray_" + x + "_" + y;
@@ -59,6 +82,11 @@ namespace SlidingPuzzle
 
                 }
             }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            passImage();
         }
     }
 }

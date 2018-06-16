@@ -11,7 +11,7 @@ namespace SlidingPuzzle
         public int y { get; set; }
         public bool moveable = false;
         public PictureBox pb { get; set; }
-        public Board br;
+        public Board b;
 
         public void showPiece(Form form)
         {
@@ -23,29 +23,31 @@ namespace SlidingPuzzle
             value = v;
             this.x = x;
             this.y = y;
-            br = b;
+            this.b = b;
             pb = new PictureBox();
             pb.Click += pb_Click;
             pb.Name = "pb_" + v;
             pb.Size = new Size(squareSize, squareSize);
-            loadRightImage(pb, v);
             pb.BackColor = Color.White;
             pb.BackgroundImageLayout = ImageLayout.Stretch;
             pb.Location = new Point(this.x * gap + offset, this.y * gap + offset);
             pb.Anchor = AnchorStyles.Left;
+            loadRightImage(pb, v);
             if (v == 0)
                 pb.Visible = false;
         }
 
         private void pb_Click(object sender, EventArgs e)
         {
-            if (moveable && br.playing && br.tmrAnimate.Enabled == false)
-                br.moveToZero(x, y, true);
+            if (moveable && b.playing && b.tmrAnimate.Enabled == false)
+                b.moveToZero(x, y, true);
         }
 
         private void loadRightImage(PictureBox pb, int v)
         {
-            switch (v)
+            if(value != 0)
+                pb.Image = b.bmpArray[x, y];
+            /*switch (v)
             {
                 case 1:
                     pb.BackgroundImage = Properties.Resources._1;
@@ -71,7 +73,7 @@ namespace SlidingPuzzle
                 case 8:
                     pb.BackgroundImage = Properties.Resources._8;
                     break;
-            }
+            }*/
 
         }
     }

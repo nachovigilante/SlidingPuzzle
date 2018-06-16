@@ -43,6 +43,7 @@
             this.lblKeys = new System.Windows.Forms.Label();
             this.lblFile = new System.Windows.Forms.Label();
             this.btnFile = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             this.grpAnimations.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.trkAnimations)).BeginInit();
@@ -191,11 +192,22 @@
             this.btnFile.UseVisualStyleBackColor = true;
             this.btnFile.Click += new System.EventHandler(this.btnFile_Click);
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(90, 486);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 9;
+            this.button1.Text = "button1";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // frmOptions
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(637, 738);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.btnFile);
             this.Controls.Add(this.lblFile);
             this.Controls.Add(this.chkKeys);
@@ -232,5 +244,6 @@
         private System.Windows.Forms.CheckBox chkKeys;
         private System.Windows.Forms.Label lblFile;
         private System.Windows.Forms.Button btnFile;
+        private System.Windows.Forms.Button button1;
     }
 }
