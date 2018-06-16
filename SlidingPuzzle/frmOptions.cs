@@ -12,11 +12,12 @@ namespace SlidingPuzzle
 {
     public partial class frmOptions : Form
     {
-        public frmOptions()
+        public frmOptions(frmMenu menuForm)
         {
+            this.menuForm = menuForm;
             InitializeComponent();
         }
-
+        frmMenu menuForm;
         int prevSize = 3;
         int size = 3;
         Bitmap[,] bmpArray = null;
@@ -128,6 +129,14 @@ namespace SlidingPuzzle
         private void frmOptions_Load(object sender, EventArgs e)
         {
             loadDefault();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            menuForm.bmpArray = bmpArray;
+            menuForm.size = size;
+            menuForm.Show();
+            Hide();
         }
     }
 }

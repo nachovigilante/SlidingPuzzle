@@ -12,13 +12,11 @@ namespace SlidingPuzzle
 {
     public partial class frmMain : Form
     {
-        static int gap = 100;
+        //static int gap = 100;
         static int offset = 40;
-        static int squareSize = 100;
-        static int size = 3;
+        public int squareSize = 100;
+        public int size;
         static int buttonGap = 200;
-        int formSizeX = offset * 2 + gap * size + buttonGap;
-        int formSizeY = offset * 2 + gap * size + offset / 2;
         Board b;
         public Bitmap[,] bmpArray;
         bool animationsActive = true;
@@ -29,8 +27,11 @@ namespace SlidingPuzzle
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            b = new Board(size, gap, offset, squareSize, bmpArray, animationsActive);
-            this.Size = new Size(formSizeX, formSizeY);
+            squareSize = bmpArray[0,0].Height;
+            int formSizeX = offset * 2 + squareSize * size + buttonGap;
+            int formSizeY = offset * 2 + squareSize * size + offset / 2;
+            b = new Board(size, squareSize, offset, squareSize, bmpArray, animationsActive);
+            Size = new Size(formSizeX, formSizeY);
             b.showPieces(this);
             b.checkPosiblePlays();
             grpControls.Location = new Point(formSizeX - (buttonGap + 20), (formSizeY - grpControls.Size.Height) / 2 - 22);

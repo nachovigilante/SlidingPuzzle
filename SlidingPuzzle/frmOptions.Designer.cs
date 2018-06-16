@@ -46,6 +46,7 @@
             this.lblDefault = new System.Windows.Forms.Label();
             this.lblPreview = new System.Windows.Forms.Label();
             this.btnLoadDefault = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             this.grpAnimations.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.trkFlu)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.trkAnimations)).BeginInit();
@@ -57,7 +58,7 @@
             this.chkAnimations.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.chkAnimations.Checked = true;
             this.chkAnimations.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.chkAnimations.Location = new System.Drawing.Point(184, 86);
+            this.chkAnimations.Location = new System.Drawing.Point(151, 78);
             this.chkAnimations.Name = "chkAnimations";
             this.chkAnimations.Size = new System.Drawing.Size(15, 14);
             this.chkAnimations.TabIndex = 0;
@@ -69,7 +70,7 @@
             // lblAnimations
             // 
             this.lblAnimations.AutoSize = true;
-            this.lblAnimations.Location = new System.Drawing.Point(73, 86);
+            this.lblAnimations.Location = new System.Drawing.Point(40, 78);
             this.lblAnimations.Name = "lblAnimations";
             this.lblAnimations.Size = new System.Drawing.Size(107, 13);
             this.lblAnimations.TabIndex = 1;
@@ -81,7 +82,7 @@
             this.grpAnimations.Controls.Add(this.lblFlu);
             this.grpAnimations.Controls.Add(this.trkAnimations);
             this.grpAnimations.Controls.Add(this.lblVel);
-            this.grpAnimations.Location = new System.Drawing.Point(66, 122);
+            this.grpAnimations.Location = new System.Drawing.Point(33, 114);
             this.grpAnimations.Name = "grpAnimations";
             this.grpAnimations.Size = new System.Drawing.Size(200, 182);
             this.grpAnimations.TabIndex = 3;
@@ -125,7 +126,7 @@
             // lblSize
             // 
             this.lblSize.AutoSize = true;
-            this.lblSize.Location = new System.Drawing.Point(73, 50);
+            this.lblSize.Location = new System.Drawing.Point(40, 42);
             this.lblSize.Name = "lblSize";
             this.lblSize.Size = new System.Drawing.Size(101, 13);
             this.lblSize.TabIndex = 4;
@@ -139,7 +140,7 @@
             "3x3",
             "4x4",
             "5x5"});
-            this.cboSize.Location = new System.Drawing.Point(180, 46);
+            this.cboSize.Location = new System.Drawing.Point(147, 38);
             this.cboSize.Name = "cboSize";
             this.cboSize.Size = new System.Drawing.Size(66, 21);
             this.cboSize.TabIndex = 5;
@@ -159,7 +160,7 @@
             this.chkKeys.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.chkKeys.Checked = true;
             this.chkKeys.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.chkKeys.Location = new System.Drawing.Point(184, 323);
+            this.chkKeys.Location = new System.Drawing.Point(151, 315);
             this.chkKeys.Name = "chkKeys";
             this.chkKeys.Size = new System.Drawing.Size(15, 14);
             this.chkKeys.TabIndex = 7;
@@ -170,7 +171,7 @@
             // lblKeys
             // 
             this.lblKeys.AutoSize = true;
-            this.lblKeys.Location = new System.Drawing.Point(73, 323);
+            this.lblKeys.Location = new System.Drawing.Point(40, 315);
             this.lblKeys.Name = "lblKeys";
             this.lblKeys.Size = new System.Drawing.Size(97, 13);
             this.lblKeys.TabIndex = 6;
@@ -179,7 +180,7 @@
             // lblFile
             // 
             this.lblFile.AutoSize = true;
-            this.lblFile.Location = new System.Drawing.Point(73, 368);
+            this.lblFile.Location = new System.Drawing.Point(40, 360);
             this.lblFile.Name = "lblFile";
             this.lblFile.Size = new System.Drawing.Size(271, 13);
             this.lblFile.TabIndex = 8;
@@ -187,7 +188,7 @@
             // 
             // btnFile
             // 
-            this.btnFile.Location = new System.Drawing.Point(76, 401);
+            this.btnFile.Location = new System.Drawing.Point(43, 393);
             this.btnFile.Name = "btnFile";
             this.btnFile.Size = new System.Drawing.Size(155, 27);
             this.btnFile.TabIndex = 0;
@@ -198,7 +199,7 @@
             // lblDefault
             // 
             this.lblDefault.AutoSize = true;
-            this.lblDefault.Location = new System.Drawing.Point(263, 50);
+            this.lblDefault.Location = new System.Drawing.Point(230, 42);
             this.lblDefault.Name = "lblDefault";
             this.lblDefault.Size = new System.Drawing.Size(83, 13);
             this.lblDefault.TabIndex = 10;
@@ -207,7 +208,7 @@
             // lblPreview
             // 
             this.lblPreview.AutoSize = true;
-            this.lblPreview.Location = new System.Drawing.Point(73, 450);
+            this.lblPreview.Location = new System.Drawing.Point(40, 442);
             this.lblPreview.Name = "lblPreview";
             this.lblPreview.Size = new System.Drawing.Size(65, 13);
             this.lblPreview.TabIndex = 11;
@@ -215,7 +216,7 @@
             // 
             // btnLoadDefault
             // 
-            this.btnLoadDefault.Location = new System.Drawing.Point(237, 401);
+            this.btnLoadDefault.Location = new System.Drawing.Point(204, 393);
             this.btnLoadDefault.Name = "btnLoadDefault";
             this.btnLoadDefault.Size = new System.Drawing.Size(155, 27);
             this.btnLoadDefault.TabIndex = 9;
@@ -223,12 +224,23 @@
             this.btnLoadDefault.UseVisualStyleBackColor = true;
             this.btnLoadDefault.Click += new System.EventHandler(this.btnLoadDefault_Click);
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(296, 694);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(101, 32);
+            this.button1.TabIndex = 12;
+            this.button1.Text = "Volver al menú";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // frmOptions
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(458, 738);
+            this.ClientSize = new System.Drawing.Size(409, 738);
             this.ControlBox = false;
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.lblPreview);
             this.Controls.Add(this.lblDefault);
             this.Controls.Add(this.btnLoadDefault);
@@ -273,5 +285,6 @@
         private System.Windows.Forms.Label lblDefault;
         private System.Windows.Forms.Label lblPreview;
         private System.Windows.Forms.Button btnLoadDefault;
+        private System.Windows.Forms.Button button1;
     }
 }
