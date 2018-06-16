@@ -1,11 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Drawing;
-using System.IO;
-using System.Linq;
-using System.Reflection;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace SlidingPuzzle
@@ -45,8 +39,8 @@ namespace SlidingPuzzle
 
         private void pb_Click(object sender, EventArgs e)
         {
-            if (moveable && br.playing)
-                br.moveToZero(x, y);
+            if (moveable && br.playing && br.tmrAnimate.Enabled == false)
+                br.moveToZero(x, y, true);
         }
 
         private void loadRightImage(PictureBox pb, int v)

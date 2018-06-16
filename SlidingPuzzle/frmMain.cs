@@ -61,5 +61,6 @@ namespace SlidingPuzzle
             if (!b.playing)
                 btnBegin.Text = "Empezar";
         }
+
     }
 }
