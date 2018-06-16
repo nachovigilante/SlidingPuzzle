@@ -135,6 +135,7 @@ namespace SlidingPuzzle
         {
             menuForm.bmpArray = bmpArray;
             menuForm.size = size;
+            menuForm.animationsActive = animationsActive;
             menuForm.Show();
             Hide();
         }

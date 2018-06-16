@@ -1,11 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace SlidingPuzzle
@@ -20,28 +14,30 @@ namespace SlidingPuzzle
         public Bitmap[,] bmpArray;
         public int size = 3;
         public Bitmap imageToUse = new Bitmap(Properties.Resources.night);
+        public bool animationsActive = true;
 
         private void btnPlay_Click(object sender, EventArgs e)
         {
-            frmMain form = new frmMain();
+            frmMain form = new frmMain(animationsActive);
             form.bmpArray = bmpArray;
             form.size = size;
+            form.animationsActive = animationsActive;
             form.Show();
-            this.Hide();
+            Hide();
         }
 
         private void btnScore_Click(object sender, EventArgs e)
         {
             frmScore form = new frmScore();
             form.Show();
-            this.Hide();
+            Hide();
         }
 
         private void btnOptions_Click(object sender, EventArgs e)
         {
             frmOptions form = new frmOptions(this);
             form.Show();
-            this.Hide();
+            Hide();
         }
 
         private void frmMenu_Load(object sender, EventArgs e)

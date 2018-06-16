@@ -52,7 +52,7 @@ namespace SlidingPuzzle
                     {
                         zeroX = j;
                         zeroY = i;
-                        Console.WriteLine("Found zero in x: " + zeroX + ", y:" + zeroY);
+                        //Console.WriteLine("Found zero in x: " + zeroX + ", y:" + zeroY);
                         break;
                     }
                 }
@@ -166,7 +166,7 @@ namespace SlidingPuzzle
             }
             else
             {
-                Console.WriteLine("Moving piece: " + pieceArray[pieceX, pieceY].value + " from x: " + pieceX + ", y: " + pieceY + " to x: " + zeroX + ", y: " + zeroY);
+                //Console.WriteLine("Moving piece: " + pieceArray[pieceX, pieceY].value + " from x: " + pieceX + ", y: " + pieceY + " to x: " + zeroX + ", y: " + zeroY);
 
                 Point aux = new Point();
                 aux = pieceArray[pieceX, pieceY].pb.Location;

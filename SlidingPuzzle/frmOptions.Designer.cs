@@ -110,9 +110,11 @@
             // 
             this.trkAnimations.AutoSize = false;
             this.trkAnimations.Location = new System.Drawing.Point(13, 59);
+            this.trkAnimations.Minimum = 1;
             this.trkAnimations.Name = "trkAnimations";
             this.trkAnimations.Size = new System.Drawing.Size(174, 35);
             this.trkAnimations.TabIndex = 1;
+            this.trkAnimations.Value = 1;
             // 
             // lblVel
             // 
