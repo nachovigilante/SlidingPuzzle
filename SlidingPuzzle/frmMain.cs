@@ -21,6 +21,7 @@ namespace SlidingPuzzle
         int formSizeY = offset * 2 + gap * size + offset / 2;
         Board b;
         public Bitmap[,] bmpArray;
+        bool animationsActive = true;
         public frmMain()
         {
             InitializeComponent();
@@ -28,7 +29,7 @@ namespace SlidingPuzzle
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            b = new Board(size, gap, offset, squareSize, bmpArray);
+            b = new Board(size, gap, offset, squareSize, bmpArray, animationsActive);
             this.Size = new Size(formSizeX, formSizeY);
             b.showPieces(this);
             b.checkPosiblePlays();

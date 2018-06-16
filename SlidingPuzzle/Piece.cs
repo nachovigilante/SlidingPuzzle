@@ -12,13 +12,14 @@ namespace SlidingPuzzle
         public bool moveable = false;
         public PictureBox pb { get; set; }
         public Board b;
+        bool animationsActive = true;
 
         public void showPiece(Form form)
         {
             form.Controls.Add(this.pb);
         }
 
-        public Piece(int v, int x, int y, Board b, int gap, int offset, int squareSize)
+        public Piece(int v, int x, int y, Board b, int gap, int offset, int squareSize, bool animationsActive)
         {
             value = v;
             this.x = x;
@@ -33,6 +34,7 @@ namespace SlidingPuzzle
             pb.Location = new Point(this.x * gap + offset, this.y * gap + offset);
             pb.Anchor = AnchorStyles.Left;
             loadRightImage(pb, v);
+            this.animationsActive = animationsActive;
             /*if (v == 0)
                 pb.Visible = false;*/
         }
@@ -40,7 +42,7 @@ namespace SlidingPuzzle
         private void pb_Click(object sender, EventArgs e)
         {
             if (moveable && b.playing && b.tmrAnimate.Enabled == false)
-                b.moveToZero(x, y, true);
+                b.moveToZero(x, y, animationsActive);
         }
 
         private void loadRightImage(PictureBox pb, int v)

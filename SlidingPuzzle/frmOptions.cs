@@ -23,10 +23,11 @@ namespace SlidingPuzzle
         Bitmap imageToUse;
         PictureBox[,] pbArray;
         private bool imageLoaded;
+        bool animationsActive = true;
 
         private void chkAnimations_CheckedChanged(object sender, EventArgs e)
         {
-
+            animationsActive = !animationsActive;
         }
 
         public void loadImage()
