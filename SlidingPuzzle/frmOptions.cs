@@ -25,6 +25,7 @@ namespace SlidingPuzzle
         PictureBox[,] pbArray;
         private bool imageLoaded = false;
         bool animationsActive = true;
+        public int animationSpeed = 30;
 
         private void chkAnimations_CheckedChanged(object sender, EventArgs e)
         {
@@ -96,7 +97,8 @@ namespace SlidingPuzzle
                     pbArray[x, y].Size = new Size(tileSize, tileSize);
                     pbArray[x, y].BackColor = Color.White;
                     pbArray[x, y].BackgroundImageLayout = ImageLayout.Stretch;
-                    pbArray[x, y].Location = new Point(lblPreview.Location.X + tileSize * x + 5 * x, lblPreview.Location.Y + 5 * y + tileSize * y + 30);
+                    pbArray[x, y].Location = new Point(grpTab.Location.X + tileSize * x + 5 * x + (grpTab.Width - tileSize * size)/2, grpTab.Location.Y + 210 + 5 * y + tileSize * y);
+                    Console.WriteLine(grpTab.Location);
                     pbArray[x, y].Anchor = AnchorStyles.Left;
                     pbArray[x, y].Visible = true;
                     pbArray[x, y].BringToFront();
@@ -136,8 +138,15 @@ namespace SlidingPuzzle
             menuForm.bmpArray = bmpArray;
             menuForm.size = size;
             menuForm.animationsActive = animationsActive;
+            menuForm.animationSpeed = animationSpeed;
             menuForm.Show();
             Hide();
+        }
+
+        private void trkAnimations_Scroll(object sender, EventArgs e)
+        {
+            animationSpeed = 55 - 5 * trkAnimations.Value;
+            //Console.WriteLine(animationSpeed);
         }
     }
 }

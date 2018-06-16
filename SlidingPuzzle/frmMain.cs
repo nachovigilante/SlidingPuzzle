@@ -17,12 +17,14 @@ namespace SlidingPuzzle
         public int squareSize = 100;
         public int size;
         static int buttonGap = 200;
+        public int animationSpeed = 30;
         Board b;
         public Bitmap[,] bmpArray;
         public bool animationsActive = true;
-        public frmMain(bool animationsActive)
+        public frmMain(bool animationsActive, int animationSpeed)
         {
             this.animationsActive = animationsActive;
+            this.animationSpeed = animationSpeed;
             InitializeComponent();
         }
 
@@ -31,7 +33,7 @@ namespace SlidingPuzzle
             squareSize = bmpArray[0,0].Height;
             int formSizeX = offset * 2 + squareSize * size + buttonGap;
             int formSizeY = offset * 2 + squareSize * size + offset;
-            b = new Board(size, squareSize, offset, squareSize, bmpArray, animationsActive);
+            b = new Board(size, squareSize, offset, squareSize, bmpArray, animationsActive, animationSpeed);
             Size = new Size(formSizeX, formSizeY);
             b.showPieces(this);
             b.checkPosiblePlays();

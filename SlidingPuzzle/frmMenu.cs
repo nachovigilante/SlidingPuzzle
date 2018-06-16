@@ -15,10 +15,11 @@ namespace SlidingPuzzle
         public int size = 3;
         public Bitmap imageToUse = new Bitmap(Properties.Resources.night);
         public bool animationsActive = true;
+        public int animationSpeed = 30;
 
         private void btnPlay_Click(object sender, EventArgs e)
         {
-            frmMain form = new frmMain(animationsActive);
+            frmMain form = new frmMain(animationsActive, animationSpeed);
             form.bmpArray = bmpArray;
             form.size = size;
             form.animationsActive = animationsActive;

@@ -212,8 +212,9 @@ namespace SlidingPuzzle
             return moves.ToString();
         }
 
-        public Board(int s, int gap, int offset, int squareSize, Bitmap[,] bmpArray, bool animationsActive)
+        public Board(int s, int gap, int offset, int squareSize, Bitmap[,] bmpArray, bool animationsActive, int animationSpeed)
         {
+            this.animationSpeed = animationSpeed;
             size = s;
             if (bmpArray != null)
                 this.bmpArray = bmpArray;

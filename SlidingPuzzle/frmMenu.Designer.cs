@@ -36,9 +36,9 @@
             // btnPlay
             // 
             this.btnPlay.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnPlay.Location = new System.Drawing.Point(76, 44);
+            this.btnPlay.Location = new System.Drawing.Point(44, 39);
             this.btnPlay.Name = "btnPlay";
-            this.btnPlay.Size = new System.Drawing.Size(84, 42);
+            this.btnPlay.Size = new System.Drawing.Size(156, 42);
             this.btnPlay.TabIndex = 1;
             this.btnPlay.Text = "Jugar";
             this.btnPlay.UseVisualStyleBackColor = true;
@@ -47,9 +47,9 @@
             // btnScore
             // 
             this.btnScore.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnScore.Location = new System.Drawing.Point(76, 102);
+            this.btnScore.Location = new System.Drawing.Point(44, 100);
             this.btnScore.Name = "btnScore";
-            this.btnScore.Size = new System.Drawing.Size(84, 42);
+            this.btnScore.Size = new System.Drawing.Size(156, 42);
             this.btnScore.TabIndex = 2;
             this.btnScore.Text = "Score";
             this.btnScore.UseVisualStyleBackColor = true;
@@ -58,9 +58,9 @@
             // btnOptions
             // 
             this.btnOptions.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnOptions.Location = new System.Drawing.Point(71, 159);
+            this.btnOptions.Location = new System.Drawing.Point(44, 161);
             this.btnOptions.Name = "btnOptions";
-            this.btnOptions.Size = new System.Drawing.Size(97, 33);
+            this.btnOptions.Size = new System.Drawing.Size(156, 42);
             this.btnOptions.TabIndex = 3;
             this.btnOptions.Text = "Opciones";
             this.btnOptions.UseVisualStyleBackColor = true;
@@ -74,8 +74,11 @@
             this.Controls.Add(this.btnOptions);
             this.Controls.Add(this.btnScore);
             this.Controls.Add(this.btnPlay);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
             this.Name = "frmMenu";
-            this.Text = "frmMenu";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Menú principal";
             this.Load += new System.EventHandler(this.frmMenu_Load);
             this.ResumeLayout(false);
 
