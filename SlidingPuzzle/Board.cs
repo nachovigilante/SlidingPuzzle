@@ -6,7 +6,7 @@ namespace SlidingPuzzle
 {
     class Board
     {
-        int size { get; set; }
+        public int size { get; set; }
         public Piece[,] pieceArray;
         public int zeroX = 0;
         public int zeroY = 0;

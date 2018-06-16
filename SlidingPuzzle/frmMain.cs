@@ -21,6 +21,7 @@ namespace SlidingPuzzle
         int formSizeX = offset * 2 + gap * size + buttonGap;
         int formSizeY = offset * 2 + gap * size + offset / 2;
         Board b;
+        Solver s;
         public frmMain()
         {
             InitializeComponent();
@@ -33,6 +34,7 @@ namespace SlidingPuzzle
             b.showPieces(this);
             b.checkPosiblePlays();
             grpControls.Location = new Point(formSizeX - (buttonGap + 20), (formSizeY - grpControls.Size.Height) / 2 - 22);
+            s = new Solver(this, b);
         }
 
         private void Form1_Activated(object sender, EventArgs e)
@@ -67,5 +69,9 @@ namespace SlidingPuzzle
                 btnBegin.Text = "Empezar";
         }
 
+        private void btnSolve_Click(object sender, EventArgs e)
+        {
+            s.debugMatrix();
+        }
     }
 }

@@ -63,6 +63,7 @@
             this.btnSolve.TabIndex = 5;
             this.btnSolve.Text = "Resolver";
             this.btnSolve.UseVisualStyleBackColor = true;
+            this.btnSolve.Click += new System.EventHandler(this.btnSolve_Click);
             // 
             // btnBegin
             // 
