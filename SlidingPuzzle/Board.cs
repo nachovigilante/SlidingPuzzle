@@ -51,6 +51,7 @@ namespace SlidingPuzzle
                     {
                         zeroX = j;
                         zeroY = i;
+                        Console.WriteLine("Found zero in x: " + zeroX + ", y:" + zeroY);
                         break;
                     }
                 }
@@ -96,7 +97,7 @@ namespace SlidingPuzzle
             tmrAnimate.Enabled = true;
         }
 
-        public void finishMovement(int pieceX, int pieceY)
+        public void doInternalSwap(int pieceX, int pieceY)
         {
             Piece auxPiece = pieceArray[pieceX, pieceY];
             pieceArray[pieceX, pieceY] = pieceArray[zeroX, zeroY];
@@ -110,7 +111,6 @@ namespace SlidingPuzzle
             checkPosiblePlays();
             moves++;
             checkIfWin();
-
         }
 
         public void resetMoveables()
@@ -150,6 +150,7 @@ namespace SlidingPuzzle
                 {
                     playing = false;
                     tmrTick.Enabled = false;
+                    tmrAnimate.Enabled = false;
                     MessageBox.Show("Ganaste campeon!", "Muy bien");
                 }
             }
@@ -158,15 +159,19 @@ namespace SlidingPuzzle
         public void moveToZero(int pieceX, int pieceY, bool animate)
         {
             if (animate)
+            {
                 animatePiece(pieceX, pieceY);
+            }
             else
             {
+                Console.WriteLine("Moving piece: " + pieceArray[pieceX, pieceY].value + " from x: " + pieceX + ", y: " + pieceY + " to x: " + zeroX + ", y: " + zeroY);
+
                 Point aux = new Point();
                 aux = pieceArray[pieceX, pieceY].pb.Location;
                 pieceArray[pieceX, pieceY].pb.Location = pieceArray[zeroX, zeroY].pb.Location;
                 pieceArray[zeroX, zeroY].pb.Location = aux;
-
-                finishMovement(pieceX, pieceY);
+                
+                doInternalSwap(pieceX, pieceY);
             }
         }
 
@@ -187,7 +192,7 @@ namespace SlidingPuzzle
             {
                 animateIterator = 0;
                 pieceArray[animatePieceX, animatePieceY].pb.Location = zeroLocation;
-                finishMovement(animatePieceX, animatePieceY);
+                doInternalSwap(animatePieceX, animatePieceY);
                 tmrAnimate.Enabled = false;
             }
         }
