@@ -22,7 +22,7 @@ namespace SlidingPuzzle
         Bitmap[,] bmpArray = null;
         Bitmap imageToUse;
         PictureBox[,] pbArray;
-        private bool imageLoaded;
+        private bool imageLoaded = false;
         bool animationsActive = true;
 
         private void chkAnimations_CheckedChanged(object sender, EventArgs e)
@@ -68,33 +68,7 @@ namespace SlidingPuzzle
                 if (dlg.ShowDialog() == DialogResult.OK)
                 {
                     imageToUse = new Bitmap(dlg.FileName);
-                    Bitmap resizedImage = new Bitmap(imageToUse, new Size(200, 200));
-                    if(imageLoaded)
-                        cleanPbArray();
-                    pbArray = new PictureBox[size, size];
-                    prevSize = size;
-                    int tileSize = (int)Math.Floor((float)resizedImage.Width / size);
-                    for (int x = 0; x < size; x++)
-                    {
-                        for (int y = 0; y < size; y++)
-                        {
-                            Rectangle cloneRect = new Rectangle(tileSize * x, tileSize * y, tileSize, tileSize);
-                            System.Drawing.Imaging.PixelFormat format = resizedImage.PixelFormat;
-                            Bitmap tile = resizedImage.Clone(cloneRect, format);
-                            pbArray[x, y] = new PictureBox();
-                            Controls.Add(pbArray[x, y]);
-                            pbArray[x, y].Name = "pbArray_" + x + "_" + y;
-                            pbArray[x, y].Size = new Size(tileSize, tileSize);
-                            pbArray[x, y].BackColor = Color.White;
-                            pbArray[x, y].BackgroundImageLayout = ImageLayout.Stretch;
-                            pbArray[x, y].Location = new Point(lblPreview.Location.X + tileSize * x + 5 * x, lblPreview.Location.Y + 5 * y + tileSize * y + 30);
-                            pbArray[x, y].Anchor = AnchorStyles.Left;
-                            pbArray[x, y].Visible = true;
-                            pbArray[x, y].BringToFront();
-                            pbArray[x, y].Image = tile;
-                        }
-                    }
-                    imageLoaded = true;
+                    loadPreview();
                 }
             }
         }
@@ -104,9 +78,44 @@ namespace SlidingPuzzle
             loadImage();
         }
 
+        private void loadPreview()
+        {
+            Bitmap resizedImage = new Bitmap(imageToUse, new Size(200, 200));
+            if (imageLoaded)
+                cleanPbArray();
+            pbArray = new PictureBox[size, size];
+            prevSize = size;
+            int tileSize = (int)Math.Floor((float)resizedImage.Width / size);
+            for (int x = 0; x < size; x++)
+            {
+                for (int y = 0; y < size; y++)
+                {
+                    Rectangle cloneRect = new Rectangle(tileSize * x, tileSize * y, tileSize, tileSize);
+                    System.Drawing.Imaging.PixelFormat format = resizedImage.PixelFormat;
+                    Bitmap tile = resizedImage.Clone(cloneRect, format);
+                    pbArray[x, y] = new PictureBox();
+                    Controls.Add(pbArray[x, y]);
+                    pbArray[x, y].Name = "pbArray_" + x + "_" + y;
+                    pbArray[x, y].Size = new Size(tileSize, tileSize);
+                    pbArray[x, y].BackColor = Color.White;
+                    pbArray[x, y].BackgroundImageLayout = ImageLayout.Stretch;
+                    pbArray[x, y].Location = new Point(lblPreview.Location.X + tileSize * x + 5 * x, lblPreview.Location.Y + 5 * y + tileSize * y + 30);
+                    pbArray[x, y].Anchor = AnchorStyles.Left;
+                    pbArray[x, y].Visible = true;
+                    pbArray[x, y].BringToFront();
+                    pbArray[x, y].Image = tile;
+                }
+            }
+            imageLoaded = true;
+        }
+
         private void cboSize_SelectedIndexChanged(object sender, EventArgs e)
         {
             size = 3 + cboSize.SelectedIndex;
+            if (imageLoaded)
+            {
+                loadPreview();
+            }
         }
 
     }
