@@ -17,6 +17,8 @@ namespace SlidingPuzzle
             InitializeComponent();
         }
 
+        Bitmap[,] bmpArray;
+
         private void btnPlay_Click(object sender, EventArgs e)
         {
             frmMain form = new frmMain();
@@ -39,5 +41,9 @@ namespace SlidingPuzzle
             this.Hide();
         }
 
+        private void frmMenu_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

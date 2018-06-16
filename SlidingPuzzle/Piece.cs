@@ -33,8 +33,8 @@ namespace SlidingPuzzle
             pb.Location = new Point(this.x * gap + offset, this.y * gap + offset);
             pb.Anchor = AnchorStyles.Left;
             loadRightImage(pb, v);
-            if (v == 0)
-                pb.Visible = false;
+            /*if (v == 0)
+                pb.Visible = false;*/
         }
 
         private void pb_Click(object sender, EventArgs e)
@@ -45,7 +45,7 @@ namespace SlidingPuzzle
 
         private void loadRightImage(PictureBox pb, int v)
         {
-            if(value != 0)
+            //if(value != 0)
                 pb.Image = b.bmpArray[x, y];
             /*switch (v)
             {

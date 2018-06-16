@@ -43,7 +43,8 @@
             this.lblKeys = new System.Windows.Forms.Label();
             this.lblFile = new System.Windows.Forms.Label();
             this.btnFile = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnLoadIamge = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
             this.grpAnimations.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.trkAnimations)).BeginInit();
@@ -141,6 +142,7 @@
             this.cboSize.Name = "cboSize";
             this.cboSize.Size = new System.Drawing.Size(66, 21);
             this.cboSize.TabIndex = 5;
+            this.cboSize.SelectedIndexChanged += new System.EventHandler(this.cboSize_SelectedIndexChanged);
             // 
             // toolTipAnimations
             // 
@@ -192,22 +194,32 @@
             this.btnFile.UseVisualStyleBackColor = true;
             this.btnFile.Click += new System.EventHandler(this.btnFile_Click);
             // 
-            // button1
+            // btnLoadIamge
             // 
-            this.button1.Location = new System.Drawing.Point(408, 355);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(95, 25);
-            this.button1.TabIndex = 9;
-            this.button1.Text = "Probar en juego";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.btnLoadIamge.Location = new System.Drawing.Point(387, 353);
+            this.btnLoadIamge.Name = "btnLoadIamge";
+            this.btnLoadIamge.Size = new System.Drawing.Size(124, 27);
+            this.btnLoadIamge.TabIndex = 9;
+            this.btnLoadIamge.Text = "Cargar para usar";
+            this.btnLoadIamge.UseVisualStyleBackColor = true;
+            this.btnLoadIamge.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(249, 50);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(83, 13);
+            this.label1.TabIndex = 10;
+            this.label1.Text = "(3x3 por default)";
             // 
             // frmOptions
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(637, 738);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.btnLoadIamge);
             this.Controls.Add(this.btnFile);
             this.Controls.Add(this.lblFile);
             this.Controls.Add(this.chkKeys);
@@ -244,6 +256,7 @@
         private System.Windows.Forms.CheckBox chkKeys;
         private System.Windows.Forms.Label lblFile;
         private System.Windows.Forms.Button btnFile;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnLoadIamge;
+        private System.Windows.Forms.Label label1;
     }
 }

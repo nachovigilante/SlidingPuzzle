@@ -40,6 +40,7 @@ namespace SlidingPuzzle
             if (btnBegin.Text == "Empezar")
             {
                 btnBegin.Text = "Rendirse";
+                b.pieceArray[b.zeroX, b.zeroY].pb.Visible = false;
                 b.shuffle();
                 b.playing = true;
             }

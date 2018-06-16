@@ -17,16 +17,19 @@ namespace SlidingPuzzle
             InitializeComponent();
         }
 
+        int prevSize = 3;
         int size = 3;
-        Bitmap[,] bmpArray;
+        Bitmap[,] bmpArray = null;
         Bitmap imageToUse;
+        PictureBox[,] pbArray;
+        private bool imageLoaded;
 
         private void chkAnimations_CheckedChanged(object sender, EventArgs e)
         {
 
         }
 
-        public void passImage()
+        public void loadImage()
         {
             Bitmap resizedImage = new Bitmap(imageToUse, new Size(300, 300));
             bmpArray = new Bitmap[size, size];
@@ -41,9 +44,17 @@ namespace SlidingPuzzle
                     bmpArray[x, y] = tile;
                 }
             }
-            frmMain form = new frmMain();
-            form.bmpArray = bmpArray;
-            form.Show();
+        }
+
+        private void cleanPbArray()
+        {
+            for (int x = 0; x < prevSize; x++)
+            {
+                for (int y = 0; y < prevSize; y++)
+                {
+                    pbArray[x, y].Visible = false;
+                }
+            }
         }
 
         private void btnFile_Click(object sender, EventArgs e)
@@ -57,8 +68,10 @@ namespace SlidingPuzzle
                 {
                     imageToUse = new Bitmap(dlg.FileName);
                     Bitmap resizedImage = new Bitmap(imageToUse, new Size(200, 200));
-                    int size = 3;
-                    PictureBox[,] pbArray = new PictureBox[size, size];
+                    if(imageLoaded)
+                        cleanPbArray();
+                    pbArray = new PictureBox[size, size];
+                    prevSize = size;
                     int tileSize = (int)Math.Floor((float)resizedImage.Width / size);
                     for (int x = 0; x < size; x++)
                     {
@@ -76,17 +89,24 @@ namespace SlidingPuzzle
                             pbArray[x, y].Location = new Point(lblFile.Location.X + tileSize * x + 5 * x, lblFile.Location.Y + 5 * y + tileSize * y + 50);
                             pbArray[x, y].Anchor = AnchorStyles.Left;
                             pbArray[x, y].Visible = true;
+                            pbArray[x, y].BringToFront();
                             pbArray[x, y].Image = tile;
                         }
                     }
-
+                    imageLoaded = true;
                 }
             }
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            passImage();
+            loadImage();
         }
+
+        private void cboSize_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            size = 3 + cboSize.SelectedIndex;
+        }
+
     }
 }

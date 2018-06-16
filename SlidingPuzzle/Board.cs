@@ -152,6 +152,7 @@ namespace SlidingPuzzle
                     playing = false;
                     tmrTick.Enabled = false;
                     tmrAnimate.Enabled = false;
+                    pieceArray[size - 1, size - 1].pb.Visible = true;
                     MessageBox.Show("Ganaste campeon!", "Muy bien");
                 }
             }
