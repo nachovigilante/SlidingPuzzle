@@ -32,7 +32,7 @@
             this.chkAnimations = new System.Windows.Forms.CheckBox();
             this.lblAnimations = new System.Windows.Forms.Label();
             this.grpAnimations = new System.Windows.Forms.GroupBox();
-            this.trackBar1 = new System.Windows.Forms.TrackBar();
+            this.trkFlu = new System.Windows.Forms.TrackBar();
             this.lblFlu = new System.Windows.Forms.Label();
             this.trkAnimations = new System.Windows.Forms.TrackBar();
             this.lblVel = new System.Windows.Forms.Label();
@@ -44,9 +44,9 @@
             this.lblFile = new System.Windows.Forms.Label();
             this.btnFile = new System.Windows.Forms.Button();
             this.btnLoadIamge = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
+            this.lblDefault = new System.Windows.Forms.Label();
             this.grpAnimations.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.trkFlu)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.trkAnimations)).BeginInit();
             this.SuspendLayout();
             // 
@@ -76,7 +76,7 @@
             // 
             // grpAnimations
             // 
-            this.grpAnimations.Controls.Add(this.trackBar1);
+            this.grpAnimations.Controls.Add(this.trkFlu);
             this.grpAnimations.Controls.Add(this.lblFlu);
             this.grpAnimations.Controls.Add(this.trkAnimations);
             this.grpAnimations.Controls.Add(this.lblVel);
@@ -87,13 +87,13 @@
             this.grpAnimations.TabStop = false;
             this.grpAnimations.Text = "Configuración de las animaciones";
             // 
-            // trackBar1
+            // trkFlu
             // 
-            this.trackBar1.AutoSize = false;
-            this.trackBar1.Location = new System.Drawing.Point(13, 127);
-            this.trackBar1.Name = "trackBar1";
-            this.trackBar1.Size = new System.Drawing.Size(174, 35);
-            this.trackBar1.TabIndex = 3;
+            this.trkFlu.AutoSize = false;
+            this.trkFlu.Location = new System.Drawing.Point(13, 127);
+            this.trkFlu.Name = "trkFlu";
+            this.trkFlu.Size = new System.Drawing.Size(174, 35);
+            this.trkFlu.TabIndex = 3;
             // 
             // lblFlu
             // 
@@ -204,21 +204,21 @@
             this.btnLoadIamge.UseVisualStyleBackColor = true;
             this.btnLoadIamge.Click += new System.EventHandler(this.button1_Click);
             // 
-            // label1
+            // lblDefault
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(249, 50);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(83, 13);
-            this.label1.TabIndex = 10;
-            this.label1.Text = "(3x3 por default)";
+            this.lblDefault.AutoSize = true;
+            this.lblDefault.Location = new System.Drawing.Point(249, 50);
+            this.lblDefault.Name = "lblDefault";
+            this.lblDefault.Size = new System.Drawing.Size(83, 13);
+            this.lblDefault.TabIndex = 10;
+            this.lblDefault.Text = "(3x3 por default)";
             // 
             // frmOptions
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(637, 738);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.lblDefault);
             this.Controls.Add(this.btnLoadIamge);
             this.Controls.Add(this.btnFile);
             this.Controls.Add(this.lblFile);
@@ -233,7 +233,7 @@
             this.Text = "Opciones";
             this.grpAnimations.ResumeLayout(false);
             this.grpAnimations.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.trkFlu)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.trkAnimations)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -245,7 +245,7 @@
         private System.Windows.Forms.CheckBox chkAnimations;
         private System.Windows.Forms.Label lblAnimations;
         private System.Windows.Forms.GroupBox grpAnimations;
-        private System.Windows.Forms.TrackBar trackBar1;
+        private System.Windows.Forms.TrackBar trkFlu;
         private System.Windows.Forms.Label lblFlu;
         private System.Windows.Forms.TrackBar trkAnimations;
         private System.Windows.Forms.Label lblVel;
@@ -257,6 +257,6 @@
         private System.Windows.Forms.Label lblFile;
         private System.Windows.Forms.Button btnFile;
         private System.Windows.Forms.Button btnLoadIamge;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lblDefault;
     }
 }
