@@ -69,13 +69,9 @@ namespace SlidingPuzzle
                 {
                     imageToUse = new Bitmap(dlg.FileName);
                     loadPreview();
+                    loadImage();
                 }
             }
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            loadImage();
         }
 
         private void loadPreview()
@@ -115,8 +111,25 @@ namespace SlidingPuzzle
             if (imageLoaded)
             {
                 loadPreview();
+                loadImage();
             }
         }
 
+        private void loadDefault()
+        {
+            imageToUse = new Bitmap(Properties.Resources.night);
+            loadPreview();
+            loadImage();
+        }
+
+        private void btnLoadDefault_Click(object sender, EventArgs e)
+        {
+            loadDefault();
+        }
+
+        private void frmOptions_Load(object sender, EventArgs e)
+        {
+            loadDefault();
+        }
     }
 }

@@ -43,9 +43,9 @@
             this.lblKeys = new System.Windows.Forms.Label();
             this.lblFile = new System.Windows.Forms.Label();
             this.btnFile = new System.Windows.Forms.Button();
-            this.btnLoadIamge = new System.Windows.Forms.Button();
             this.lblDefault = new System.Windows.Forms.Label();
             this.lblPreview = new System.Windows.Forms.Label();
+            this.btnLoadDefault = new System.Windows.Forms.Button();
             this.grpAnimations.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.trkFlu)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.trkAnimations)).BeginInit();
@@ -189,21 +189,11 @@
             // 
             this.btnFile.Location = new System.Drawing.Point(62, 401);
             this.btnFile.Name = "btnFile";
-            this.btnFile.Size = new System.Drawing.Size(134, 27);
+            this.btnFile.Size = new System.Drawing.Size(155, 27);
             this.btnFile.TabIndex = 0;
             this.btnFile.Text = "Seleccionar imagen";
             this.btnFile.UseVisualStyleBackColor = true;
             this.btnFile.Click += new System.EventHandler(this.btnFile_Click);
-            // 
-            // btnLoadIamge
-            // 
-            this.btnLoadIamge.Location = new System.Drawing.Point(202, 401);
-            this.btnLoadIamge.Name = "btnLoadIamge";
-            this.btnLoadIamge.Size = new System.Drawing.Size(124, 27);
-            this.btnLoadIamge.TabIndex = 9;
-            this.btnLoadIamge.Text = "Cargar para usar";
-            this.btnLoadIamge.UseVisualStyleBackColor = true;
-            this.btnLoadIamge.Click += new System.EventHandler(this.button1_Click);
             // 
             // lblDefault
             // 
@@ -223,6 +213,16 @@
             this.lblPreview.TabIndex = 11;
             this.lblPreview.Text = "Vista previa:";
             // 
+            // btnLoadDefault
+            // 
+            this.btnLoadDefault.Location = new System.Drawing.Point(223, 401);
+            this.btnLoadDefault.Name = "btnLoadDefault";
+            this.btnLoadDefault.Size = new System.Drawing.Size(155, 27);
+            this.btnLoadDefault.TabIndex = 9;
+            this.btnLoadDefault.Text = "Cargar imagen default";
+            this.btnLoadDefault.UseVisualStyleBackColor = true;
+            this.btnLoadDefault.Click += new System.EventHandler(this.btnLoadDefault_Click);
+            // 
             // frmOptions
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -230,7 +230,7 @@
             this.ClientSize = new System.Drawing.Size(637, 738);
             this.Controls.Add(this.lblPreview);
             this.Controls.Add(this.lblDefault);
-            this.Controls.Add(this.btnLoadIamge);
+            this.Controls.Add(this.btnLoadDefault);
             this.Controls.Add(this.btnFile);
             this.Controls.Add(this.lblFile);
             this.Controls.Add(this.chkKeys);
@@ -242,6 +242,7 @@
             this.Controls.Add(this.chkAnimations);
             this.Name = "frmOptions";
             this.Text = "Opciones";
+            this.Load += new System.EventHandler(this.frmOptions_Load);
             this.grpAnimations.ResumeLayout(false);
             this.grpAnimations.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.trkFlu)).EndInit();
@@ -267,8 +268,8 @@
         private System.Windows.Forms.CheckBox chkKeys;
         private System.Windows.Forms.Label lblFile;
         private System.Windows.Forms.Button btnFile;
-        private System.Windows.Forms.Button btnLoadIamge;
         private System.Windows.Forms.Label lblDefault;
         private System.Windows.Forms.Label lblPreview;
+        private System.Windows.Forms.Button btnLoadDefault;
     }
 }
