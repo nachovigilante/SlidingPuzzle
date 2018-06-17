@@ -11,16 +11,12 @@ namespace SlidingPuzzle
         public int zeroX = 0;
         public int zeroY = 0;
         public Timer tmrTick;
-        //public Timer tmrAnimate;
         public int time;
         public bool playing;
         public int moves = 0;
-        //public int animatePieceX;
-        //public int animatePieceY;
         public int animationSpeed = 45;
-        //int animateIterator = 0;
+        public bool multiMoves;
         public Bitmap[,] bmpArray;
-        //Point zeroLocation = new Point();
         public static Random r = new Random();
 
         public void shuffle()
@@ -89,18 +85,8 @@ namespace SlidingPuzzle
             return new Point((int)retX, (int)retY);
         }
 
-        /*public void animatePiece(int pieceX, int pieceY)
-        {
-            zeroLocation = pieceArray[zeroX, zeroY].pb.Location;
-            pieceArray[zeroX, zeroY].pb.Location = pieceArray[pieceX, pieceY].pb.Location;
-            animatePieceX = pieceX;
-            animatePieceY = pieceY;
-            tmrAnimate.Enabled = true;
-        }*/
-
         public void internalMovement(int pieceX, int pieceY)
         {
-            //Console.WriteLine("Piece " + pieceX + ", " + pieceY + " now becomes piece " + targetX + ", " + targetY);
             Piece auxPiece = pieceArray[pieceX, pieceY];
             pieceArray[pieceX, pieceY] = pieceArray[zeroX, zeroY];
             pieceArray[zeroX, zeroY] = auxPiece;
@@ -152,30 +138,13 @@ namespace SlidingPuzzle
                 {
                     playing = false;
                     tmrTick.Enabled = false;
-                    //tmrAnimate.Enabled = false;
                     pieceArray[size - 1, size - 1].pb.Visible = true;
                     MessageBox.Show("Ganaste campeon!", "Muy bien");
                 }
             }
         }
 
-        /*public void moveTo(int pieceX, int pieceY, bool animate)
-        {
-            if (animate)
-            {
-                pieceArray[pieceX, pieceY].animate(zeroX, zeroY);
-            }
-            else
-            {
-                Point aux = new Point();
-                aux = pieceArray[pieceX, pieceY].pb.Location;
-                pieceArray[pieceX, pieceY].pb.Location = pieceArray[zeroX, zeroY].pb.Location;
-                pieceArray[zeroX, zeroY].pb.Location = aux;
-            }
-            internalMovement(pieceX, pieceY);
-        }*/
-
-    public void moveToZero(int pieceX, int pieceY, bool animate)
+        public void moveToZero(int pieceX, int pieceY, bool animate)
         {
             Point aux = new Point();
             aux = pieceArray[pieceX, pieceY].pb.Location;
@@ -197,21 +166,6 @@ namespace SlidingPuzzle
                 time++;
         }
 
-        /*public void tmrAnimate_Tick(object sender, EventArgs e)
-        {
-            if (animateIterator < ((animationSpeed * 7) / 40))
-            {
-                pieceArray[animatePieceX, animatePieceY].pb.Location = Lerp(pieceArray[animatePieceX, animatePieceY].pb.Location, zeroLocation, (float)0.5);
-                animateIterator++;
-            }else
-            {
-                animateIterator = 0;
-                pieceArray[animatePieceX, animatePieceY].pb.Location = zeroLocation;
-                doInternalSwap(animatePieceX, animatePieceY);
-                tmrAnimate.Enabled = false;
-            }
-        }*/
-
         public string getPlayTime()
         {
             int hours = (time / 60) / 60;
@@ -225,8 +179,9 @@ namespace SlidingPuzzle
             return moves.ToString();
         }
 
-        public Board(int s, int gap, int offset, int squareSize, Bitmap[,] bmpArray, bool animationsActive, int animationSpeed)
+        public Board(int s, int gap, int offset, int squareSize, Bitmap[,] bmpArray, bool animationsActive, int animationSpeed, bool multiMoves)
         {
+            this.multiMoves = multiMoves;
             this.animationSpeed = animationSpeed;
             size = s;
             if (bmpArray != null)
@@ -240,9 +195,6 @@ namespace SlidingPuzzle
             tmrTick = new Timer();
             tmrTick.Tick += tmrTick_Tick;
             tmrTick.Interval = 1000;
-            //tmrAnimate = new Timer();
-            //tmrAnimate.Tick += tmrAnimate_Tick;
-            //tmrAnimate.Interval = animationSpeed;
             for (int i = 0; i < size; i++)
             {
                 for (int j = 0; j < size; j++)

@@ -14,11 +14,8 @@ namespace SlidingPuzzle
         public Board b;
         bool animationsActive = true;
         Point zeroLocation;
-        int animatePieceX;
-        int animatePieceY;
         Timer tmrAnimate;
         int animateIterator = 0;
-        public int animationSpeed = 30;
 
         public void showPiece(Form form)
         {
@@ -43,7 +40,7 @@ namespace SlidingPuzzle
             this.animationsActive = animationsActive;
             tmrAnimate = new Timer();
             tmrAnimate.Tick += tmrAnimate_Tick;
-            tmrAnimate.Interval = animationSpeed;
+            tmrAnimate.Interval = b.animationSpeed;
         }
 
         public void animate(Point zeroLocation)
@@ -57,7 +54,7 @@ namespace SlidingPuzzle
 
         public void tmrAnimate_Tick(object sender, EventArgs e)
         {
-            if (animateIterator < ((animationSpeed * 7) / 40))
+            if (animateIterator < ((b.animationSpeed * 7) / 40))
             {
                 pb.Location = b.Lerp(pb.Location, zeroLocation, (float)0.5);
                 animateIterator++;

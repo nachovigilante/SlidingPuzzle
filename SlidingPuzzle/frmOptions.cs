@@ -27,6 +27,7 @@ namespace SlidingPuzzle
         bool animationsActive = true;
         public int animationSpeed = 30;
         public bool keyMoves = true;
+        public bool multiMoves = true;
 
         private void chkAnimations_CheckedChanged(object sender, EventArgs e)
         {
@@ -141,7 +142,8 @@ namespace SlidingPuzzle
             menuForm.animationsActive = animationsActive;
             menuForm.animationSpeed = animationSpeed;
             menuForm.keyMoves = keyMoves;
-            menuForm.Show();
+            menuForm.multiMoves = multiMoves;
+        menuForm.Show();
             Hide();
         }
 
@@ -154,6 +156,11 @@ namespace SlidingPuzzle
         private void chkKeys_CheckedChanged(object sender, EventArgs e)
         {
             keyMoves = !keyMoves;
+        }
+
+        private void checkBox1_CheckedChanged(object sender, EventArgs e)
+        {
+            multiMoves = !multiMoves;
         }
     }
 }
