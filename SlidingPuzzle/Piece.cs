@@ -13,6 +13,12 @@ namespace SlidingPuzzle
         public PictureBox pb { get; set; }
         public Board b;
         bool animationsActive = true;
+        Point zeroLocation;
+        int animatePieceX;
+        int animatePieceY;
+        Timer tmrAnimate;
+        int animateIterator = 0;
+        public int animationSpeed = 30;
 
         public void showPiece(Form form)
         {
@@ -35,11 +41,38 @@ namespace SlidingPuzzle
             pb.Anchor = AnchorStyles.Left;
             loadRightImage(pb, v);
             this.animationsActive = animationsActive;
+            tmrAnimate = new Timer();
+            tmrAnimate.Tick += tmrAnimate_Tick;
+            tmrAnimate.Interval = animationSpeed;
+        }
+
+        public void animate(Point zeroLocation)
+        {
+            //animatePieceX = pieceX;
+            //animatePieceY = pieceY;
+            //animatePieceLocation = b.pieceArray[pieceX, pieceY].pb.Location;
+            this.zeroLocation = zeroLocation;
+            tmrAnimate.Enabled = true;
+        }
+
+        public void tmrAnimate_Tick(object sender, EventArgs e)
+        {
+            if (animateIterator < ((animationSpeed * 7) / 40))
+            {
+                pb.Location = b.Lerp(pb.Location, zeroLocation, (float)0.5);
+                animateIterator++;
+            }
+            else
+            {
+                animateIterator = 0;
+                pb.Location = zeroLocation;
+                tmrAnimate.Enabled = false;
+            }
         }
 
         public void pb_Click(object sender, EventArgs e)
         {
-            if (b.playing && b.tmrAnimate.Enabled == false)
+            if (b.playing && tmrAnimate.Enabled == false)
             {
                 int lim = b.size - 1;
                 if (moveable)
@@ -57,7 +90,7 @@ namespace SlidingPuzzle
                                 if (b.pieceArray[x, y + i].moveable)
                                 {
                                     //Console.Write("Moving piece " + x + ", " + (y + i));
-                                    b.moveToZero(x, y + i, false);
+                                    b.moveToZero(x, y + i, true);
                                 }
                             }
                            //Console.Write("\n");
@@ -74,7 +107,7 @@ namespace SlidingPuzzle
                                 if (b.pieceArray[x, y + i].moveable)
                                 {
                                     //Console.Write("Moving piece " + x + ", " + (y + i));
-                                    b.moveToZero(x, y + i, false);
+                                    b.moveToZero(x, y + i, true);
                                 }
                             }
                             //Console.Write("\n");
@@ -93,7 +126,7 @@ namespace SlidingPuzzle
                                 if (b.pieceArray[x + i, y].moveable)
                                 {
                                     //Console.Write("Moving piece " + (x + i) + ", " + y);
-                                    b.moveToZero(x + i, y, false);
+                                    b.moveToZero(x + i, y, true);
                                 }
                             }
                             //Console.Write("\n");
@@ -110,7 +143,7 @@ namespace SlidingPuzzle
                                 if (b.pieceArray[x + i, y].moveable)
                                 {
                                     //Console.Write("Moving piece " + (x + i) + ", " + y);
-                                    b.moveToZero(x + i, y, false);
+                                    b.moveToZero(x + i, y, true);
                                 }
                             }
                             //Console.Write("\n");
