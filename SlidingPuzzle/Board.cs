@@ -156,7 +156,7 @@ namespace SlidingPuzzle
                 pieceArray[pieceX, pieceY].pb.Location = pieceArray[zeroX, zeroY].pb.Location;
             }
             pieceArray[zeroX, zeroY].pb.Location = aux;
-            internalMovement(pieceX, pieceY);            
+            internalMovement(pieceX, pieceY);
         }
 
         public void tmrTick_Tick(object sender, EventArgs e)
