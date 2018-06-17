@@ -45,9 +45,6 @@ namespace SlidingPuzzle
 
         public void animate(Point zeroLocation)
         {
-            //animatePieceX = pieceX;
-            //animatePieceY = pieceY;
-            //animatePieceLocation = b.pieceArray[pieceX, pieceY].pb.Location;
             this.zeroLocation = zeroLocation;
             tmrAnimate.Enabled = true;
         }
@@ -74,76 +71,60 @@ namespace SlidingPuzzle
                 int lim = b.size - 1;
                 if (moveable)
                     b.moveToZero(x, y, animationsActive);
-                else if(b.zeroX - x == 0)
+                else if(b.zeroX - x == 0 && b.multiMoves)
                 {
                     if (b.zeroY < y)
                     {
                         for (int i = -lim; i < lim; i++)
                         {
-                            //Console.Write("Analyzing piece " + x + ", " + (y + i) + ": ");
                             if (b.pieceExists(x, y + i))
                             {
-                                //Console.Write("Piece " + x + ", " + (y + i) + " exists... ");
                                 if (b.pieceArray[x, y + i].moveable)
                                 {
-                                    //Console.Write("Moving piece " + x + ", " + (y + i));
                                     b.moveToZero(x, y + i, true);
                                 }
                             }
-                           //Console.Write("\n");
                         }
                     }
                     else
                     {
                         for (int i = lim; i > -lim; i--)
                         {
-                            //Console.Write("Analyzing piece " + x + ", " + (y + i) + ": ");
                             if (b.pieceExists(x, y + i))
                             {
-                                //Console.Write("Piece " + x + ", " + (y + i) + " exists... ");
                                 if (b.pieceArray[x, y + i].moveable)
                                 {
-                                    //Console.Write("Moving piece " + x + ", " + (y + i));
                                     b.moveToZero(x, y + i, true);
                                 }
                             }
-                            //Console.Write("\n");
                         }
                     }
-                }else if(b.zeroY - y == 0)
+                }else if(b.zeroY - y == 0 && b.multiMoves)
                 {
                     if (b.zeroX < x)
                     {
                         for (int i = -lim; i < lim; i++)
                         {
-                            //Console.Write("Analyzing piece " + (x + i) + ", " + y + ": ");
                             if (b.pieceExists(x + i, y))
                             {
-                                //Console.Write("Piece " + (x + i) + ", " + y + " exists... ");
                                 if (b.pieceArray[x + i, y].moveable)
                                 {
-                                    //Console.Write("Moving piece " + (x + i) + ", " + y);
                                     b.moveToZero(x + i, y, true);
                                 }
                             }
-                            //Console.Write("\n");
                         }
                     }
                     else
                     {
                         for (int i = lim; i > -lim; i--)
                         {
-                            //Console.Write("Analyzing piece " + (x + i) + ", " + y + ": ");
                             if (b.pieceExists(x + i, y))
                             {
-                                //Console.Write("Piece " + (x + i) + ", " + y + " exists... ");
                                 if (b.pieceArray[x + i, y].moveable)
                                 {
-                                    //Console.Write("Moving piece " + (x + i) + ", " + y);
                                     b.moveToZero(x + i, y, true);
                                 }
                             }
-                            //Console.Write("\n");
                         }
                     }
                 }

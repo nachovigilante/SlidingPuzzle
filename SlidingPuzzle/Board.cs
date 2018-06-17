@@ -48,7 +48,6 @@ namespace SlidingPuzzle
                     {
                         zeroX = j;
                         zeroY = i;
-                        Console.WriteLine("Zero is now in " + zeroX + ", " + zeroY);
                         break;
                     }
                 }

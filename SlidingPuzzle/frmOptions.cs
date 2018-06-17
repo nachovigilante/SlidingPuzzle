@@ -100,7 +100,6 @@ namespace SlidingPuzzle
                     pbArray[x, y].BackColor = Color.White;
                     pbArray[x, y].BackgroundImageLayout = ImageLayout.Stretch;
                     pbArray[x, y].Location = new Point(grpTab.Location.X + tileSize * x + 5 * x + (grpTab.Width - tileSize * size)/2, grpTab.Location.Y + 210 + 5 * y + tileSize * y);
-                    Console.WriteLine(grpTab.Location);
                     pbArray[x, y].Anchor = AnchorStyles.Left;
                     pbArray[x, y].Visible = true;
                     pbArray[x, y].BringToFront();
@@ -150,7 +149,6 @@ namespace SlidingPuzzle
         private void trkAnimations_Scroll(object sender, EventArgs e)
         {
             animationSpeed = 55 - 5 * trkAnimations.Value;
-            //Console.WriteLine(animationSpeed);
         }
 
         private void chkKeys_CheckedChanged(object sender, EventArgs e)
