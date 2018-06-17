@@ -41,35 +41,79 @@ namespace SlidingPuzzle
         {
             if (b.playing && b.tmrAnimate.Enabled == false)
             {
-                int min;
+                int lim = b.size - 1;
                 if (moveable)
                     b.moveToZero(x, y, animationsActive);
                 else if(b.zeroX - x == 0)
                 {
-                    if (b.zeroY > y)
-                        min = -(b.size - 1);
-                    else
-                        min = b.size - 1;
-                    for(int i = -(b.size-1); i < b.size-1; i++)
+                    if (b.zeroY < y)
                     {
-                        if(b.pieceExists(x, y + i))
+                        for (int i = -lim; i < lim; i++)
                         {
-                            if(b.pieceArray[x, y + i].moveable)
-                                b.moveToZero(x, y + i, false);
+                            //Console.Write("Analyzing piece " + x + ", " + (y + i) + ": ");
+                            if (b.pieceExists(x, y + i))
+                            {
+                                //Console.Write("Piece " + x + ", " + (y + i) + " exists... ");
+                                if (b.pieceArray[x, y + i].moveable)
+                                {
+                                    //Console.Write("Moving piece " + x + ", " + (y + i));
+                                    b.moveToZero(x, y + i, false);
+                                }
+                            }
+                           //Console.Write("\n");
+                        }
+                    }
+                    else
+                    {
+                        for (int i = lim; i > -lim; i--)
+                        {
+                            //Console.Write("Analyzing piece " + x + ", " + (y + i) + ": ");
+                            if (b.pieceExists(x, y + i))
+                            {
+                                //Console.Write("Piece " + x + ", " + (y + i) + " exists... ");
+                                if (b.pieceArray[x, y + i].moveable)
+                                {
+                                    //Console.Write("Moving piece " + x + ", " + (y + i));
+                                    b.moveToZero(x, y + i, false);
+                                }
+                            }
+                            //Console.Write("\n");
                         }
                     }
                 }else if(b.zeroY - y == 0)
                 {
-                    if (b.zeroX > x)
-                        min = -(b.size - 1);
-                    else
-                        min = b.size - 1;
-                    for (int i = -(b.size-1); i < b.size-1; i++)
+                    if (b.zeroX < x)
                     {
-                        if (b.pieceExists(x + i, y))
+                        for (int i = -lim; i < lim; i++)
                         {
-                            if (b.pieceArray[x + i, y].moveable)
-                                b.moveToZero(x + i, y, false);
+                            //Console.Write("Analyzing piece " + (x + i) + ", " + y + ": ");
+                            if (b.pieceExists(x + i, y))
+                            {
+                                //Console.Write("Piece " + (x + i) + ", " + y + " exists... ");
+                                if (b.pieceArray[x + i, y].moveable)
+                                {
+                                    //Console.Write("Moving piece " + (x + i) + ", " + y);
+                                    b.moveToZero(x + i, y, false);
+                                }
+                            }
+                            //Console.Write("\n");
+                        }
+                    }
+                    else
+                    {
+                        for (int i = lim; i > -lim; i--)
+                        {
+                            //Console.Write("Analyzing piece " + (x + i) + ", " + y + ": ");
+                            if (b.pieceExists(x + i, y))
+                            {
+                                //Console.Write("Piece " + (x + i) + ", " + y + " exists... ");
+                                if (b.pieceArray[x + i, y].moveable)
+                                {
+                                    //Console.Write("Moving piece " + (x + i) + ", " + y);
+                                    b.moveToZero(x + i, y, false);
+                                }
+                            }
+                            //Console.Write("\n");
                         }
                     }
                 }
