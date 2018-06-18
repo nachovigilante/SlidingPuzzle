@@ -151,7 +151,15 @@ namespace SlidingPuzzle
                     playing = false;
                     tmrTick.Enabled = false;
                     tmrAnimate.Enabled = false;
-                    MessageBox.Show("Ganaste campeon!", "Muy bien");
+                    DialogResult result = MessageBox.Show("¡Ganaste campeón!, ¿Querés guardar tu partida en el score?", "Muy bien", MessageBoxButtons.YesNo);
+                    if (result == DialogResult.Yes)
+                    {
+
+                    }
+                    else if (result == DialogResult.No)
+                    {
+
+                    }
                 }
             }
         }
