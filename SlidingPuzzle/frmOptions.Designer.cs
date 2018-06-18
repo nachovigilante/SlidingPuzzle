@@ -45,7 +45,7 @@
             this.lblDefault = new System.Windows.Forms.Label();
             this.lblPreview = new System.Windows.Forms.Label();
             this.btnLoadDefault = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnVolver = new System.Windows.Forms.Button();
             this.grpControls = new System.Windows.Forms.GroupBox();
             this.lblMulti = new System.Windows.Forms.Label();
             this.grpTab = new System.Windows.Forms.GroupBox();
@@ -85,7 +85,7 @@
             this.grpAnimations.Controls.Add(this.lblVel);
             this.grpAnimations.Controls.Add(this.lblAnimations);
             this.grpAnimations.Controls.Add(this.chkAnimations);
-            this.grpAnimations.Location = new System.Drawing.Point(46, 112);
+            this.grpAnimations.Location = new System.Drawing.Point(62, 114);
             this.grpAnimations.Name = "grpAnimations";
             this.grpAnimations.Size = new System.Drawing.Size(316, 157);
             this.grpAnimations.TabIndex = 3;
@@ -229,15 +229,15 @@
             this.btnLoadDefault.UseVisualStyleBackColor = true;
             this.btnLoadDefault.Click += new System.EventHandler(this.btnLoadDefault_Click);
             // 
-            // button1
+            // btnVolver
             // 
-            this.button1.Location = new System.Drawing.Point(156, 752);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(101, 32);
-            this.button1.TabIndex = 12;
-            this.button1.Text = "Volver al menú";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.btnVolver.Location = new System.Drawing.Point(11, 10);
+            this.btnVolver.Name = "btnVolver";
+            this.btnVolver.Size = new System.Drawing.Size(34, 33);
+            this.btnVolver.TabIndex = 12;
+            this.btnVolver.Text = "Volver al menú";
+            this.btnVolver.UseVisualStyleBackColor = true;
+            this.btnVolver.Click += new System.EventHandler(this.button1_Click);
             // 
             // grpControls
             // 
@@ -245,7 +245,7 @@
             this.grpControls.Controls.Add(this.checkBox1);
             this.grpControls.Controls.Add(this.lblKeys);
             this.grpControls.Controls.Add(this.chkKeys);
-            this.grpControls.Location = new System.Drawing.Point(46, 37);
+            this.grpControls.Location = new System.Drawing.Point(62, 39);
             this.grpControls.Name = "grpControls";
             this.grpControls.Size = new System.Drawing.Size(316, 64);
             this.grpControls.TabIndex = 13;
@@ -270,7 +270,7 @@
             this.grpTab.Controls.Add(this.lblPreview);
             this.grpTab.Controls.Add(this.cboSize);
             this.grpTab.Controls.Add(this.lblSize);
-            this.grpTab.Location = new System.Drawing.Point(46, 280);
+            this.grpTab.Location = new System.Drawing.Point(62, 282);
             this.grpTab.Name = "grpTab";
             this.grpTab.Size = new System.Drawing.Size(316, 453);
             this.grpTab.TabIndex = 14;
@@ -281,11 +281,13 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(409, 796);
+            this.AutoScroll = true;
+            this.AutoScrollMargin = new System.Drawing.Size(0, 25);
+            this.ClientSize = new System.Drawing.Size(458, 364);
             this.ControlBox = false;
             this.Controls.Add(this.grpTab);
             this.Controls.Add(this.grpControls);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btnVolver);
             this.Controls.Add(this.grpAnimations);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
@@ -293,6 +295,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Opciones";
             this.Load += new System.EventHandler(this.frmOptions_Load);
+            this.Scroll += new System.Windows.Forms.ScrollEventHandler(this.frmOptions_Scroll);
             this.grpAnimations.ResumeLayout(false);
             this.grpAnimations.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.trkAnimations)).EndInit();
@@ -321,7 +324,7 @@
         private System.Windows.Forms.Label lblDefault;
         private System.Windows.Forms.Label lblPreview;
         private System.Windows.Forms.Button btnLoadDefault;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnVolver;
         private System.Windows.Forms.GroupBox grpControls;
         private System.Windows.Forms.Label lblMulti;
         private System.Windows.Forms.CheckBox checkBox1;
