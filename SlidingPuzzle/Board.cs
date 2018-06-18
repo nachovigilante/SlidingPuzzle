@@ -137,27 +137,9 @@ namespace SlidingPuzzle
                 {
                     playing = false;
                     tmrTick.Enabled = false;
-<<<<<<< HEAD
-<<<<<<< HEAD
                     pieceArray[size - 1, size - 1].pb.Visible = true;
                     MessageBox.Show("Ganaste campeon!", "Muy bien");
-=======
-=======
->>>>>>> a175573cfacf14584e0b9024817ec8d7942ee4e4
-                    tmrAnimate.Enabled = false;
                     DialogResult result = MessageBox.Show("¡Ganaste campeón!, ¿Querés guardar tu partida en el score?", "Muy bien", MessageBoxButtons.YesNo);
-                    if (result == DialogResult.Yes)
-                    {
-
-                    }
-                    else if (result == DialogResult.No)
-                    {
-
-                    }
-<<<<<<< HEAD
->>>>>>> a175573cfacf14584e0b9024817ec8d7942ee4e4
-=======
->>>>>>> a175573cfacf14584e0b9024817ec8d7942ee4e4
                 }
             }
         }
