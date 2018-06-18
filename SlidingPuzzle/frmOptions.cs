@@ -132,6 +132,7 @@ namespace SlidingPuzzle
         private void frmOptions_Load(object sender, EventArgs e)
         {
             loadDefault();
+            cboSize.SelectedIndex = 0;
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -142,7 +143,7 @@ namespace SlidingPuzzle
             menuForm.animationSpeed = animationSpeed;
             menuForm.keyMoves = keyMoves;
             menuForm.multiMoves = multiMoves;
-        menuForm.Show();
+            menuForm.Show();
             Hide();
         }
 

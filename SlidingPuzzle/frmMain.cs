@@ -23,12 +23,15 @@ namespace SlidingPuzzle
         Board b;
         public Bitmap[,] bmpArray;
         public bool animationsActive = true;
-        public frmMain(bool animationsActive, int animationSpeed, bool keyMoves, bool multiMoves)
+        public frmMenu formMenu;
+
+        public frmMain(bool animationsActive, int animationSpeed, bool keyMoves, bool multiMoves, frmMenu formMenu)
         {
             this.animationsActive = animationsActive;
             this.animationSpeed = animationSpeed;
             this.keyMoves = keyMoves;
             this.multiMoves = multiMoves;
+            this.formMenu = formMenu;
             InitializeComponent();
         }
 
@@ -172,6 +175,12 @@ namespace SlidingPuzzle
                     e.IsInputKey = true;
                     break;
             }
+        }
+
+        private void btnVolver_Click(object sender, EventArgs e)
+        {
+            formMenu.Show();
+            Hide();
         }
     }
 }

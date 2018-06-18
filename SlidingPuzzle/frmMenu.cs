@@ -18,10 +18,11 @@ namespace SlidingPuzzle
         public int animationSpeed = 30;
         public bool keyMoves = true;
         public bool multiMoves = true;
+        frmOptions formOptions;
 
         private void btnPlay_Click(object sender, EventArgs e)
         {
-            frmMain form = new frmMain(animationsActive, animationSpeed, keyMoves, multiMoves);
+            frmMain form = new frmMain(animationsActive, animationSpeed, keyMoves, multiMoves, this);
             form.bmpArray = bmpArray;
             form.size = size;
             form.animationsActive = animationsActive;
@@ -38,8 +39,9 @@ namespace SlidingPuzzle
 
         private void btnOptions_Click(object sender, EventArgs e)
         {
-            frmOptions form = new frmOptions(this);
-            form.Show();
+            if(formOptions == null)
+                formOptions = new frmOptions(this);
+            formOptions.Show();
             Hide();
         }
 
