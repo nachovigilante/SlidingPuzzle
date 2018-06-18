@@ -138,8 +138,12 @@ namespace SlidingPuzzle
                     playing = false;
                     tmrTick.Enabled = false;
                     pieceArray[size - 1, size - 1].pb.Visible = true;
-                    MessageBox.Show("Ganaste campeon!", "Muy bien");
                     DialogResult result = MessageBox.Show("¡Ganaste campeón!, ¿Querés guardar tu partida en el score?", "Muy bien", MessageBoxButtons.YesNo);
+                    if (result == DialogResult.Yes)
+                    {
+                        frmScore Score = new frmScore();
+                        Score.Show();
+                    }
                 }
             }
         }

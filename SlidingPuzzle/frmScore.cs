@@ -16,10 +16,5 @@ namespace SlidingPuzzle
         {
             InitializeComponent();
         }
-
-        private void frmScore_Load(object sender, EventArgs e)
-        {
-
-        }
     }
 }

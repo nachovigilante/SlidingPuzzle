@@ -66,7 +66,6 @@
             this.Controls.Add(this.tlpScore);
             this.Name = "frmScore";
             this.Text = "frmScore";
-            this.Load += new System.EventHandler(this.frmScore_Load);
             this.ResumeLayout(false);
 
         }
