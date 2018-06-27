@@ -51,6 +51,7 @@
             this.tlpScore.Controls.Add(this.lblMoves, 1, 0);
             this.tlpScore.Controls.Add(this.lblTime, 2, 0);
             this.tlpScore.Controls.Add(this.label4, 3, 0);
+            this.tlpScore.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tlpScore.Location = new System.Drawing.Point(12, 12);
             this.tlpScore.Name = "tlpScore";
             this.tlpScore.RowCount = 10;
@@ -69,39 +70,43 @@
             // 
             // lblName
             // 
-            this.lblName.AutoSize = true;
+            this.lblName.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblName.Location = new System.Drawing.Point(3, 0);
             this.lblName.Name = "lblName";
-            this.lblName.Size = new System.Drawing.Size(45, 13);
+            this.lblName.Size = new System.Drawing.Size(126, 32);
             this.lblName.TabIndex = 0;
-            this.lblName.Text = "lblName";
+            this.lblName.Text = "Nombre";
+            this.lblName.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // lblMoves
             // 
-            this.lblMoves.AutoSize = true;
+            this.lblMoves.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblMoves.Location = new System.Drawing.Point(135, 0);
             this.lblMoves.Name = "lblMoves";
-            this.lblMoves.Size = new System.Drawing.Size(49, 13);
+            this.lblMoves.Size = new System.Drawing.Size(126, 32);
             this.lblMoves.TabIndex = 1;
-            this.lblMoves.Text = "lblMoves";
+            this.lblMoves.Text = "Movimientos";
+            this.lblMoves.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // lblTime
             // 
-            this.lblTime.AutoSize = true;
+            this.lblTime.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTime.Location = new System.Drawing.Point(267, 0);
             this.lblTime.Name = "lblTime";
-            this.lblTime.Size = new System.Drawing.Size(40, 13);
+            this.lblTime.Size = new System.Drawing.Size(126, 32);
             this.lblTime.TabIndex = 2;
-            this.lblTime.Text = "lblTime";
+            this.lblTime.Text = "Tiempo";
+            this.lblTime.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label4
             // 
-            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.Location = new System.Drawing.Point(399, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(43, 13);
+            this.label4.Size = new System.Drawing.Size(126, 32);
             this.label4.TabIndex = 3;
-            this.label4.Text = "lblRank";
+            this.label4.Text = "Ranking";
+            this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // frmScore
             // 
@@ -109,10 +114,11 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(552, 345);
             this.Controls.Add(this.tlpScore);
+            this.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Name = "frmScore";
             this.Text = "frmScore";
+            this.Load += new System.EventHandler(this.frmScore_Load);
             this.tlpScore.ResumeLayout(false);
-            this.tlpScore.PerformLayout();
             this.ResumeLayout(false);
 
         }
