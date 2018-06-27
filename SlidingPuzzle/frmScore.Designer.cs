@@ -29,6 +29,11 @@
         private void InitializeComponent()
         {
             this.tlpScore = new System.Windows.Forms.TableLayoutPanel();
+            this.lblName = new System.Windows.Forms.Label();
+            this.lblMoves = new System.Windows.Forms.Label();
+            this.lblTime = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.tlpScore.SuspendLayout();
             this.SuspendLayout();
             // 
             // tlpScore
@@ -42,6 +47,10 @@
             this.tlpScore.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tlpScore.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tlpScore.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tlpScore.Controls.Add(this.lblName, 0, 0);
+            this.tlpScore.Controls.Add(this.lblMoves, 1, 0);
+            this.tlpScore.Controls.Add(this.lblTime, 2, 0);
+            this.tlpScore.Controls.Add(this.label4, 3, 0);
             this.tlpScore.Location = new System.Drawing.Point(12, 12);
             this.tlpScore.Name = "tlpScore";
             this.tlpScore.RowCount = 10;
@@ -58,6 +67,42 @@
             this.tlpScore.Size = new System.Drawing.Size(528, 321);
             this.tlpScore.TabIndex = 33;
             // 
+            // lblName
+            // 
+            this.lblName.AutoSize = true;
+            this.lblName.Location = new System.Drawing.Point(3, 0);
+            this.lblName.Name = "lblName";
+            this.lblName.Size = new System.Drawing.Size(45, 13);
+            this.lblName.TabIndex = 0;
+            this.lblName.Text = "lblName";
+            // 
+            // lblMoves
+            // 
+            this.lblMoves.AutoSize = true;
+            this.lblMoves.Location = new System.Drawing.Point(135, 0);
+            this.lblMoves.Name = "lblMoves";
+            this.lblMoves.Size = new System.Drawing.Size(49, 13);
+            this.lblMoves.TabIndex = 1;
+            this.lblMoves.Text = "lblMoves";
+            // 
+            // lblTime
+            // 
+            this.lblTime.AutoSize = true;
+            this.lblTime.Location = new System.Drawing.Point(267, 0);
+            this.lblTime.Name = "lblTime";
+            this.lblTime.Size = new System.Drawing.Size(40, 13);
+            this.lblTime.TabIndex = 2;
+            this.lblTime.Text = "lblTime";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(399, 0);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(43, 13);
+            this.label4.TabIndex = 3;
+            this.label4.Text = "lblRank";
+            // 
             // frmScore
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -66,6 +111,8 @@
             this.Controls.Add(this.tlpScore);
             this.Name = "frmScore";
             this.Text = "frmScore";
+            this.tlpScore.ResumeLayout(false);
+            this.tlpScore.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -73,6 +120,10 @@
         #endregion
 
         private System.Windows.Forms.TableLayoutPanel tlpScore;
+        private System.Windows.Forms.Label lblName;
+        private System.Windows.Forms.Label lblMoves;
+        private System.Windows.Forms.Label lblTime;
+        private System.Windows.Forms.Label label4;
 
 
     }
