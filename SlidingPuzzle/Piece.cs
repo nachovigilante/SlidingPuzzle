@@ -70,7 +70,6 @@ namespace SlidingPuzzle
             {
                 x += dx;
                 y += dy;
-
                 if (b.pieceArray[x, y].moveable)
                     b.moveToZero(x, y, true);
             } while (b.pieceExists(x, y));
