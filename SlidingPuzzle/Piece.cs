@@ -64,18 +64,29 @@ namespace SlidingPuzzle
             }
         }
 
+        public void asd(int x, int y, int dx, int dy)
+        {
+            do
+            {
+                x += dx;
+                y += dy;
+                if (b.pieceArray[x, y].moveable)
+                    b.moveToZero(x, y, true);
+            } while (b.pieceExists(x, y));
+        }
+
         public void pb_Click(object sender, EventArgs e)
         {
             if (b.playing && tmrAnimate.Enabled == false)
             {
-                int lim = b.size - 1;
                 if (moveable)
                     b.moveToZero(x, y, animationsActive);
                 else if(b.zeroX - x == 0 && b.multiMoves)
                 {
-                    if (b.zeroY < y)
+                    int lim = (b.zeroY - y);
+                    if (b.zeroY > y)
                     {
-                        for (int i = -lim; i < lim; i++)
+                        for (int i = lim; i > -1; i--)
                         {
                             if (b.pieceExists(x, y + i))
                             {
@@ -88,7 +99,7 @@ namespace SlidingPuzzle
                     }
                     else
                     {
-                        for (int i = lim; i > -lim; i--)
+                        for (int i = lim; i < 1; i++)
                         {
                             if (b.pieceExists(x, y + i))
                             {
@@ -101,9 +112,10 @@ namespace SlidingPuzzle
                     }
                 }else if(b.zeroY - y == 0 && b.multiMoves)
                 {
-                    if (b.zeroX < x)
+                    int lim = (b.zeroX - x);
+                    if (b.zeroX > x)
                     {
-                        for (int i = -lim; i < lim; i++)
+                        for (int i = lim; i > -1; i--)
                         {
                             if (b.pieceExists(x + i, y))
                             {
@@ -116,7 +128,7 @@ namespace SlidingPuzzle
                     }
                     else
                     {
-                        for (int i = lim; i > -lim; i--)
+                        for (int i = lim; i < 1; i++)
                         {
                             if (b.pieceExists(x + i, y))
                             {

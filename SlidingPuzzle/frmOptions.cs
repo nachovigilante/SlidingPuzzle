@@ -161,5 +161,12 @@ namespace SlidingPuzzle
         {
             multiMoves = !multiMoves;
         }
+
+        private void frmOptions_Scroll(object sender, ScrollEventArgs e)
+        {
+            Point newLocation = new Point(btnVolver.Location.X, 10);
+            btnVolver.Location = newLocation;
+            //Console.WriteLine("LocationY: " + btnVolver.Location.Y);            
+        }
     }
 }
