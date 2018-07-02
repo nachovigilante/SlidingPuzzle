@@ -19,30 +19,31 @@ namespace SlidingPuzzle
         }
         frmMenu menuForm;
         int prevSize = 3;
-        int size = 3;
+        Options optObj = new Options(3, true, 30, true, true);
+        //int size = 3;
         Bitmap[,] bmpArray = null;
         Bitmap imageToUse;
         PictureBox[,] pbArray;
         private bool imageLoaded = false;
-        bool animationsActive = true;
-        public int animationSpeed = 30;
-        public bool keyMoves = true;
-        public bool multiMoves = true;
+        //public int animationsActive = true;
+        //public int animationSpeed = 30;
+        //public bool keyMoves = true;
+        //public bool multiMoves = true;
 
         private void chkAnimations_CheckedChanged(object sender, EventArgs e)
         {
-            animationsActive = !animationsActive;
+            optObj.animationsActive = !optObj.animationsActive;
         }
 
         public void loadImage()
         {
             loadPreview();
             Bitmap resizedImage = new Bitmap(imageToUse, new Size(300, 300));
-            bmpArray = new Bitmap[size, size];
-            int tileSize = (int)Math.Floor((float)resizedImage.Width / size);
-            for (int x = 0; x < size; x++)
+            bmpArray = new Bitmap[optObj.size, optObj.size];
+            int tileSize = (int)Math.Floor((float)resizedImage.Width / optObj.size);
+            for (int x = 0; x < optObj.size; x++)
             {
-                for (int y = 0; y < size; y++)
+                for (int y = 0; y < optObj.size; y++)
                 {
                     Rectangle cloneRect = new Rectangle(tileSize * x, tileSize * y, tileSize, tileSize);
                     System.Drawing.Imaging.PixelFormat format = resizedImage.PixelFormat;
@@ -83,12 +84,12 @@ namespace SlidingPuzzle
             Bitmap resizedImage = new Bitmap(imageToUse, new Size(200, 200));
             if (imageLoaded)
                 cleanPbArray();
-            pbArray = new PictureBox[size, size];
-            prevSize = size;
-            int tileSize = (int)Math.Floor((float)resizedImage.Width / size);
-            for (int x = 0; x < size; x++)
+            pbArray = new PictureBox[optObj.size, optObj.size];
+            prevSize = optObj.size;
+            int tileSize = (int)Math.Floor((float)resizedImage.Width / optObj.size);
+            for (int x = 0; x < optObj.size; x++)
             {
-                for (int y = 0; y < size; y++)
+                for (int y = 0; y < optObj.size; y++)
                 {
                     Rectangle cloneRect = new Rectangle(tileSize * x, tileSize * y, tileSize, tileSize);
                     System.Drawing.Imaging.PixelFormat format = resizedImage.PixelFormat;
@@ -99,7 +100,7 @@ namespace SlidingPuzzle
                     pbArray[x, y].Size = new Size(tileSize, tileSize);
                     pbArray[x, y].BackColor = Color.White;
                     pbArray[x, y].BackgroundImageLayout = ImageLayout.Stretch;
-                    pbArray[x, y].Location = new Point(grpTab.Location.X + tileSize * x + 5 * x + (grpTab.Width - tileSize * size)/2, grpTab.Location.Y + 210 + 5 * y + tileSize * y);
+                    pbArray[x, y].Location = new Point(grpTab.Location.X + tileSize * x + 5 * x + (grpTab.Width - tileSize * optObj.size)/2, grpTab.Location.Y + 210 + 5 * y + tileSize * y);
                     pbArray[x, y].Anchor = AnchorStyles.Left;
                     pbArray[x, y].Visible = true;
                     pbArray[x, y].BringToFront();
@@ -111,7 +112,7 @@ namespace SlidingPuzzle
 
         private void cboSize_SelectedIndexChanged(object sender, EventArgs e)
         {
-            size = 3 + cboSize.SelectedIndex;
+            optObj.size = 3 + cboSize.SelectedIndex;
             if (imageLoaded)
             {
                 loadImage();
@@ -138,28 +139,28 @@ namespace SlidingPuzzle
         private void button1_Click(object sender, EventArgs e)
         {
             menuForm.bmpArray = bmpArray;
-            menuForm.size = size;
-            menuForm.animationsActive = animationsActive;
-            menuForm.animationSpeed = animationSpeed;
-            menuForm.keyMoves = keyMoves;
-            menuForm.multiMoves = multiMoves;
+            menuForm.size = optObj.size;
+            menuForm.animationsActive = optObj.animationsActive;
+            menuForm.animationSpeed = optObj.animationSpeed;
+            menuForm.keyMoves = optObj.keyMoves;
+            menuForm.multiMoves = optObj.multiMoves;
             menuForm.Show();
             Hide();
         }
 
         private void trkAnimations_Scroll(object sender, EventArgs e)
         {
-            animationSpeed = 55 - 5 * trkAnimations.Value;
+            optObj.animationSpeed = 55 - 5 * trkAnimations.Value;
         }
 
         private void chkKeys_CheckedChanged(object sender, EventArgs e)
         {
-            keyMoves = !keyMoves;
+            optObj.keyMoves = !optObj.keyMoves;
         }
 
         private void checkBox1_CheckedChanged(object sender, EventArgs e)
         {
-            multiMoves = !multiMoves;
+            optObj.multiMoves = !optObj.multiMoves;
         }
 
         private void frmOptions_Scroll(object sender, ScrollEventArgs e)
