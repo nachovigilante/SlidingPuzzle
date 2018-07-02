@@ -138,16 +138,14 @@ namespace SlidingPuzzle
                     playing = false;
                     tmrTick.Enabled = false;
                     pieceArray[size - 1, size - 1].pb.Visible = true;
-                    DialogResult result = MessageBox.Show("¡Ganaste campeón!, ¿Querés guardar tu partida en el score?", "Muy bien", MessageBoxButtons.YesNo);
-                    if (result == DialogResult.Yes)
-                    {
-                        frmScore Score = new frmScore();
-                        Score.Show();
-                    }
+                    frmDialog form = new frmDialog();
+                    form.moves = this.getMoves();
+                    form.time = this.getPlayTime();
+                    form.points = (10000 - this.moves - this.time).ToString();
+                    form.Show();
                 }
             }
         }
-
         public void moveToZero(int pieceX, int pieceY, bool animate)
         {
             Point aux = new Point();

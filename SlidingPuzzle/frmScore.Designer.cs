@@ -33,6 +33,7 @@
             this.lblMoves = new System.Windows.Forms.Label();
             this.lblTime = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             this.tlpScore.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -51,6 +52,7 @@
             this.tlpScore.Controls.Add(this.lblMoves, 1, 0);
             this.tlpScore.Controls.Add(this.lblTime, 2, 0);
             this.tlpScore.Controls.Add(this.label4, 3, 0);
+            this.tlpScore.Controls.Add(this.label1, 0, 1);
             this.tlpScore.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tlpScore.Location = new System.Drawing.Point(12, 12);
             this.tlpScore.Name = "tlpScore";
@@ -108,6 +110,16 @@
             this.label4.Text = "Ranking";
             this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // label1
+            // 
+            this.label1.Font = new System.Drawing.Font("Arial", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(3, 32);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(126, 32);
+            this.label1.TabIndex = 4;
+            this.label1.Text = "NACHITOS";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // frmScore
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -130,6 +142,7 @@
         private System.Windows.Forms.Label lblMoves;
         private System.Windows.Forms.Label lblTime;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label1;
 
 
     }
