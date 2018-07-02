@@ -33,7 +33,7 @@ namespace SlidingPuzzle
 
         private void chkAnimations_CheckedChanged(object sender, EventArgs e)
         {
-            optObj.animationsActive = !optObj.animationsActive;
+            optObj.animationsActive = chkAnimations.Checked;
         }
 
         public void readFromTxt()
@@ -185,12 +185,12 @@ namespace SlidingPuzzle
 
         private void chkKeys_CheckedChanged(object sender, EventArgs e)
         {
-            optObj.keyMoves = !optObj.keyMoves;
+            optObj.keyMoves = chkKeys.Checked;
         }
 
         private void checkBox1_CheckedChanged(object sender, EventArgs e)
         {
-            optObj.multiMoves = !optObj.multiMoves;
+            optObj.multiMoves = checkBox1.Checked;
         }
 
         private void frmOptions_Scroll(object sender, ScrollEventArgs e)
