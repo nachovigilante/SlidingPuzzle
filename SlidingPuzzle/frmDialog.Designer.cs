@@ -36,20 +36,21 @@
             // 
             // lblWin
             // 
-            this.lblWin.AutoSize = true;
+            this.lblWin.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblWin.Location = new System.Drawing.Point(13, 20);
             this.lblWin.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblWin.Name = "lblWin";
-            this.lblWin.Size = new System.Drawing.Size(35, 14);
+            this.lblWin.Size = new System.Drawing.Size(510, 59);
             this.lblWin.TabIndex = 0;
             this.lblWin.Text = "lblWin";
             // 
             // btnOk
             // 
-            this.btnOk.Location = new System.Drawing.Point(237, 67);
+            this.btnOk.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnOk.Location = new System.Drawing.Point(216, 82);
             this.btnOk.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.btnOk.Name = "btnOk";
-            this.btnOk.Size = new System.Drawing.Size(90, 21);
+            this.btnOk.Size = new System.Drawing.Size(96, 29);
             this.btnOk.TabIndex = 1;
             this.btnOk.Text = "Continuar";
             this.btnOk.UseVisualStyleBackColor = true;
@@ -57,17 +58,18 @@
             // 
             // btnNo
             // 
-            this.btnNo.Location = new System.Drawing.Point(12, 95);
+            this.btnNo.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnNo.Location = new System.Drawing.Point(456, 82);
             this.btnNo.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.btnNo.Name = "btnNo";
-            this.btnNo.Size = new System.Drawing.Size(59, 21);
+            this.btnNo.Size = new System.Drawing.Size(67, 28);
             this.btnNo.TabIndex = 2;
             this.btnNo.Text = "Volver";
             this.btnNo.UseVisualStyleBackColor = true;
             // 
             // txtName
             // 
-            this.txtName.Location = new System.Drawing.Point(12, 67);
+            this.txtName.Location = new System.Drawing.Point(17, 88);
             this.txtName.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.txtName.Name = "txtName";
             this.txtName.Size = new System.Drawing.Size(163, 20);
@@ -77,7 +79,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 14F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(422, 132);
+            this.ClientSize = new System.Drawing.Size(539, 131);
             this.Controls.Add(this.txtName);
             this.Controls.Add(this.btnNo);
             this.Controls.Add(this.btnOk);
@@ -85,6 +87,7 @@
             this.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.Name = "frmDialog";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "¡Felicidades!";
             this.Load += new System.EventHandler(this.frmDialog_Load);
             this.ResumeLayout(false);

@@ -24,7 +24,7 @@ namespace SlidingPuzzle
         public Bitmap[,] bmpArray;
         public bool animationsActive = true;
         public frmMenu formMenu;
-
+        
         public frmMain(bool animationsActive, int animationSpeed, bool keyMoves, bool multiMoves, frmMenu formMenu)
         {
             this.animationsActive = animationsActive;

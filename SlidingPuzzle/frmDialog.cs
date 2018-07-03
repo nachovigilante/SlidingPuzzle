@@ -24,21 +24,54 @@ namespace SlidingPuzzle
         private void frmDialog_Load(object sender, EventArgs e)
         {
             txtName.MaxLength = 8;
-            if (new FileInfo("scores.txt").Length > 0) { 
-                lblWin.Text = "¡Ganaste en " + time + " segundos y en " + moves + " movimientos. Podés guardar tu partida así aparecera en el highscore.";
-                
+            // Me fijo si todavía no se lleno el top ten.
+            int i = File.ReadAllLines("../../scores.txt").Count();
+            if (i < 10) { 
+                // Si todavía hay lugares en el highscore, puede agregarse.
+                lblWin.Text = "¡Ganaste en " + time + " minutos y " + moves + " movimientos!. Podés guardar tu partida así aparecera en el highscore.";
+            }
+            else
+            {
+                // Veo si el puntaje obtenido supera a alguno del highscore.
+                bool higher = false;
+                List<Player> pList = new List<Player>();
+                using (StreamReader sr = File.OpenText("../../scores.txt"))
+                {
+                    string line;
+                    while ((line = sr.ReadLine()) != null)
+                    {
+                        Player p = new Player();
+                        p.createFromLine(line);
+                        pList.Add(p);
+                    }
+                }
+                foreach (Player p in pList)
+                {
+                    higher = int.Parse(points) > p.Points;
+                }
+                if(higher)
+                {
+                    pList[0].writeToTxt(true);
+                    lblWin.Text = "¡Ganaste en " + time + " segundos y en " + moves + " movimientos!. ¡Lo hiciste tan bien, que entraste al top ten!. Podrás guardar tu partida si asi lo deseas.";
+                }
+                else
+                {
+                    lblWin.Text = "¡Ganaste en " + time + " segundos y en " + moves + " movimientos!. Pero no pudiste entrar al top ten. ¡Seguí intentandolo!.";
+                }
             }
         }
 
         private void btnOk_Click(object sender, EventArgs e)
         {
             if (txtName.Text.Trim() != "") {
-                Player winner = new Player(txtName.Text, time, moves, points);
+                Player winner = new Player(txtName.Text.Trim(), time, int.Parse(moves), int.Parse(points));
                 winner.writeToTxt(false);
+                frmScore form = new frmScore();
+                form.Show();
             }
             else
             {
-                MessageBox.Show("No ingresó un nombre de usuario");
+                MessageBox.Show("No ingresó un nombre de jugador", "Jugador");
             }
         }
     }
