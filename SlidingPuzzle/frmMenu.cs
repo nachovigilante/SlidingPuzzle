@@ -19,6 +19,7 @@ namespace SlidingPuzzle
         public bool keyMoves = true;
         public bool multiMoves = true;
         frmOptions formOptions;
+        frmScore frmScore;
 
         private void btnPlay_Click(object sender, EventArgs e)
         {
@@ -28,13 +29,14 @@ namespace SlidingPuzzle
             form.animationsActive = animationsActive;
             form.Show();
             Hide();
+            if(frmScore != null)
+                frmScore.Hide();
         }
 
         private void btnScore_Click(object sender, EventArgs e)
         {
-            frmScore form = new frmScore();
-            form.Show();
-            Hide();
+            frmScore = new frmScore();
+            frmScore.Show();
         }
 
         private void btnOptions_Click(object sender, EventArgs e)

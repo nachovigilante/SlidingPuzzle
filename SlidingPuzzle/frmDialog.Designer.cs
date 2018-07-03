@@ -66,6 +66,7 @@
             this.btnNo.TabIndex = 2;
             this.btnNo.Text = "Volver";
             this.btnNo.UseVisualStyleBackColor = true;
+            this.btnNo.Click += new System.EventHandler(this.btnNo_Click);
             // 
             // txtName
             // 

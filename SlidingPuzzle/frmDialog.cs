@@ -20,6 +20,8 @@ namespace SlidingPuzzle
         public string time;
         public string moves;
         public string points;
+        public bool higher;
+        public int edit;
 
         private void frmDialog_Load(object sender, EventArgs e)
         {
@@ -33,7 +35,7 @@ namespace SlidingPuzzle
             else
             {
                 // Veo si el puntaje obtenido supera a alguno del highscore.
-                bool higher = false;
+                higher = false;
                 List<Player> pList = new List<Player>();
                 using (StreamReader sr = File.OpenText("../../scores.txt"))
                 {
@@ -45,14 +47,11 @@ namespace SlidingPuzzle
                         pList.Add(p);
                     }
                 }
-                foreach (Player p in pList)
+                int lowest = pList.Min(a => a.Points);
+                if(int.Parse(points) > lowest)
                 {
-                    higher = int.Parse(points) > p.Points;
-                }
-                if(higher)
-                {
-                    pList[0].writeToTxt(true);
                     lblWin.Text = "¡Ganaste en " + time + " segundos y en " + moves + " movimientos!. ¡Lo hiciste tan bien, que entraste al top ten!. Podrás guardar tu partida si asi lo deseas.";
+                    edit = pList.FindIndex(a => a.Points == lowest);
                 }
                 else
                 {
@@ -65,14 +64,28 @@ namespace SlidingPuzzle
         {
             if (txtName.Text.Trim() != "") {
                 Player winner = new Player(txtName.Text.Trim(), time, int.Parse(moves), int.Parse(points));
-                winner.writeToTxt(false);
+                if (higher)
+                {
+                    winner.Edit = edit;
+                    winner.writeToTxt(true);
+                }
+                else
+                {
+                    winner.writeToTxt(false);
+                }
                 frmScore form = new frmScore();
                 form.Show();
+                this.Hide();
             }
             else
             {
                 MessageBox.Show("No ingresó un nombre de jugador", "Jugador");
             }
+        }
+
+        private void btnNo_Click(object sender, EventArgs e)
+        {
+            this.Hide();
         }
     }
 
