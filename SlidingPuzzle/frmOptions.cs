@@ -36,31 +36,13 @@ namespace SlidingPuzzle
             optObj.animationsActive = chkAnimations.Checked;
         }
 
-        public void readFromTxt()
+        public void updateFromTxt()
         {
-            List<string> linesList = File.ReadAllLines("../../options.txt").ToList();
-            optObj.keyMoves = linesList[0] != "False";
-            optObj.multiMoves = linesList[1] != "False";
-            optObj.animationsActive = linesList[2] != "False";
-            optObj.animationSpeed = Int32.Parse(linesList[3]);
-            optObj.size = Int32.Parse(linesList[4]);
-
+            optObj.readFromTxt();
             chkKeys.Checked = optObj.keyMoves;
             checkBox1.Checked = optObj.multiMoves;
             chkAnimations.Checked = optObj.animationsActive;
             trkAnimations.Value = (optObj.animationSpeed - 55) / (-5);
-        }
-
-        public void writeToTxt()
-        {
-            List<string> linesList = new List<string>();
-            linesList.Add(optObj.keyMoves.ToString());
-            linesList.Add(optObj.multiMoves.ToString());
-            linesList.Add(optObj.animationsActive.ToString());
-            linesList.Add(optObj.animationSpeed.ToString());
-            linesList.Add(optObj.size.ToString());
-            File.WriteAllText("../../options.txt", "");
-            File.WriteAllLines("../../options.txt", linesList);
         }
 
         public void loadImage()
@@ -160,14 +142,14 @@ namespace SlidingPuzzle
 
         private void frmOptions_Load(object sender, EventArgs e)
         {
-            readFromTxt();
+            updateFromTxt();
             loadDefault();
             cboSize.SelectedIndex = 0;
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            writeToTxt();
+            optObj.writeToTxt();
             menuForm.bmpArray = bmpArray;
             menuForm.size = optObj.size;
             menuForm.animationsActive = optObj.animationsActive;
