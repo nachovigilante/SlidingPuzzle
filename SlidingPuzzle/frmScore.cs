@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Drawing.Drawing2D;
+using System.Drawing.Imaging;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -24,31 +26,40 @@ namespace SlidingPuzzle
         {
             for (int i = 0; i < tlpScore.ColumnCount; i++)
             {
-                Label l = new Label();
-                l.Size = tlpScore.Size;
-                l.TextAlign = ContentAlignment.MiddleCenter;
-                l.Font = new Font("Arial", 16.0F);
+                Button b = new Button();
+                Image image = Image.FromFile("arrow_up.png");
+                image = resizeImage(image, 16,10);
+                b.BackColor = Color.Blue;
+                b.Image = image;
+                b.TextAlign = ContentAlignment.MiddleCenter;
+                b.TextImageRelation = TextImageRelation.TextBeforeImage;
+                b.Size = tlpScore.Size;
+                b.FlatAppearance.MouseOverBackColor = Color.Transparent;
+                b.FlatAppearance.MouseDownBackColor = Color.Transparent;
+                b.FlatAppearance.BorderSize = 0;
+                b.FlatStyle = FlatStyle.Flat;
+                b.Font = new Font("Arial", 16.0F);
                 switch (i)
                 {
                     case 0:
-                        l.Text = "Nombre";
-                        l.Click += new EventHandler(lblName_Click);
+                        b.Text = "Nombre";
+                        b.Click += new EventHandler(lblName_Click);
                         break;
                     case 1:
-                        l.Text = "Movimientos";
-                        l.Click += new EventHandler(lblMoves_Click);
+                        b.Text = "Movimientos";
+                        b.Click += new EventHandler(lblMoves_Click);
                         break;
                     case 2:
-                        l.Text = "Tiempo";
-                        l.Click += new EventHandler(lblTime_Click);
+                        b.Text = "Tiempo";
+                        b.Click += new EventHandler(lblTime_Click);
                         break;
                     case 3:
-                        l.Text = "Puntos";
-                        l.Click += new EventHandler(lblPoints_Click);
+                        b.Text = "Puntos";
+                        b.Click += new EventHandler(lblPoints_Click);
                         break;
                 }
-                this.Controls.Add(l);
-                tlpScore.Controls.Add(l, i, 0);
+                this.Controls.Add(b);
+                tlpScore.Controls.Add(b, i, 0);
             }
             using (StreamReader sr = File.OpenText("../../scores.txt"))
             {
@@ -117,6 +128,30 @@ namespace SlidingPuzzle
                     tlpScore.Controls.Add(l, i, j + 1);
                 }
             }
+        }
+        public static Image resizeImage(Image image, int width, int height)
+        {
+            var destRect = new Rectangle(0, 0, width, height);
+            var destImage = new Bitmap(width, height);
+
+            destImage.SetResolution(image.HorizontalResolution, image.VerticalResolution);
+
+            using (var graphics = Graphics.FromImage(destImage))
+            {
+                graphics.CompositingMode = CompositingMode.SourceCopy;
+                graphics.CompositingQuality = CompositingQuality.HighQuality;
+                graphics.InterpolationMode = InterpolationMode.HighQualityBicubic;
+                graphics.SmoothingMode = SmoothingMode.HighQuality;
+                graphics.PixelOffsetMode = PixelOffsetMode.HighQuality;
+
+                using (var wrapMode = new ImageAttributes())
+                {
+                    wrapMode.SetWrapMode(WrapMode.TileFlipXY);
+                    graphics.DrawImage(image, destRect, 0, 0, image.Width, image.Height, GraphicsUnit.Pixel, wrapMode);
+                }
+            }
+
+            return destImage;
         }
     }
 }
