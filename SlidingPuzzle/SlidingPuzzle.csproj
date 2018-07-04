@@ -78,6 +78,7 @@
     <Compile Include="frmScore.Designer.cs">
       <DependentUpon>frmScore.cs</DependentUpon>
     </Compile>
+    <Compile Include="Options.cs" />
     <Compile Include="Piece.cs" />
     <Compile Include="Player.cs" />
     <Compile Include="Program.cs" />
@@ -130,6 +131,7 @@
     <Content Include="Images\7.jpg" />
     <Content Include="Images\8.jpg" />
     <Content Include="Images\night.jpg" />
+    <Content Include="options.txt" />
     <Content Include="scores.txt" />
     <None Include="Resources\night.bmp" />
   </ItemGroup>
