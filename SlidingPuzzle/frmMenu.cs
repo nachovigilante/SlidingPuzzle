@@ -49,6 +49,12 @@ namespace SlidingPuzzle
 
         private void frmMenu_Load(object sender, EventArgs e)
         {
+            btnPlay.FlatAppearance.MouseDownBackColor = Color.Transparent;
+            btnPlay.FlatAppearance.MouseOverBackColor = Color.Transparent;
+            btnOptions.FlatAppearance.MouseDownBackColor = Color.Transparent;
+            btnOptions.FlatAppearance.MouseOverBackColor = Color.Transparent;
+            btnScore.FlatAppearance.MouseDownBackColor = Color.Transparent;
+            btnScore.FlatAppearance.MouseOverBackColor = Color.Transparent;
             bmpArray = new Bitmap[size, size];
             Bitmap resizedImage = new Bitmap(imageToUse, new Size(300, 300));
             bmpArray = new Bitmap[size, size];

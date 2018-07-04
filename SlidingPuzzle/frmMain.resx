@@ -117,6 +117,30 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="btnBegin.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAAHcAAAAvCAYAAADZ5FUQAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAAZdEVYdFNvZnR3YXJlAEFkb2JlIEltYWdlUmVhZHlxyWU8AAAD00lEQVR4Xu2cy04UQRSG5xFI
+        mAcgPoE+gTyBb2DCA7hg7YqtK7buXLpk5cbE4JV4DRqMhqjBEE3wCt6IROJYX9MHforqdiI9TnflnOTL
+        TJ86dbqq/qrTPZvppezxxuRUYDawEFh0Wg0aodVEKV/aCAjMBwZOJ5krpTxsoQFhlyXQ6SZoeHCKuSid
+        qWCneyyW0hbieinOj1k7talGp9tsIu5M5HQywUtyxiAuv5WSjU63cXEzxsXNGBc3Y1zcjHFxM6ZxcV9+
+        PjMUqb5OszQu7rCW6us0i4ubMSMV9+3X88mSDKm+TrOMVNy/ibjy7sS+2M8+nCp861/ODTa+Xyg2hvlg
+        9ePpwg9xXuIsDzm5pj+xa5tnD8XG0MfyEkt/bdcxVqHjtD42j6oxxHPn2sYcx/4rYxWXdrOtn1cGO7vr
+        5dWe7f7eKmI+bV8uPQeGz/KwIGbkoZ/a9q+VI6KxWfDHRl8VQ8dYZSqIjkWNuXHPVF7momO2mOMylrJs
+        sXw/jtliVS2o2red2/v3Reh4A6jRZqdxmDEyT2I5rWrcUzcseW0MdXkt5riM5YXKYnWCTNyEjyfOzkYQ
+        4GSa2YlRcVnMKmFSm0FPtfqtMtBGHkUrCf2JA8Q009OvFYL++PhUoy/3tzk1QWvE1ZMFuuNt8UEFsIVI
+        +QwVwto0d/y8NCNG/YaOWU94HTq+lLi6QZqkNWU5FldPgfpTQqZ8dfFq3EdR0zyAkFrOdS4G1YENpRtI
+        zfrUzb0pWvNCFU9QF1r9KbFSvrr4YU3zUD20vNpzVqEUqxHPPFRoFzfwv8RlDFVoHi3vPPe1zVAR9c1Y
+        x2B5+TRzcUtSYqnPXoQMXXB7yak7gZzQ+HepvgXTV98BFDX160tgNuJaWUpB7CjExeiLT3PwrDRR4vJp
+        8e9/XNzfDAhKLCdQjXbiFfoRq89jy8mnmuXtvLh1RuyoxE2ZLaqBIHVm8cPktrEPE2tj7qS4DHQYiOVU
+        2LXtfoNrjTVYdPOnBKAf2CmiesRl1mCBtWTSh7Kuz0u9XxU6duLt9JOPNu5vsSZu3dybonFxx4GKa4vn
+        uLhZ4+JmjIubMVmI66RxcTPGxc2Y3r1XLm6u9G497bu4mdK7utRfePQm3eh0lwev98Sdu7nSTwY43eX6
+        cr8Q92RgcPdFOsjpHkurkwM0Lf7NJnxZdIHz4M7zfiFs4JKJO106iuP8cD3d0WkvPGPRrtRxMzBViIuF
+        i5myoeDa/f6AZzE7wWkvN57saaXaBWZKWQ8MZwDV42CnG6DddCnnUQuNE4H5wFoglcBpH2g1F5B/bu31
+        /gDav6okHeV1XQAAAABJRU5ErkJggg==
+</value>
+  </data>
   <metadata name="tmrTickExtern.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>
   </metadata>

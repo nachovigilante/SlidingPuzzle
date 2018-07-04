@@ -283,7 +283,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
             this.AutoScrollMargin = new System.Drawing.Size(0, 25);
-            this.ClientSize = new System.Drawing.Size(458, 449);
+            this.ClientSize = new System.Drawing.Size(450, 449);
             this.ControlBox = false;
             this.Controls.Add(this.grpTab);
             this.Controls.Add(this.grpControls);

@@ -45,20 +45,22 @@ namespace SlidingPuzzle
             b.showPieces(this);
             b.checkPosiblePlays();
             grpControls.Location = new Point(formSizeX - (buttonGap + 20), (formSizeY - grpControls.Size.Height) / 2 - 22);
+            btnBegin.FlatAppearance.MouseDownBackColor = Color.Transparent;
+            btnBegin.FlatAppearance.MouseOverBackColor = Color.Transparent;
         }
 
         private void btnBegin_Click(object sender, EventArgs e)
         {
-            if (btnBegin.Text == "Empezar")
+            if (!b.playing)
             {
-                btnBegin.Text = "Rendirse";
                 b.pieceArray[b.zeroX, b.zeroY].pb.Visible = false;
                 b.shuffle();
                 b.playing = true;
+                btnBegin.Image = new Bitmap("../../Images/rendirse-debil.png");
             }
             else
             {
-                btnBegin.Text = "Empezar";
+                btnBegin.Image = new Bitmap("../../Images/empezar-debil.png");
                 b.playing = false;
             }
             b.time = 0;
@@ -71,8 +73,8 @@ namespace SlidingPuzzle
         {
             lblTime.Text = b.getPlayTime();
             lblMoves.Text = b.getMoves();
-            if (!b.playing)
-                btnBegin.Text = "Empezar";
+            /*if (b.playing)
+                btnBegin.Image = new Bitmap("../../Images/rendirse-debil.png");*/
         }
 
         private void frmMain_KeyDown(object sender, KeyEventArgs e)
