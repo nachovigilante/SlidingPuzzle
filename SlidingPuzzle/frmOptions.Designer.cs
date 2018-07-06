@@ -123,6 +123,7 @@
             // 
             // cboSize
             // 
+            this.cboSize.Cursor = System.Windows.Forms.Cursors.Default;
             this.cboSize.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboSize.FormattingEnabled = true;
             this.cboSize.Items.AddRange(new object[] {
@@ -283,6 +284,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
             this.AutoScrollMargin = new System.Drawing.Size(0, 25);
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(233)))), ((int)(((byte)(165)))));
             this.ClientSize = new System.Drawing.Size(450, 449);
             this.ControlBox = false;
             this.Controls.Add(this.grpTab);
