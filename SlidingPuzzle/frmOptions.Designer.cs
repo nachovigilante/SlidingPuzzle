@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmOptions));
             this.chkAnimations = new System.Windows.Forms.CheckBox();
             this.lblAnimations = new System.Windows.Forms.Label();
             this.grpAnimations = new System.Windows.Forms.GroupBox();
@@ -236,11 +237,14 @@
             // 
             // btnVolver
             // 
-            this.btnVolver.Location = new System.Drawing.Point(11, 10);
+            this.btnVolver.FlatAppearance.BorderSize = 0;
+            this.btnVolver.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnVolver.Image = ((System.Drawing.Image)(resources.GetObject("btnVolver.Image")));
+            this.btnVolver.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnVolver.Location = new System.Drawing.Point(9, 9);
             this.btnVolver.Name = "btnVolver";
-            this.btnVolver.Size = new System.Drawing.Size(34, 33);
+            this.btnVolver.Size = new System.Drawing.Size(43, 47);
             this.btnVolver.TabIndex = 12;
-            this.btnVolver.Text = "Volver al menú";
             this.btnVolver.UseVisualStyleBackColor = true;
             this.btnVolver.Click += new System.EventHandler(this.button1_Click);
             // 
