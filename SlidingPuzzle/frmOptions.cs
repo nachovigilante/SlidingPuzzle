@@ -181,5 +181,60 @@ namespace SlidingPuzzle
             btnVolver.Location = newLocation;
             //Console.WriteLine("LocationY: " + btnVolver.Location.Y);            
         }
+
+        private void lblPreview_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void grpTab_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblFile_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblSize_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblDefault_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblVel_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void grpAnimations_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblAnimations_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblKeys_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void grpControls_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblMulti_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
