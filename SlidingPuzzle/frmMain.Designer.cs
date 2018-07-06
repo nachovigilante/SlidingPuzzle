@@ -49,11 +49,13 @@
             this.grpControls.Controls.Add(this.lblMovesTitle);
             this.grpControls.Controls.Add(this.lblTime);
             this.grpControls.Controls.Add(this.lblTimeTitle);
+            this.grpControls.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.grpControls.Location = new System.Drawing.Point(236, 22);
             this.grpControls.Name = "grpControls";
             this.grpControls.Size = new System.Drawing.Size(170, 366);
             this.grpControls.TabIndex = 0;
             this.grpControls.TabStop = false;
+            this.grpControls.Enter += new System.EventHandler(this.grpControls_Enter);
             this.grpControls.PreviewKeyDown += new System.Windows.Forms.PreviewKeyDownEventHandler(this.grpControls_PreviewKeyDown);
             // 
             // btnVolver
@@ -70,6 +72,7 @@
             // btnBegin
             // 
             this.btnBegin.BackColor = System.Drawing.Color.Transparent;
+            this.btnBegin.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnBegin.FlatAppearance.BorderSize = 0;
             this.btnBegin.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnBegin.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -134,7 +137,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.White;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(129)))), ((int)(((byte)(71)))));
             this.ClientSize = new System.Drawing.Size(428, 433);
             this.Controls.Add(this.grpControls);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;

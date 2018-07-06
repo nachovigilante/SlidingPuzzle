@@ -36,6 +36,7 @@
             // 
             // btnPlay
             // 
+            this.btnPlay.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnPlay.FlatAppearance.BorderSize = 0;
             this.btnPlay.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnPlay.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -49,6 +50,7 @@
             // 
             // btnScore
             // 
+            this.btnScore.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnScore.FlatAppearance.BorderSize = 0;
             this.btnScore.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnScore.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -62,6 +64,7 @@
             // 
             // btnOptions
             // 
+            this.btnOptions.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnOptions.FlatAppearance.BorderSize = 0;
             this.btnOptions.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnOptions.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));

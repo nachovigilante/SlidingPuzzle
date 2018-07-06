@@ -184,5 +184,10 @@ namespace SlidingPuzzle
             formMenu.Show();
             Hide();
         }
+
+        private void grpControls_Enter(object sender, EventArgs e)
+        {
+
+        }
     }
 }
