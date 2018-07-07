@@ -33,6 +33,7 @@
             this.chkAnimations = new System.Windows.Forms.CheckBox();
             this.lblAnimations = new System.Windows.Forms.Label();
             this.grpAnimations = new System.Windows.Forms.GroupBox();
+            this.colorSlider2 = new ColorSlider.ColorSlider();
             this.trkAnimations = new System.Windows.Forms.TrackBar();
             this.lblVel = new System.Windows.Forms.Label();
             this.lblSize = new System.Windows.Forms.Label();
@@ -83,6 +84,7 @@
             // 
             // grpAnimations
             // 
+            this.grpAnimations.Controls.Add(this.colorSlider2);
             this.grpAnimations.Controls.Add(this.trkAnimations);
             this.grpAnimations.Controls.Add(this.lblVel);
             this.grpAnimations.Controls.Add(this.lblAnimations);
@@ -90,11 +92,47 @@
             this.grpAnimations.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.grpAnimations.Location = new System.Drawing.Point(60, 114);
             this.grpAnimations.Name = "grpAnimations";
-            this.grpAnimations.Size = new System.Drawing.Size(418, 157);
+            this.grpAnimations.Size = new System.Drawing.Size(418, 162);
             this.grpAnimations.TabIndex = 3;
             this.grpAnimations.TabStop = false;
             this.grpAnimations.Text = "Configuración de las animaciones";
             this.grpAnimations.Enter += new System.EventHandler(this.grpAnimations_Enter);
+            // 
+            // colorSlider2
+            // 
+            this.colorSlider2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(233)))), ((int)(((byte)(165)))));
+            this.colorSlider2.BarInnerColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(162)))), ((int)(((byte)(38)))));
+            this.colorSlider2.BarPenColorBottom = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(162)))), ((int)(((byte)(38)))));
+            this.colorSlider2.BarPenColorTop = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(162)))), ((int)(((byte)(38)))));
+            this.colorSlider2.BorderRoundRectSize = new System.Drawing.Size(8, 8);
+            this.colorSlider2.ElapsedInnerColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(135)))), ((int)(((byte)(7)))));
+            this.colorSlider2.ElapsedPenColorBottom = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(135)))), ((int)(((byte)(7)))));
+            this.colorSlider2.ElapsedPenColorTop = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(135)))), ((int)(((byte)(7)))));
+            this.colorSlider2.Font = new System.Drawing.Font("Microsoft Sans Serif", 6F);
+            this.colorSlider2.ForeColor = System.Drawing.Color.Black;
+            this.colorSlider2.LargeChange = ((uint)(5u));
+            this.colorSlider2.Location = new System.Drawing.Point(36, 96);
+            this.colorSlider2.Maximum = 10;
+            this.colorSlider2.Minimum = 1;
+            this.colorSlider2.Name = "colorSlider2";
+            this.colorSlider2.ScaleDivisions = 10;
+            this.colorSlider2.ScaleSubDivisions = 5;
+            this.colorSlider2.ShowDivisionsText = true;
+            this.colorSlider2.ShowSmallScale = false;
+            this.colorSlider2.Size = new System.Drawing.Size(347, 48);
+            this.colorSlider2.SmallChange = ((uint)(1u));
+            this.colorSlider2.TabIndex = 2;
+            this.colorSlider2.Text = "colorSlider";
+            this.colorSlider2.ThumbInnerColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(90)))), ((int)(((byte)(8)))));
+            this.colorSlider2.ThumbOuterColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(90)))), ((int)(((byte)(8)))));
+            this.colorSlider2.ThumbPenColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(90)))), ((int)(((byte)(8)))));
+            this.colorSlider2.ThumbRoundRectSize = new System.Drawing.Size(12, 12);
+            this.colorSlider2.ThumbSize = new System.Drawing.Size(20, 24);
+            this.colorSlider2.TickAdd = 0F;
+            this.colorSlider2.TickColor = System.Drawing.Color.Black;
+            this.colorSlider2.TickDivide = 0F;
+            this.colorSlider2.TickStyle = System.Windows.Forms.TickStyle.None;
+            this.colorSlider2.Value = 5;
             // 
             // trkAnimations
             // 
@@ -105,6 +143,7 @@
             this.trkAnimations.Size = new System.Drawing.Size(364, 35);
             this.trkAnimations.TabIndex = 1;
             this.trkAnimations.Value = 5;
+            this.trkAnimations.Visible = false;
             this.trkAnimations.Scroll += new System.EventHandler(this.trkAnimations_Scroll);
             // 
             // lblVel
@@ -328,7 +367,6 @@
         private System.Windows.Forms.CheckBox chkAnimations;
         private System.Windows.Forms.Label lblAnimations;
         private System.Windows.Forms.GroupBox grpAnimations;
-        private System.Windows.Forms.TrackBar trkAnimations;
         private System.Windows.Forms.Label lblVel;
         private System.Windows.Forms.Label lblSize;
         private System.Windows.Forms.ComboBox cboSize;
@@ -344,5 +382,7 @@
         private System.Windows.Forms.Label lblMulti;
         private System.Windows.Forms.CheckBox checkBox1;
         private System.Windows.Forms.GroupBox grpTab;
+        private ColorSlider.ColorSlider colorSlider2;
+        private System.Windows.Forms.TrackBar trkAnimations;
     }
 }
