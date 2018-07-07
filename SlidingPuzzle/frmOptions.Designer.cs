@@ -90,9 +90,9 @@
             this.grpAnimations.Controls.Add(this.lblAnimations);
             this.grpAnimations.Controls.Add(this.chkAnimations);
             this.grpAnimations.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.grpAnimations.Location = new System.Drawing.Point(60, 114);
+            this.grpAnimations.Location = new System.Drawing.Point(68, 110);
             this.grpAnimations.Name = "grpAnimations";
-            this.grpAnimations.Size = new System.Drawing.Size(418, 162);
+            this.grpAnimations.Size = new System.Drawing.Size(430, 162);
             this.grpAnimations.TabIndex = 3;
             this.grpAnimations.TabStop = false;
             this.grpAnimations.Text = "Configuración de las animaciones";
@@ -133,6 +133,7 @@
             this.colorSlider2.TickDivide = 0F;
             this.colorSlider2.TickStyle = System.Windows.Forms.TickStyle.None;
             this.colorSlider2.Value = 5;
+            this.colorSlider2.Scroll += new System.Windows.Forms.ScrollEventHandler(this.colorSlider2_Scroll);
             // 
             // trkAnimations
             // 
@@ -245,9 +246,9 @@
             // 
             // btnFile
             // 
-            this.btnFile.Location = new System.Drawing.Point(46, 132);
+            this.btnFile.Location = new System.Drawing.Point(36, 132);
             this.btnFile.Name = "btnFile";
-            this.btnFile.Size = new System.Drawing.Size(126, 27);
+            this.btnFile.Size = new System.Drawing.Size(151, 35);
             this.btnFile.TabIndex = 0;
             this.btnFile.Text = "Seleccionar imagen";
             this.btnFile.UseVisualStyleBackColor = true;
@@ -266,9 +267,9 @@
             // 
             // btnLoadDefault
             // 
-            this.btnLoadDefault.Location = new System.Drawing.Point(190, 132);
+            this.btnLoadDefault.Location = new System.Drawing.Point(206, 132);
             this.btnLoadDefault.Name = "btnLoadDefault";
-            this.btnLoadDefault.Size = new System.Drawing.Size(126, 27);
+            this.btnLoadDefault.Size = new System.Drawing.Size(151, 35);
             this.btnLoadDefault.TabIndex = 9;
             this.btnLoadDefault.Text = "Cargar imagen default";
             this.btnLoadDefault.UseVisualStyleBackColor = true;
@@ -276,6 +277,7 @@
             // 
             // btnVolver
             // 
+            this.btnVolver.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnVolver.FlatAppearance.BorderSize = 0;
             this.btnVolver.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnVolver.Image = ((System.Drawing.Image)(resources.GetObject("btnVolver.Image")));
@@ -294,9 +296,9 @@
             this.grpControls.Controls.Add(this.lblKeys);
             this.grpControls.Controls.Add(this.chkKeys);
             this.grpControls.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.grpControls.Location = new System.Drawing.Point(60, 39);
+            this.grpControls.Location = new System.Drawing.Point(68, 35);
             this.grpControls.Name = "grpControls";
-            this.grpControls.Size = new System.Drawing.Size(418, 64);
+            this.grpControls.Size = new System.Drawing.Size(430, 64);
             this.grpControls.TabIndex = 13;
             this.grpControls.TabStop = false;
             this.grpControls.Text = "Controles";
@@ -322,9 +324,9 @@
             this.grpTab.Controls.Add(this.cboSize);
             this.grpTab.Controls.Add(this.lblSize);
             this.grpTab.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.grpTab.Location = new System.Drawing.Point(60, 282);
+            this.grpTab.Location = new System.Drawing.Point(68, 278);
             this.grpTab.Name = "grpTab";
-            this.grpTab.Size = new System.Drawing.Size(418, 453);
+            this.grpTab.Size = new System.Drawing.Size(430, 453);
             this.grpTab.TabIndex = 14;
             this.grpTab.TabStop = false;
             this.grpTab.Text = "Imagen:";

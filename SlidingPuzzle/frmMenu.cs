@@ -55,6 +55,8 @@ namespace SlidingPuzzle
             btnOptions.FlatAppearance.MouseOverBackColor = Color.Transparent;
             btnScore.FlatAppearance.MouseDownBackColor = Color.Transparent;
             btnScore.FlatAppearance.MouseOverBackColor = Color.Transparent;
+            btnOut.FlatAppearance.MouseDownBackColor = Color.Transparent;
+            btnOut.FlatAppearance.MouseOverBackColor = Color.Transparent;
             bmpArray = new Bitmap[size, size];
             Bitmap resizedImage = new Bitmap(imageToUse, new Size(300, 300));
             bmpArray = new Bitmap[size, size];
@@ -69,6 +71,11 @@ namespace SlidingPuzzle
                     bmpArray[x, y] = tile;
                 }
             }
+        }
+
+        private void btnOut_Click(object sender, EventArgs e)
+        {
+            Close();
         }
     }
 }

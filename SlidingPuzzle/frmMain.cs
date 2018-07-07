@@ -47,6 +47,8 @@ namespace SlidingPuzzle
             grpControls.Location = new Point(formSizeX - (buttonGap + 20), (formSizeY - grpControls.Size.Height) / 2 - 22);
             btnBegin.FlatAppearance.MouseDownBackColor = Color.Transparent;
             btnBegin.FlatAppearance.MouseOverBackColor = Color.Transparent;
+            btnVolver.FlatAppearance.MouseDownBackColor = Color.Transparent;
+            btnVolver.FlatAppearance.MouseOverBackColor = Color.Transparent;
         }
 
         private void btnBegin_Click(object sender, EventArgs e)

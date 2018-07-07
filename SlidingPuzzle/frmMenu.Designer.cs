@@ -33,6 +33,7 @@
             this.btnScore = new System.Windows.Forms.Button();
             this.btnOptions = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.btnOut = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -87,12 +88,28 @@
             this.pictureBox1.TabIndex = 4;
             this.pictureBox1.TabStop = false;
             // 
+            // btnOut
+            // 
+            this.btnOut.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnOut.FlatAppearance.BorderSize = 0;
+            this.btnOut.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnOut.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnOut.Image = ((System.Drawing.Image)(resources.GetObject("btnOut.Image")));
+            this.btnOut.Location = new System.Drawing.Point(94, 421);
+            this.btnOut.Name = "btnOut";
+            this.btnOut.Size = new System.Drawing.Size(171, 60);
+            this.btnOut.TabIndex = 5;
+            this.btnOut.UseVisualStyleBackColor = true;
+            this.btnOut.Click += new System.EventHandler(this.btnOut_Click);
+            // 
             // frmMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(233)))), ((int)(((byte)(165)))));
-            this.ClientSize = new System.Drawing.Size(359, 450);
+            this.ClientSize = new System.Drawing.Size(359, 507);
+            this.ControlBox = false;
+            this.Controls.Add(this.btnOut);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.btnOptions);
             this.Controls.Add(this.btnScore);
@@ -114,5 +131,6 @@
         private System.Windows.Forms.Button btnScore;
         private System.Windows.Forms.Button btnOptions;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Button btnOut;
     }
 }

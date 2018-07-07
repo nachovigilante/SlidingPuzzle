@@ -143,6 +143,12 @@ namespace SlidingPuzzle
 
         private void frmOptions_Load(object sender, EventArgs e)
         {
+            btnVolver.FlatAppearance.MouseDownBackColor = Color.Transparent;
+            btnVolver.FlatAppearance.MouseOverBackColor = Color.Transparent;
+            btnFile.FlatAppearance.MouseDownBackColor = Color.Transparent;
+            btnFile.FlatAppearance.MouseOverBackColor = Color.Transparent;
+            btnLoadDefault.FlatAppearance.MouseDownBackColor = Color.Transparent;
+            btnLoadDefault.FlatAppearance.MouseOverBackColor = Color.Transparent;
             updateFromTxt();
             loadDefault();
             cboSize.SelectedIndex = 0;
@@ -236,6 +242,11 @@ namespace SlidingPuzzle
         private void lblMulti_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void colorSlider2_Scroll(object sender, ScrollEventArgs e)
+        {
+            optObj.animationSpeed = 55 - 5 * colorSlider2.Value;
         }
     }
 }
