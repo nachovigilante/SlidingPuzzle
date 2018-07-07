@@ -109,7 +109,7 @@
             this.colorSlider2.ElapsedPenColorBottom = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(135)))), ((int)(((byte)(7)))));
             this.colorSlider2.ElapsedPenColorTop = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(135)))), ((int)(((byte)(7)))));
             this.colorSlider2.Font = new System.Drawing.Font("Microsoft Sans Serif", 6F);
-            this.colorSlider2.ForeColor = System.Drawing.Color.Black;
+            this.colorSlider2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(90)))), ((int)(((byte)(8)))));
             this.colorSlider2.LargeChange = ((uint)(5u));
             this.colorSlider2.Location = new System.Drawing.Point(36, 96);
             this.colorSlider2.Maximum = 10;
@@ -129,7 +129,7 @@
             this.colorSlider2.ThumbRoundRectSize = new System.Drawing.Size(12, 12);
             this.colorSlider2.ThumbSize = new System.Drawing.Size(20, 24);
             this.colorSlider2.TickAdd = 0F;
-            this.colorSlider2.TickColor = System.Drawing.Color.Black;
+            this.colorSlider2.TickColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(90)))), ((int)(((byte)(8)))));
             this.colorSlider2.TickDivide = 0F;
             this.colorSlider2.TickStyle = System.Windows.Forms.TickStyle.None;
             this.colorSlider2.Value = 5;
@@ -246,9 +246,9 @@
             // 
             // btnFile
             // 
-            this.btnFile.Location = new System.Drawing.Point(36, 132);
+            this.btnFile.Location = new System.Drawing.Point(48, 132);
             this.btnFile.Name = "btnFile";
-            this.btnFile.Size = new System.Drawing.Size(151, 35);
+            this.btnFile.Size = new System.Drawing.Size(164, 41);
             this.btnFile.TabIndex = 0;
             this.btnFile.Text = "Seleccionar imagen";
             this.btnFile.UseVisualStyleBackColor = true;
@@ -258,7 +258,7 @@
             // 
             this.lblPreview.AutoSize = true;
             this.lblPreview.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPreview.Location = new System.Drawing.Point(22, 183);
+            this.lblPreview.Location = new System.Drawing.Point(22, 205);
             this.lblPreview.Name = "lblPreview";
             this.lblPreview.Size = new System.Drawing.Size(96, 19);
             this.lblPreview.TabIndex = 11;
@@ -267,9 +267,9 @@
             // 
             // btnLoadDefault
             // 
-            this.btnLoadDefault.Location = new System.Drawing.Point(206, 132);
+            this.btnLoadDefault.Location = new System.Drawing.Point(218, 132);
             this.btnLoadDefault.Name = "btnLoadDefault";
-            this.btnLoadDefault.Size = new System.Drawing.Size(151, 35);
+            this.btnLoadDefault.Size = new System.Drawing.Size(164, 41);
             this.btnLoadDefault.TabIndex = 9;
             this.btnLoadDefault.Text = "Cargar imagen default";
             this.btnLoadDefault.UseVisualStyleBackColor = true;
@@ -326,7 +326,7 @@
             this.grpTab.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.grpTab.Location = new System.Drawing.Point(68, 278);
             this.grpTab.Name = "grpTab";
-            this.grpTab.Size = new System.Drawing.Size(430, 453);
+            this.grpTab.Size = new System.Drawing.Size(430, 515);
             this.grpTab.TabIndex = 14;
             this.grpTab.TabStop = false;
             this.grpTab.Text = "Imagen:";
@@ -339,7 +339,7 @@
             this.AutoScroll = true;
             this.AutoScrollMargin = new System.Drawing.Size(0, 25);
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(233)))), ((int)(((byte)(165)))));
-            this.ClientSize = new System.Drawing.Size(548, 449);
+            this.ClientSize = new System.Drawing.Size(548, 440);
             this.ControlBox = false;
             this.Controls.Add(this.grpTab);
             this.Controls.Add(this.grpControls);
