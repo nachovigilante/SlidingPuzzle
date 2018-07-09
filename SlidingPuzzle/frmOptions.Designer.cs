@@ -50,6 +50,8 @@
             this.grpControls = new System.Windows.Forms.GroupBox();
             this.lblMulti = new System.Windows.Forms.Label();
             this.grpTab = new System.Windows.Forms.GroupBox();
+            this.notifyIcon1 = new System.Windows.Forms.NotifyIcon(this.components);
+            this.cusCboSize = new FlattenCombo.CustomCombo();
             this.grpAnimations.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.trkAnimations)).BeginInit();
             this.grpControls.SuspendLayout();
@@ -151,7 +153,7 @@
             // 
             this.lblVel.AutoSize = true;
             this.lblVel.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblVel.Location = new System.Drawing.Point(25, 74);
+            this.lblVel.Location = new System.Drawing.Point(25, 78);
             this.lblVel.Name = "lblVel";
             this.lblVel.Size = new System.Drawing.Size(83, 19);
             this.lblVel.TabIndex = 0;
@@ -302,6 +304,7 @@
             this.grpControls.TabIndex = 13;
             this.grpControls.TabStop = false;
             this.grpControls.Text = "Controles";
+            this.grpControls.Paint += new System.Windows.Forms.PaintEventHandler(this.grpControls_Paint);
             this.grpControls.Enter += new System.EventHandler(this.grpControls_Enter);
             // 
             // lblMulti
@@ -317,6 +320,7 @@
             // 
             // grpTab
             // 
+            this.grpTab.Controls.Add(this.cusCboSize);
             this.grpTab.Controls.Add(this.lblFile);
             this.grpTab.Controls.Add(this.btnFile);
             this.grpTab.Controls.Add(this.btnLoadDefault);
@@ -332,6 +336,30 @@
             this.grpTab.Text = "Imagen:";
             this.grpTab.Enter += new System.EventHandler(this.grpTab_Enter);
             // 
+            // notifyIcon1
+            // 
+            this.notifyIcon1.Text = "notifyIcon1";
+            this.notifyIcon1.Visible = true;
+            // 
+            // cusCboSize
+            // 
+            this.cusCboSize.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(90)))), ((int)(((byte)(8)))));
+            this.cusCboSize.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(90)))), ((int)(((byte)(8)))));
+            this.cusCboSize.BorderStyle = System.Windows.Forms.ButtonBorderStyle.Solid;
+            this.cusCboSize.ButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(90)))), ((int)(((byte)(8)))));
+            this.cusCboSize.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cusCboSize.ForeColor = System.Drawing.Color.White;
+            this.cusCboSize.FormattingEnabled = true;
+            this.cusCboSize.Items.AddRange(new object[] {
+            "3x3",
+            "4x4",
+            "5x5"});
+            this.cusCboSize.Location = new System.Drawing.Point(261, 44);
+            this.cusCboSize.Name = "cusCboSize";
+            this.cusCboSize.Size = new System.Drawing.Size(65, 27);
+            this.cusCboSize.TabIndex = 13;
+            this.cusCboSize.Visible = false;
+            // 
             // frmOptions
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -339,7 +367,7 @@
             this.AutoScroll = true;
             this.AutoScrollMargin = new System.Drawing.Size(0, 25);
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(233)))), ((int)(((byte)(165)))));
-            this.ClientSize = new System.Drawing.Size(548, 440);
+            this.ClientSize = new System.Drawing.Size(582, 440);
             this.ControlBox = false;
             this.Controls.Add(this.grpTab);
             this.Controls.Add(this.grpControls);
@@ -386,5 +414,7 @@
         private System.Windows.Forms.GroupBox grpTab;
         private ColorSlider.ColorSlider colorSlider2;
         private System.Windows.Forms.TrackBar trkAnimations;
+        private System.Windows.Forms.NotifyIcon notifyIcon1;
+        private FlattenCombo.CustomCombo cusCboSize;
     }
 }

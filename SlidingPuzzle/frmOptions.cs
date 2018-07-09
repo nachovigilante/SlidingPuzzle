@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Drawing.Drawing2D;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -32,6 +33,16 @@ namespace SlidingPuzzle
         //public bool keyMoves = true;
         //public bool multiMoves = true;
 
+        protected override CreateParams CreateParams
+        {
+            get
+            {
+                CreateParams cp = base.CreateParams;
+                cp.ExStyle |= 0x02000000;  // Turn on WS_EX_COMPOSITED
+                return cp;
+            }
+        }
+
         private void chkAnimations_CheckedChanged(object sender, EventArgs e)
         {
             optObj.animationsActive = chkAnimations.Checked;
@@ -43,7 +54,7 @@ namespace SlidingPuzzle
             chkKeys.Checked = optObj.keyMoves;
             checkBox1.Checked = optObj.multiMoves;
             chkAnimations.Checked = optObj.animationsActive;
-            trkAnimations.Value = (optObj.animationSpeed - 55) / (-5);
+            colorSlider2.Value = (optObj.animationSpeed - 55) / (-5);
         }
 
         public void loadImage()
@@ -111,7 +122,7 @@ namespace SlidingPuzzle
                     pbArray[x, y].Size = new Size(tileSize, tileSize);
                     pbArray[x, y].BackColor = Color.White;
                     pbArray[x, y].BackgroundImageLayout = ImageLayout.Stretch;
-                    pbArray[x, y].Location = new Point(grpTab.Location.X + tileSize * x + 5 * x + (grpTab.Width - tileSize * optObj.size)/2, grpTab.Location.Y + 210 + 5 * y + tileSize * y);
+                    pbArray[x, y].Location = new Point(grpTab.Location.X + tileSize * x + 5 * x + (grpTab.Width - tileSize * optObj.size)/2, grpTab.Location.Y + 250 + 5 * y + tileSize * y);
                     pbArray[x, y].Anchor = AnchorStyles.Left;
                     pbArray[x, y].Visible = true;
                     pbArray[x, y].BringToFront();
@@ -152,6 +163,7 @@ namespace SlidingPuzzle
             updateFromTxt();
             loadDefault();
             cboSize.SelectedIndex = 0;
+            cusCboSize.SelectedIndex = 0;
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -184,8 +196,8 @@ namespace SlidingPuzzle
 
         private void frmOptions_Scroll(object sender, ScrollEventArgs e)
         {
-            Point newLocation = new Point(btnVolver.Location.X, 10);
-            btnVolver.Location = newLocation;
+            /*Point newLocation = new Point(btnVolver.Location.X, 10);
+            btnVolver.Location = newLocation;*/
             //Console.WriteLine("LocationY: " + btnVolver.Location.Y);            
         }
 
@@ -247,6 +259,81 @@ namespace SlidingPuzzle
         private void colorSlider2_Scroll(object sender, ScrollEventArgs e)
         {
             optObj.animationSpeed = 55 - 5 * colorSlider2.Value;
+        }
+
+        private void grpControls_Paint(object sender, PaintEventArgs e)
+        {
+            GroupBox box = sender as GroupBox;
+            DrawGroupBox(box, e.Graphics, Color.Black, Color.FromArgb(255, 233, 165));
+        }
+
+        private void DrawGroupBox(GroupBox box, Graphics g, Color textColor, Color borderColor)
+        {
+            if (box != null)
+            {
+                Brush textBrush = new SolidBrush(textColor);
+                Brush borderBrush = new SolidBrush(Color.FromArgb(255, 136, 16));
+                Pen borderPen = new Pen(borderBrush);
+                SizeF strSize = g.MeasureString(box.Text, box.Font);
+                Rectangle rect = new Rectangle(box.ClientRectangle.X,
+                                               box.ClientRectangle.Y + (int)(strSize.Height / 2),
+                                               box.ClientRectangle.Width - 1,
+                                               box.ClientRectangle.Height - (int)(strSize.Height / 2) - 1);
+
+                // Clear text and border
+                g.Clear(this.BackColor);
+
+                //g.FillPath(borderBrush, RoundedRect(rect, 10));
+
+                // Draw text
+                g.DrawString(box.Text, box.Font, textBrush, box.Padding.Left, 0);
+
+                
+
+                // Drawing Border
+                //Left
+                //g.DrawLine(borderPen, rect.Location, new Point(rect.X, rect.Y + rect.Height));
+                //Right
+                //g.DrawLine(borderPen, new Point(rect.X + rect.Width, rect.Y), new Point(rect.X + rect.Width, rect.Y + rect.Height));
+                //Bottom
+                //g.DrawLine(borderPen, new Point(rect.X, rect.Y + rect.Height), new Point(rect.X + rect.Width, rect.Y + rect.Height));
+                //Top1
+                g.DrawLine(borderPen, new Point(rect.X, rect.Y), new Point(rect.X + box.Padding.Left, rect.Y));
+                //Top2
+                g.DrawLine(borderPen, new Point(rect.X + box.Padding.Left + (int)(strSize.Width), rect.Y), new Point(rect.X + rect.Width, rect.Y));
+            }
+        }
+
+        public static GraphicsPath RoundedRect(Rectangle bounds, int radius)
+        {
+            int diameter = radius * 2;
+            Size size = new Size(diameter, diameter);
+            Rectangle arc = new Rectangle(bounds.Location, size);
+            GraphicsPath path = new GraphicsPath();
+
+            if (radius == 0)
+            {
+                path.AddRectangle(bounds);
+                return path;
+            }
+
+            // top left arc  
+            path.AddArc(arc, 180, 90);
+
+            // top right arc  
+            arc.X = bounds.Right - diameter;
+            path.AddArc(arc, 270, 90);
+
+            // bottom right arc  
+            arc.Y = bounds.Bottom - diameter;
+            path.AddArc(arc, 0, 90);
+
+            // bottom left arc 
+            arc.X = bounds.Left;
+            path.AddArc(arc, 90, 90);
+
+            path.CloseFigure();
+            return path;
         }
     }
 }
