@@ -26,6 +26,8 @@ namespace SlidingPuzzle
 
         private void frmScore_Load(object sender, EventArgs e)
         {
+            btnVolver.FlatAppearance.MouseDownBackColor = Color.Transparent;
+            btnVolver.FlatAppearance.MouseOverBackColor = Color.Transparent;
             image = resizeImage(Image.FromFile("../../Images/empty.png"), 16, 10);
             arrup = resizeImage(Image.FromFile("../../Images/arrow_up.png"), 16, 10);
             arrdown = resizeImage(Image.FromFile("../../Images/arrow_down.png"), 16, 10);
@@ -188,6 +190,21 @@ namespace SlidingPuzzle
             btn.Image = resizeImage(image, 16, 10);
 
             return s;
+        }
+
+        private void btnVolver_Click(object sender, EventArgs e)
+        {
+            Hide();
+        }
+
+        private void btnVolver_MouseEnter(object sender, EventArgs e)
+        {
+            btnVolver.Image = Image.FromFile("../../Images/back-h.png");
+        }
+
+        private void btnVolver_MouseLeave(object sender, EventArgs e)
+        {
+            btnVolver.Image = Image.FromFile("../../Images/back.png");
         }
 
         private void refreshScores()

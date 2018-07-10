@@ -41,7 +41,7 @@ namespace SlidingPuzzle
             int formSizeX = offset * 2 + squareSize * size + buttonGap;
             int formSizeY = offset * 2 + squareSize * size + offset;
             b = new Board(size, squareSize, offset, squareSize, bmpArray, animationsActive, animationSpeed, multiMoves);
-            Size = new Size(formSizeX, formSizeY);
+            Size = new Size(formSizeX - 40, formSizeY - 40);
             b.showPieces(this);
             b.checkPosiblePlays();
             grpControls.Location = new Point(formSizeX - (buttonGap + 20), (formSizeY - grpControls.Size.Height) / 2 - 22);

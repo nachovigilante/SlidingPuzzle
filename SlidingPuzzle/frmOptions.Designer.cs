@@ -33,6 +33,7 @@
             this.chkAnimations = new System.Windows.Forms.CheckBox();
             this.lblAnimations = new System.Windows.Forms.Label();
             this.grpAnimations = new System.Windows.Forms.GroupBox();
+            this.colorSlider2 = new ColorSlider.ColorSlider();
             this.lblVel = new System.Windows.Forms.Label();
             this.lblSize = new System.Windows.Forms.Label();
             this.cboSize = new System.Windows.Forms.ComboBox();
@@ -49,7 +50,6 @@
             this.lblMulti = new System.Windows.Forms.Label();
             this.grpTab = new System.Windows.Forms.GroupBox();
             this.notifyIcon1 = new System.Windows.Forms.NotifyIcon(this.components);
-            this.colorSlider2 = new ColorSlider.ColorSlider();
             this.grpAnimations.SuspendLayout();
             this.grpControls.SuspendLayout();
             this.grpTab.SuspendLayout();
@@ -96,6 +96,43 @@
             this.grpAnimations.Text = "Animaciones";
             this.grpAnimations.Paint += new System.Windows.Forms.PaintEventHandler(this.grpAnimations_Paint);
             this.grpAnimations.Enter += new System.EventHandler(this.grpAnimations_Enter);
+            // 
+            // colorSlider2
+            // 
+            this.colorSlider2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.colorSlider2.BarInnerColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(162)))), ((int)(((byte)(38)))));
+            this.colorSlider2.BarPenColorBottom = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(162)))), ((int)(((byte)(38)))));
+            this.colorSlider2.BarPenColorTop = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(162)))), ((int)(((byte)(38)))));
+            this.colorSlider2.BorderRoundRectSize = new System.Drawing.Size(8, 8);
+            this.colorSlider2.ElapsedInnerColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(90)))), ((int)(((byte)(8)))));
+            this.colorSlider2.ElapsedPenColorBottom = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(90)))), ((int)(((byte)(8)))));
+            this.colorSlider2.ElapsedPenColorTop = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(90)))), ((int)(((byte)(8)))));
+            this.colorSlider2.Font = new System.Drawing.Font("Microsoft Sans Serif", 6F);
+            this.colorSlider2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(90)))), ((int)(((byte)(8)))));
+            this.colorSlider2.LargeChange = ((uint)(5u));
+            this.colorSlider2.Location = new System.Drawing.Point(34, 115);
+            this.colorSlider2.Maximum = 10;
+            this.colorSlider2.Minimum = 1;
+            this.colorSlider2.Name = "colorSlider2";
+            this.colorSlider2.ScaleDivisions = 10;
+            this.colorSlider2.ScaleSubDivisions = 5;
+            this.colorSlider2.ShowDivisionsText = true;
+            this.colorSlider2.ShowSmallScale = false;
+            this.colorSlider2.Size = new System.Drawing.Size(347, 48);
+            this.colorSlider2.SmallChange = ((uint)(1u));
+            this.colorSlider2.TabIndex = 2;
+            this.colorSlider2.Text = "colorSlider";
+            this.colorSlider2.ThumbInnerColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(90)))), ((int)(((byte)(8)))));
+            this.colorSlider2.ThumbOuterColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(90)))), ((int)(((byte)(8)))));
+            this.colorSlider2.ThumbPenColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(90)))), ((int)(((byte)(8)))));
+            this.colorSlider2.ThumbRoundRectSize = new System.Drawing.Size(12, 12);
+            this.colorSlider2.ThumbSize = new System.Drawing.Size(20, 24);
+            this.colorSlider2.TickAdd = 0F;
+            this.colorSlider2.TickColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(90)))), ((int)(((byte)(8)))));
+            this.colorSlider2.TickDivide = 0F;
+            this.colorSlider2.TickStyle = System.Windows.Forms.TickStyle.None;
+            this.colorSlider2.Value = 5;
+            this.colorSlider2.Scroll += new System.Windows.Forms.ScrollEventHandler(this.colorSlider2_Scroll);
             // 
             // lblVel
             // 
@@ -301,43 +338,6 @@
             this.notifyIcon1.Text = "notifyIcon1";
             this.notifyIcon1.Visible = true;
             // 
-            // colorSlider2
-            // 
-            this.colorSlider2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.colorSlider2.BarInnerColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(162)))), ((int)(((byte)(38)))));
-            this.colorSlider2.BarPenColorBottom = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(162)))), ((int)(((byte)(38)))));
-            this.colorSlider2.BarPenColorTop = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(162)))), ((int)(((byte)(38)))));
-            this.colorSlider2.BorderRoundRectSize = new System.Drawing.Size(8, 8);
-            this.colorSlider2.ElapsedInnerColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(90)))), ((int)(((byte)(8)))));
-            this.colorSlider2.ElapsedPenColorBottom = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(90)))), ((int)(((byte)(8)))));
-            this.colorSlider2.ElapsedPenColorTop = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(90)))), ((int)(((byte)(8)))));
-            this.colorSlider2.Font = new System.Drawing.Font("Microsoft Sans Serif", 6F);
-            this.colorSlider2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(90)))), ((int)(((byte)(8)))));
-            this.colorSlider2.LargeChange = ((uint)(5u));
-            this.colorSlider2.Location = new System.Drawing.Point(34, 115);
-            this.colorSlider2.Maximum = 10;
-            this.colorSlider2.Minimum = 1;
-            this.colorSlider2.Name = "colorSlider2";
-            this.colorSlider2.ScaleDivisions = 10;
-            this.colorSlider2.ScaleSubDivisions = 5;
-            this.colorSlider2.ShowDivisionsText = true;
-            this.colorSlider2.ShowSmallScale = false;
-            this.colorSlider2.Size = new System.Drawing.Size(347, 48);
-            this.colorSlider2.SmallChange = ((uint)(1u));
-            this.colorSlider2.TabIndex = 2;
-            this.colorSlider2.Text = "colorSlider";
-            this.colorSlider2.ThumbInnerColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(90)))), ((int)(((byte)(8)))));
-            this.colorSlider2.ThumbOuterColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(90)))), ((int)(((byte)(8)))));
-            this.colorSlider2.ThumbPenColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(90)))), ((int)(((byte)(8)))));
-            this.colorSlider2.ThumbRoundRectSize = new System.Drawing.Size(12, 12);
-            this.colorSlider2.ThumbSize = new System.Drawing.Size(20, 24);
-            this.colorSlider2.TickAdd = 0F;
-            this.colorSlider2.TickColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(90)))), ((int)(((byte)(8)))));
-            this.colorSlider2.TickDivide = 0F;
-            this.colorSlider2.TickStyle = System.Windows.Forms.TickStyle.None;
-            this.colorSlider2.Value = 5;
-            this.colorSlider2.Scroll += new System.Windows.Forms.ScrollEventHandler(this.colorSlider2_Scroll);
-            // 
             // frmOptions
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -345,12 +345,15 @@
             this.AutoScroll = true;
             this.AutoScrollMargin = new System.Drawing.Size(0, 25);
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.ClientSize = new System.Drawing.Size(565, 445);
+            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.ClientSize = new System.Drawing.Size(565, 537);
             this.ControlBox = false;
             this.Controls.Add(this.grpTab);
             this.Controls.Add(this.grpControls);
             this.Controls.Add(this.btnVolver);
             this.Controls.Add(this.grpAnimations);
+            this.DoubleBuffered = true;
             this.Font = new System.Drawing.Font("Roboto", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ForeColor = System.Drawing.Color.White;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
