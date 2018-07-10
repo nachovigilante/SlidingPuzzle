@@ -21,18 +21,19 @@ namespace SlidingPuzzle
         }
 
         List<Player> pList = new List<Player>();
-
+        Image image, arrup, arrdown, empty;
+        List<Button> bList = new List<Button>();
         private void frmScore_Load(object sender, EventArgs e)
         {
+            image = resizeImage(Image.FromFile("../../Images/empty.png"), 16, 10);
+            arrup = resizeImage(Image.FromFile("../../Images/arrow_up.png"), 16, 10);
+            arrdown = resizeImage(Image.FromFile("../../Images/arrow_down.png"), 16, 10);
+            empty = resizeImage(Image.FromFile("../../Images/empty.png"), 16, 10);
             for (int i = 0; i < tlpScore.ColumnCount; i++)
             {
                 Button b = new Button();
-                Image image = Image.FromFile("arrow_up.png");
-                image = resizeImage(image, 16,10);
-                b.BackColor = Color.Blue;
-                b.Image = image;
-                b.TextAlign = ContentAlignment.MiddleCenter;
                 b.TextImageRelation = TextImageRelation.TextBeforeImage;
+                b.TextAlign = ContentAlignment.MiddleRight;
                 b.Size = tlpScore.Size;
                 b.FlatAppearance.MouseOverBackColor = Color.Transparent;
                 b.FlatAppearance.MouseDownBackColor = Color.Transparent;
@@ -43,22 +44,24 @@ namespace SlidingPuzzle
                 {
                     case 0:
                         b.Text = "Nombre";
-                        b.Click += new EventHandler(lblName_Click);
+                        b.Click += new EventHandler(btnName_Click);
                         break;
                     case 1:
                         b.Text = "Movimientos";
-                        b.Click += new EventHandler(lblMoves_Click);
+                        b.Click += new EventHandler(btnMoves_Click);
                         break;
                     case 2:
                         b.Text = "Tiempo";
-                        b.Click += new EventHandler(lblTime_Click);
+                        b.Click += new EventHandler(btnTime_Click);
                         break;
                     case 3:
                         b.Text = "Puntos";
-                        b.Click += new EventHandler(lblPoints_Click);
+                        image = Image.FromFile("../../Images/arrow_up.png");
+                        b.Click += new EventHandler(btnPoints_Click);
                         break;
                 }
-                this.Controls.Add(b);
+                b.Image = resizeImage(image, 16, 10);
+                bList.Add(b);
                 tlpScore.Controls.Add(b, i, 0);
             }
             using (StreamReader sr = File.OpenText("../../scores.txt"))
@@ -75,30 +78,52 @@ namespace SlidingPuzzle
             displayScores();
         }
 
-        private void lblName_Click(object sender, EventArgs e)
+        private void btnName_Click(object sender, EventArgs e)
         {
-            pList.Sort((a, b) => a.Name.CompareTo(b.Name));
-            displayScores();
+            Button btn = sender as Button;
+            setArrows(btn);
         }
 
-        private void lblMoves_Click(object sender, EventArgs e)
+        private void btnMoves_Click(object sender, EventArgs e)
         {
-            pList.Sort((a, b) => a.Moves.CompareTo(b.Moves));
-            displayScores();
+            Button btn = sender as Button;
+            setArrows(btn);
         }
 
-        private void lblTime_Click(object sender, EventArgs e)
+        private void btnTime_Click(object sender, EventArgs e)
         {
-            pList.Sort((a, b) => a.Time.CompareTo(b.Time));
-            displayScores();
+            Button btn = sender as Button;
+            setArrows(btn);
         }
 
-        private void lblPoints_Click(object sender, EventArgs e)
+        private void btnPoints_Click(object sender, EventArgs e)
         {
-            pList.Sort((b, a) => a.Points.CompareTo(b.Points));
+            Button btn = sender as Button;
+            setArrows(btn);
+        }
+        private void setArrows(Button btn)
+        {
+            if (compareImages((Bitmap)btn.Image, (Bitmap)arrup) || btn.Image.Equals(empty))
+            {
+                image = Image.FromFile("../../Images/arrow_down.png");
+                pList.Sort((a, b) => a.Points.CompareTo(b.Points));
+            }
+            else
+            {
+                image = Image.FromFile("../../Images/arrow_up.png");
+                pList.Sort((b, a) => a.Points.CompareTo(b.Points));
+            }
+            foreach (Button b in bList)
+            {
+                if (!b.Equals(btn))
+                {
+                    image = Image.FromFile("../../Images/empty.png");
+                    b.Image = resizeImage(image, 16, 10);
+                }
+            }
+            btn.Image = resizeImage(image, 16, 10);
             displayScores();
         }
-
         private void displayScores()
         {
             for (int i = 0; i < tlpScore.ColumnCount; i++)
@@ -152,6 +177,24 @@ namespace SlidingPuzzle
             }
 
             return destImage;
+        }
+        private bool compareImages(Bitmap a, Bitmap b)
+        {
+            if (a.Size != b.Size)
+            {
+                return false;
+            }
+            for(int x = 0; x < a.Width; x++)
+            {
+                for(int y = 0; y < a.Height; y++)
+                {
+                    if(a.GetPixel(x, y) != b.GetPixel(x, y))
+                    {
+                        return false;
+                    }
+                }
+            }
+            return true;
         }
     }
 }
