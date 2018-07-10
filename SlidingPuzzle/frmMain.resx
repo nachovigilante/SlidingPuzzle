@@ -117,6 +117,52 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="btnVolver.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAAHgAAAAxCAYAAAARM212AAAABGdBTUEAALGPC/xhBQAAABl0RVh0U29m
+        dHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAOjSURBVHhe7Zwxa1RBFIXzE6wNJquoiAqufyCkzx/Q
+        Lo1YW9iKYGkhdlZa2QkBS5sgCFoIQRAVLIKo2BkixmiMed7z9p3N2cndkJBk981wD3zkvZk7k8ecd+/M
+        brETu+nn5VMdYzZoPZ3Gsr3JBswbS0YVZMOyMd9Y6MsCjhmLzYAgT5CY3cbSbVkjzI2sLYMVY7BsW8OC
+        BAT5s9RYW5uLjdoLCvKmtyfbxaOkIyiDXhbbBU5gXkCQOTTY7QzyJwwunDC4cMLgwgmDCycMLpww+BBY
+        m+lWGw/u98G9FzcOWmXwxuOH1ebrV31+37rpxoG1uZmBWODFjQI8N7XbM4+DVhkMk1T/Prxz48Cfu3ea
+        qG15cUfNrytzzX+vaqO9mHHSaoMhZKoXC/NTeXFHDatOG80FrTcYe1oaB9M9pXFBiw3e+vq5/zeN0/LM
+        OCiNW79xfWBOZH36wqDEIqbOQutbv3Z1oDpsLj4bODRhj2V8ut/qGQLzat+4aK3Bf58+aa6qHYtFU7mY
+        lMbo+FQYwzgYSm39WG2uBqVnAbwEVPqy6LNgXu0bF601GNlH6f6mhxpmE8UYNQ3CeJih2c7sS2OZ5ekL
+        wpcsDD4A6QJxkbVMwywKpVOzrj+PlVUK5Zztunfjf6FNDU63A52HL0QYfADSBdIsxjVimIUwH/cqzqOq
+        5xFUiNU2mk48M8PgA+AtEDMUhmp5puEqzrNXITYMHiG6QCyt/TJtRus1x6i8Nsw5DMSGwSNEF4iLp1lL
+        sTwDFdt0Xx72RQkJg0eIZzDQ0y+kH5tUbGOmQzgVc7FxKENlQBs/2+7XYD0X4Lk4Dw5hqjDYYZjButDp
+        SVfFtvR07YlVYL8GD/sWLVUY7DDMYF1UbQcqbccYnU+l307t12CQZiuEqgCoMNgBpRcLA9K9s9/eGJO2
+        A20nmBPmAJTndF7Mx/Fa+us+i2XfjnF2z3l5oh94/uQ5x0WrDA4OnzC4cMLgwgmDCycMLpwwuHDC4MKp
+        Df52seN2Bnmz2m0Mfn92yg0I8ubT+emewS+mJ2u3vaAgX152JnsGP586Xr05fcINCvLk47mpCr7S4AXc
+        vD0TJpcASjP8NJZp8HzTUGdylOs8gW84T9FL415tMGQ3y+zAnoxs/nKhU32/dNKdLGgHMBWfgmAsfKOH
+        xoqx/WNodtOVziB/dv5uJRoNOO8NCPJh+I+SWicyeVGCg3zANjvbWLm7LBBG3zZwwobhQXuBT46xExP/
+        AR1A3BdDrDAdAAAAAElFTkSuQmCC
+</value>
+  </data>
+  <data name="btnBegin.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAAHcAAAAvCAYAAADZ5FUQAAAABGdBTUEAALGPC/xhBQAAABl0RVh0U29m
+        dHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAPTSURBVHhe7ZzLThRBFIbnEUiYByA+gT6BPIFvYMID
+        uGDtiq0rtu5cumTlxsTglXgNGoyGqMEQTfAK3ohE4lhf0wd+iup2Ij1Od+Wc5MtMnzp1uqr+qtM9m+ml
+        7PHG5FRgNrAQWHRaDRqh1UQpX9oICMwHBk4nmSulPGyhAWGXJdDpJmh4cIq5KJ2pYKd7LJbSFuJ6Kc6P
+        WTu1qUan22wi7kzkdDLBS3LGIC6/lZKNTrdxcTPGxc0YFzdjXNyMcXEzpnFxX34+MxSpvk6zNC7usJbq
+        6zSLi5sxIxX37dfzyZIMqb5Os4xU3L+JuPLuxL7Yzz6cKnzrX84NNr5fKDaG+WD14+nCD3Fe4iwPObmm
+        P7Frm2cPxcbQx/ISS39t1zFWoeO0PjaPqjHEc+faxhzH/itjFZd2s62fVwY7u+vl1Z7t/t4qYj5tXy49
+        B4bP8rAgZuShn9r2r5UjorFZ8MdGXxVDx1hlKoiORY25cc9UXuaiY7aY4zKWsmyxfD+O2WJVLajat53b
+        +/dF6HgDqNFmp3GYMTJPYjmtatxTNyx5bQx1eS3muIzlhcpidYJM3ISPJ87ORhDgZJrZiVFxWcwqYVKb
+        QU+1+q0y0EYeRSsJ/YkDxDTT068Vgv74+FSjL/e3OTVBa8TVkwW6423xQQWwhUj5DBXC2jR3/Lw0I0b9
+        ho5ZT3gdOr6UuLpBmqQ1ZTkWV0+B+lNCpnx18WrcR1HTPICQWs51LgbVgQ2lG0jN+tTNvSla80IVT1AX
+        Wv0psVK+uvhhTfNQPbS82nNWoRSrEc88VGgXN/C/xGUMVWgeLe8897XNUBH1zVjHYHn5NHNxS1Jiqc9e
+        hAxdcHvJqTuBnND4d6m+BdNX3wEUNfXrS2A24lpZSkHsKMTF6ItPc/CsNFHi8mnx739c3N8MCEosJ1CN
+        duIV+hGrz2PLyaea5e28uHVG7KjETZktqoEgdWbxw+S2sQ8Ta2PupLgMdBiI5VTYte1+g2uNNVh086cE
+        oB/YKaJ6xGXWYIG1ZNKHsq7PS71fFTp24u30k4827m+xJm7d3JuicXHHgYpri+e4uFnj4maMi5sxWYjr
+        pHFxM8bFzZjevVcubq70bj3tu7iZ0ru61F949Cbd6HSXB6/3xJ27udJPBjjd5fpyvxD3ZGBw90U6yOke
+        S6uTAzQt/s0mfFl0gfPgzvN+IWzgkok7XTqK4/xwPd3RaS88Y9Gu1HEzMFWIi4WLmbKh4Nr9/oBnMTvB
+        aS83nuxppdoFZkpZDwxnANXjYKcboN10KedRC40TgfnAWiCVwGkfaDUXkH9u7fX+ANq/qiQd5XVdAAAA
+        AElFTkSuQmCC
+</value>
+  </data>
   <metadata name="tmrTickExtern.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>
   </metadata>

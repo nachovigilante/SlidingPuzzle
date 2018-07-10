@@ -9,7 +9,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>SlidingPuzzle</RootNamespace>
     <AssemblyName>SlidingPuzzle</AssemblyName>
-    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
@@ -48,6 +48,15 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Board.cs" />
+    <Compile Include="ColorSlider.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CustomCombo.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="FlattenCombo.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="frmDialog.cs">
       <SubType>Form</SubType>
     </Compile>
