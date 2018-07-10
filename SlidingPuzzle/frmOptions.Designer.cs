@@ -355,7 +355,6 @@
             this.cusCboSize.Name = "cusCboSize";
             this.cusCboSize.Size = new System.Drawing.Size(65, 27);
             this.cusCboSize.TabIndex = 13;
-            this.cusCboSize.Visible = false;
             // 
             // notifyIcon1
             // 

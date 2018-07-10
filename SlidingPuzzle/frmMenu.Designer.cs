@@ -122,7 +122,7 @@
             this.Controls.Add(this.btnOptions);
             this.Controls.Add(this.btnScore);
             this.Controls.Add(this.btnPlay);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.MaximizeBox = false;
             this.Name = "frmMenu";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
