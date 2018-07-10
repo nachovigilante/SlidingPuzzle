@@ -52,10 +52,13 @@ namespace SlidingPuzzle
                 {
                     lblWin.Text = "¡Ganaste en " + time + " segundos y en " + moves + " movimientos!. ¡Lo hiciste tan bien, que entraste al top ten!. Podrás guardar tu partida si asi lo deseas.";
                     edit = pList.FindIndex(a => a.Points == lowest);
+                    higher = true;
                 }
                 else
                 {
                     lblWin.Text = "¡Ganaste en " + time + " segundos y en " + moves + " movimientos!. Pero no pudiste entrar al top ten. ¡Seguí intentandolo!.";
+                    btnOk.Visible = false;
+                    txtName.Visible = false;
                 }
             }
         }

@@ -23,6 +23,7 @@ namespace SlidingPuzzle
         List<Player> pList = new List<Player>();
         Image image, arrup, arrdown, empty;
         List<Button> bList = new List<Button>();
+
         private void frmScore_Load(object sender, EventArgs e)
         {
             image = resizeImage(Image.FromFile("../../Images/empty.png"), 16, 10);
@@ -75,57 +76,6 @@ namespace SlidingPuzzle
                 }
             }
             pList.Sort((b, a) => a.Points.CompareTo(b.Points));
-            displayScores();
-        }
-
-        private void btnName_Click(object sender, EventArgs e)
-        {
-            Button btn = sender as Button;
-            setArrows(btn);
-        }
-
-        private void btnMoves_Click(object sender, EventArgs e)
-        {
-            Button btn = sender as Button;
-            setArrows(btn);
-        }
-
-        private void btnTime_Click(object sender, EventArgs e)
-        {
-            Button btn = sender as Button;
-            setArrows(btn);
-        }
-
-        private void btnPoints_Click(object sender, EventArgs e)
-        {
-            Button btn = sender as Button;
-            setArrows(btn);
-        }
-        private void setArrows(Button btn)
-        {
-            if (compareImages((Bitmap)btn.Image, (Bitmap)arrup) || btn.Image.Equals(empty))
-            {
-                image = Image.FromFile("../../Images/arrow_down.png");
-                pList.Sort((a, b) => a.Points.CompareTo(b.Points));
-            }
-            else
-            {
-                image = Image.FromFile("../../Images/arrow_up.png");
-                pList.Sort((b, a) => a.Points.CompareTo(b.Points));
-            }
-            foreach (Button b in bList)
-            {
-                if (!b.Equals(btn))
-                {
-                    image = Image.FromFile("../../Images/empty.png");
-                    b.Image = resizeImage(image, 16, 10);
-                }
-            }
-            btn.Image = resizeImage(image, 16, 10);
-            displayScores();
-        }
-        private void displayScores()
-        {
             for (int i = 0; i < tlpScore.ColumnCount; i++)
             {
                 for (int j = 0; j < pList.Count; j++)
@@ -154,6 +104,119 @@ namespace SlidingPuzzle
                 }
             }
         }
+
+        private void btnName_Click(object sender, EventArgs e)
+        {
+            Button btn = sender as Button;
+            if(setArrows(btn) == "up")
+            {
+                pList.Sort((b, a) => a.Name.CompareTo(b.Name));
+            }
+            else
+            {
+                pList.Sort((a, b) => a.Name.CompareTo(b.Name));
+            }
+            refreshScores();
+        }
+
+        private void btnMoves_Click(object sender, EventArgs e)
+        {
+            Button btn = sender as Button;
+            if (setArrows(btn) == "up")
+            {
+                pList.Sort((b, a) => a.Moves.CompareTo(b.Moves));
+            }
+            else
+            {
+                pList.Sort((a, b) => a.Moves.CompareTo(b.Moves));
+            }
+            refreshScores();
+        }
+
+        private void btnTime_Click(object sender, EventArgs e)
+        {
+            Button btn = sender as Button;
+            if (setArrows(btn) == "up")
+            {
+                pList.Sort((b, a) => a.Time.CompareTo(b.Time));
+            }
+            else
+            {
+                pList.Sort((a, b) => a.Time.CompareTo(b.Time));
+            }
+            refreshScores();
+        }
+
+        private void btnPoints_Click(object sender, EventArgs e)
+        {
+            Button btn = sender as Button;
+            if (setArrows(btn) == "up")
+            {
+                pList.Sort((b, a) => a.Points.CompareTo(b.Points));
+            }
+            else
+            {
+                pList.Sort((a, b) => a.Points.CompareTo(b.Points));
+            }
+            refreshScores();
+        }
+
+        private string setArrows(Button btn)
+        {
+            string s;
+
+            foreach (Button b in bList)
+            {
+                if (!b.Equals(btn))
+                {
+                    image = Image.FromFile("../../Images/empty.png");
+                    b.Image = resizeImage(image, 16, 10);
+                }
+            }
+
+            if (compareImages((Bitmap)btn.Image, (Bitmap)arrup) || btn.Image.Equals(empty))
+            {
+                image = Image.FromFile("../../Images/arrow_down.png");
+                s =  "down";
+            }
+            else
+            {
+                image = Image.FromFile("../../Images/arrow_up.png");
+                s = "up";
+            }
+
+            btn.Image = resizeImage(image, 16, 10);
+
+            return s;
+        }
+
+        private void refreshScores()
+        {
+            for (int i = 0; i < tlpScore.ColumnCount; i++)
+            {
+                for (int j = 0; j < pList.Count; j++)
+                {
+                    string text = "";
+                    switch (i)
+                    {
+                        case 0:
+                            text = pList[j].Name;
+                            break;
+                        case 1:
+                            text = pList[j].Moves.ToString();
+                            break;
+                        case 2:
+                            text = pList[j].Time;
+                            break;
+                        case 3:
+                            text = pList[j].Points.ToString();
+                            break;
+                    }
+                    tlpScore.GetControlFromPosition(i, j + 1).Text = text;
+                }
+            }
+        }
+
         public static Image resizeImage(Image image, int width, int height)
         {
             var destRect = new Rectangle(0, 0, width, height);
@@ -178,6 +241,7 @@ namespace SlidingPuzzle
 
             return destImage;
         }
+
         private bool compareImages(Bitmap a, Bitmap b)
         {
             if (a.Size != b.Size)

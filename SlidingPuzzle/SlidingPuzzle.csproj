@@ -132,6 +132,7 @@
     <Content Include="Images\8.jpg" />
     <Content Include="Images\arrow_down.png" />
     <Content Include="Images\arrow_up.png" />
+    <Content Include="Images\empty.png" />
     <Content Include="Images\night.jpg" />
     <Content Include="options.txt" />
     <Content Include="scores.txt" />
