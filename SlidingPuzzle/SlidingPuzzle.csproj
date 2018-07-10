@@ -48,6 +48,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Board.cs" />
+    <Compile Include="ColorSlider.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="CustomCombo.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -143,12 +146,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="bin\Debug\" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="ColorSlider\ColorSlider.csproj">
-      <Project>{16E224DC-7FF0-4908-8318-D6A3AC2E797A}</Project>
-      <Name>ColorSlider</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

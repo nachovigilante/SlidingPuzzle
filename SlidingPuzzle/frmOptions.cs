@@ -27,7 +27,6 @@ namespace SlidingPuzzle
         Bitmap imageToUse;
         PictureBox[,] pbArray;
         private bool imageLoaded = false;
-        private ColorSlider.ColorSlider colorSlider1;
         //public int animationsActive = true;
         //public int animationSpeed = 30;
         //public bool keyMoves = true;
