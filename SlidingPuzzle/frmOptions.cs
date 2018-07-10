@@ -7,6 +7,7 @@ using System.Drawing.Drawing2D;
 using System.IO;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -167,6 +168,7 @@ namespace SlidingPuzzle
 
         private void button1_Click(object sender, EventArgs e)
         {
+            //btnVolver.Image = Image.FromFile("../../Images/back-h.png");
             optObj.writeToTxt();
             menuForm.bmpArray = bmpArray;
             menuForm.size = optObj.size;
@@ -175,6 +177,7 @@ namespace SlidingPuzzle
             menuForm.keyMoves = optObj.keyMoves;
             menuForm.multiMoves = optObj.multiMoves;
             menuForm.Show();
+            //btnVolver.Image = new Bitmap("../../Images/back.png");
             Hide();
         }
 
@@ -333,6 +336,16 @@ namespace SlidingPuzzle
 
             path.CloseFigure();
             return path;
+        }
+
+        private void btnVolver_MouseEnter(object sender, EventArgs e)
+        {
+            btnVolver.Image = Image.FromFile("../../Images/back-h.png");
+        }
+
+        private void btnVolver_MouseLeave(object sender, EventArgs e)
+        {
+            btnVolver.Image = Image.FromFile("../../Images/back.png");
         }
     }
 }

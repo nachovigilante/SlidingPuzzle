@@ -77,5 +77,15 @@ namespace SlidingPuzzle
         {
             Close();
         }
+
+        private void btnPlay_MouseEnter(object sender, EventArgs e)
+        {
+            btnPlay.Image = Image.FromFile("../../Images/jugar-h.png");
+        }
+
+        private void btnPlay_MouseLeave(object sender, EventArgs e)
+        {
+            btnPlay.Image = Image.FromFile("../../Images/jugar.png");
+        }
     }
 }

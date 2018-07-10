@@ -50,8 +50,8 @@
             this.grpControls = new System.Windows.Forms.GroupBox();
             this.lblMulti = new System.Windows.Forms.Label();
             this.grpTab = new System.Windows.Forms.GroupBox();
-            this.notifyIcon1 = new System.Windows.Forms.NotifyIcon(this.components);
             this.cusCboSize = new FlattenCombo.CustomCombo();
+            this.notifyIcon1 = new System.Windows.Forms.NotifyIcon(this.components);
             this.grpAnimations.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.trkAnimations)).BeginInit();
             this.grpControls.SuspendLayout();
@@ -290,6 +290,8 @@
             this.btnVolver.TabIndex = 12;
             this.btnVolver.UseVisualStyleBackColor = true;
             this.btnVolver.Click += new System.EventHandler(this.button1_Click);
+            this.btnVolver.MouseEnter += new System.EventHandler(this.btnVolver_MouseEnter);
+            this.btnVolver.MouseLeave += new System.EventHandler(this.btnVolver_MouseLeave);
             // 
             // grpControls
             // 
@@ -336,11 +338,6 @@
             this.grpTab.Text = "Imagen:";
             this.grpTab.Enter += new System.EventHandler(this.grpTab_Enter);
             // 
-            // notifyIcon1
-            // 
-            this.notifyIcon1.Text = "notifyIcon1";
-            this.notifyIcon1.Visible = true;
-            // 
             // cusCboSize
             // 
             this.cusCboSize.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(90)))), ((int)(((byte)(8)))));
@@ -360,6 +357,11 @@
             this.cusCboSize.TabIndex = 13;
             this.cusCboSize.Visible = false;
             // 
+            // notifyIcon1
+            // 
+            this.notifyIcon1.Text = "notifyIcon1";
+            this.notifyIcon1.Visible = true;
+            // 
             // frmOptions
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -367,7 +369,7 @@
             this.AutoScroll = true;
             this.AutoScrollMargin = new System.Drawing.Size(0, 25);
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(233)))), ((int)(((byte)(165)))));
-            this.ClientSize = new System.Drawing.Size(582, 440);
+            this.ClientSize = new System.Drawing.Size(599, 440);
             this.ControlBox = false;
             this.Controls.Add(this.grpTab);
             this.Controls.Add(this.grpControls);

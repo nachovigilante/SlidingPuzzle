@@ -50,6 +50,8 @@
             this.btnPlay.TabIndex = 1;
             this.btnPlay.UseVisualStyleBackColor = true;
             this.btnPlay.Click += new System.EventHandler(this.btnPlay_Click);
+            this.btnPlay.MouseEnter += new System.EventHandler(this.btnPlay_MouseEnter);
+            this.btnPlay.MouseLeave += new System.EventHandler(this.btnPlay_MouseLeave);
             // 
             // btnScore
             // 
