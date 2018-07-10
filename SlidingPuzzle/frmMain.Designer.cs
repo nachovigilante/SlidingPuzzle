@@ -50,11 +50,12 @@
             this.grpControls.Controls.Add(this.lblTime);
             this.grpControls.Controls.Add(this.lblTimeTitle);
             this.grpControls.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.grpControls.Location = new System.Drawing.Point(236, 22);
+            this.grpControls.Location = new System.Drawing.Point(236, 33);
             this.grpControls.Name = "grpControls";
             this.grpControls.Size = new System.Drawing.Size(170, 366);
             this.grpControls.TabIndex = 0;
             this.grpControls.TabStop = false;
+            this.grpControls.Paint += new System.Windows.Forms.PaintEventHandler(this.grpControls_Paint);
             this.grpControls.Enter += new System.EventHandler(this.grpControls_Enter);
             this.grpControls.PreviewKeyDown += new System.Windows.Forms.PreviewKeyDownEventHandler(this.grpControls_PreviewKeyDown);
             // 
@@ -66,12 +67,14 @@
             this.btnVolver.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnVolver.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnVolver.Image = ((System.Drawing.Image)(resources.GetObject("btnVolver.Image")));
-            this.btnVolver.Location = new System.Drawing.Point(23, 290);
+            this.btnVolver.Location = new System.Drawing.Point(19, 280);
             this.btnVolver.Name = "btnVolver";
-            this.btnVolver.Size = new System.Drawing.Size(124, 54);
+            this.btnVolver.Size = new System.Drawing.Size(132, 54);
             this.btnVolver.TabIndex = 6;
             this.btnVolver.UseVisualStyleBackColor = true;
             this.btnVolver.Click += new System.EventHandler(this.btnVolver_Click);
+            this.btnVolver.MouseEnter += new System.EventHandler(this.btnVolver_MouseEnter);
+            this.btnVolver.MouseLeave += new System.EventHandler(this.btnVolver_MouseLeave);
             // 
             // btnBegin
             // 
@@ -81,7 +84,7 @@
             this.btnBegin.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnBegin.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnBegin.Image = ((System.Drawing.Image)(resources.GetObject("btnBegin.Image")));
-            this.btnBegin.Location = new System.Drawing.Point(21, 42);
+            this.btnBegin.Location = new System.Drawing.Point(21, 33);
             this.btnBegin.Name = "btnBegin";
             this.btnBegin.Size = new System.Drawing.Size(129, 52);
             this.btnBegin.TabIndex = 4;
@@ -95,7 +98,8 @@
             // lblMoves
             // 
             this.lblMoves.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblMoves.Location = new System.Drawing.Point(3, 231);
+            this.lblMoves.ForeColor = System.Drawing.Color.White;
+            this.lblMoves.Location = new System.Drawing.Point(3, 222);
             this.lblMoves.Name = "lblMoves";
             this.lblMoves.Size = new System.Drawing.Size(164, 31);
             this.lblMoves.TabIndex = 3;
@@ -107,7 +111,8 @@
             // 
             this.lblMovesTitle.AutoSize = true;
             this.lblMovesTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblMovesTitle.Location = new System.Drawing.Point(35, 204);
+            this.lblMovesTitle.ForeColor = System.Drawing.Color.White;
+            this.lblMovesTitle.Location = new System.Drawing.Point(35, 195);
             this.lblMovesTitle.Name = "lblMovesTitle";
             this.lblMovesTitle.Size = new System.Drawing.Size(101, 20);
             this.lblMovesTitle.TabIndex = 2;
@@ -116,7 +121,8 @@
             // lblTime
             // 
             this.lblTime.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTime.Location = new System.Drawing.Point(3, 157);
+            this.lblTime.ForeColor = System.Drawing.Color.White;
+            this.lblTime.Location = new System.Drawing.Point(3, 148);
             this.lblTime.Name = "lblTime";
             this.lblTime.Size = new System.Drawing.Size(164, 31);
             this.lblTime.TabIndex = 1;
@@ -128,7 +134,8 @@
             // 
             this.lblTimeTitle.AutoSize = true;
             this.lblTimeTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTimeTitle.Location = new System.Drawing.Point(15, 129);
+            this.lblTimeTitle.ForeColor = System.Drawing.Color.White;
+            this.lblTimeTitle.Location = new System.Drawing.Point(15, 120);
             this.lblTimeTitle.Name = "lblTimeTitle";
             this.lblTimeTitle.Size = new System.Drawing.Size(140, 20);
             this.lblTimeTitle.TabIndex = 0;
@@ -143,13 +150,14 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(233)))), ((int)(((byte)(165)))));
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.ClientSize = new System.Drawing.Size(428, 433);
             this.ControlBox = false;
             this.Controls.Add(this.grpControls);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
             this.Name = "frmMain";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Rompecabezas de X";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.frmMain_KeyDown);

@@ -207,5 +207,38 @@ namespace SlidingPuzzle
             else
                 btnBegin.Image = Image.FromFile("../../Images/rendirse-debil.png");
         }
+
+        private void btnVolver_MouseEnter(object sender, EventArgs e)
+        {
+            btnVolver.Image = Image.FromFile("../../Images/menu-h.png");
+        }
+
+        private void btnVolver_MouseLeave(object sender, EventArgs e)
+        {
+            btnVolver.Image = Image.FromFile("../../Images/menu.png");
+        }
+
+        private void grpControls_Paint(object sender, PaintEventArgs e)
+        {
+            Brush b = new SolidBrush(Color.FromArgb(64, 64, 64));
+            SizeF strSize = e.Graphics.MeasureString(grpControls.Text, grpControls.Font);
+            Rectangle rect = new Rectangle(grpControls.ClientRectangle.X,
+                                               grpControls.ClientRectangle.Y + (int)(strSize.Height / 2),
+                                               grpControls.ClientRectangle.Width - 1,
+                                               grpControls.ClientRectangle.Height - (int)(strSize.Height / 2) - 1);
+
+            // Clear text and border
+            e.Graphics.Clear(this.BackColor);
+
+            e.Graphics.FillRectangle(b, rect);
+
+            //int paddingLeft = 10;
+            //int yOffset = 15;
+
+            // Draw text
+            //g.DrawString(box.Text, box.Font, textBrush, paddingLeft, 0);
+            // Draw line
+            //g.DrawLine(borderPen, new Point(rect.X, rect.Y + yOffset), new Point(rect.X + rect.Width, rect.Y + yOffset));
+        }
     }
 }

@@ -33,8 +33,6 @@
             this.chkAnimations = new System.Windows.Forms.CheckBox();
             this.lblAnimations = new System.Windows.Forms.Label();
             this.grpAnimations = new System.Windows.Forms.GroupBox();
-            this.colorSlider2 = new ColorSlider.ColorSlider();
-            this.trkAnimations = new System.Windows.Forms.TrackBar();
             this.lblVel = new System.Windows.Forms.Label();
             this.lblSize = new System.Windows.Forms.Label();
             this.cboSize = new System.Windows.Forms.ComboBox();
@@ -50,10 +48,9 @@
             this.grpControls = new System.Windows.Forms.GroupBox();
             this.lblMulti = new System.Windows.Forms.Label();
             this.grpTab = new System.Windows.Forms.GroupBox();
-            this.cusCboSize = new FlattenCombo.CustomCombo();
             this.notifyIcon1 = new System.Windows.Forms.NotifyIcon(this.components);
+            this.colorSlider2 = new ColorSlider.ColorSlider();
             this.grpAnimations.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.trkAnimations)).BeginInit();
             this.grpControls.SuspendLayout();
             this.grpTab.SuspendLayout();
             this.SuspendLayout();
@@ -64,7 +61,7 @@
             this.chkAnimations.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.chkAnimations.Checked = true;
             this.chkAnimations.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.chkAnimations.Location = new System.Drawing.Point(190, 41);
+            this.chkAnimations.Location = new System.Drawing.Point(188, 60);
             this.chkAnimations.Name = "chkAnimations";
             this.chkAnimations.Size = new System.Drawing.Size(15, 14);
             this.chkAnimations.TabIndex = 0;
@@ -77,7 +74,7 @@
             // 
             this.lblAnimations.AutoSize = true;
             this.lblAnimations.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblAnimations.Location = new System.Drawing.Point(24, 38);
+            this.lblAnimations.Location = new System.Drawing.Point(22, 57);
             this.lblAnimations.Name = "lblAnimations";
             this.lblAnimations.Size = new System.Drawing.Size(160, 19);
             this.lblAnimations.TabIndex = 1;
@@ -87,33 +84,237 @@
             // grpAnimations
             // 
             this.grpAnimations.Controls.Add(this.colorSlider2);
-            this.grpAnimations.Controls.Add(this.trkAnimations);
             this.grpAnimations.Controls.Add(this.lblVel);
             this.grpAnimations.Controls.Add(this.lblAnimations);
             this.grpAnimations.Controls.Add(this.chkAnimations);
             this.grpAnimations.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.grpAnimations.Location = new System.Drawing.Point(68, 110);
+            this.grpAnimations.Location = new System.Drawing.Point(73, 164);
             this.grpAnimations.Name = "grpAnimations";
-            this.grpAnimations.Size = new System.Drawing.Size(430, 162);
+            this.grpAnimations.Size = new System.Drawing.Size(430, 171);
             this.grpAnimations.TabIndex = 3;
             this.grpAnimations.TabStop = false;
-            this.grpAnimations.Text = "Configuración de las animaciones";
+            this.grpAnimations.Text = "Animaciones";
+            this.grpAnimations.Paint += new System.Windows.Forms.PaintEventHandler(this.grpAnimations_Paint);
             this.grpAnimations.Enter += new System.EventHandler(this.grpAnimations_Enter);
+            // 
+            // lblVel
+            // 
+            this.lblVel.AutoSize = true;
+            this.lblVel.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblVel.Location = new System.Drawing.Point(23, 97);
+            this.lblVel.Name = "lblVel";
+            this.lblVel.Size = new System.Drawing.Size(83, 19);
+            this.lblVel.TabIndex = 0;
+            this.lblVel.Text = "Velocidad:";
+            this.lblVel.Click += new System.EventHandler(this.lblVel_Click);
+            // 
+            // lblSize
+            // 
+            this.lblSize.AutoSize = true;
+            this.lblSize.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblSize.Location = new System.Drawing.Point(22, 57);
+            this.lblSize.Name = "lblSize";
+            this.lblSize.Size = new System.Drawing.Size(150, 19);
+            this.lblSize.TabIndex = 4;
+            this.lblSize.Text = "Tamaño del tablero:";
+            this.lblSize.Click += new System.EventHandler(this.lblSize_Click);
+            // 
+            // cboSize
+            // 
+            this.cboSize.Cursor = System.Windows.Forms.Cursors.Default;
+            this.cboSize.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboSize.FormattingEnabled = true;
+            this.cboSize.Items.AddRange(new object[] {
+            "3x3",
+            "4x4",
+            "5x5"});
+            this.cboSize.Location = new System.Drawing.Point(178, 54);
+            this.cboSize.Name = "cboSize";
+            this.cboSize.Size = new System.Drawing.Size(72, 27);
+            this.cboSize.TabIndex = 5;
+            this.cboSize.SelectedIndexChanged += new System.EventHandler(this.cboSize_SelectedIndexChanged);
+            // 
+            // toolTipAnimations
+            // 
+            this.toolTipAnimations.AutomaticDelay = 200;
+            this.toolTipAnimations.AutoPopDelay = 5000;
+            this.toolTipAnimations.InitialDelay = 200;
+            this.toolTipAnimations.ReshowDelay = 40;
+            this.toolTipAnimations.ToolTipTitle = "Animaciones";
+            // 
+            // chkKeys
+            // 
+            this.chkKeys.AutoSize = true;
+            this.chkKeys.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.chkKeys.Checked = true;
+            this.chkKeys.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.chkKeys.Location = new System.Drawing.Point(172, 47);
+            this.chkKeys.Name = "chkKeys";
+            this.chkKeys.Size = new System.Drawing.Size(15, 14);
+            this.chkKeys.TabIndex = 7;
+            this.toolTipAnimations.SetToolTip(this.chkKeys, "las animaciones pueden aumentar el tiempo y pueden ser molestas, no se recomienda" +
+        "n si quiere resolverlo con un mejor tiempo");
+            this.chkKeys.UseVisualStyleBackColor = true;
+            this.chkKeys.CheckedChanged += new System.EventHandler(this.chkKeys_CheckedChanged);
+            // 
+            // checkBox1
+            // 
+            this.checkBox1.AutoSize = true;
+            this.checkBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.checkBox1.Checked = true;
+            this.checkBox1.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.checkBox1.Location = new System.Drawing.Point(379, 47);
+            this.checkBox1.Name = "checkBox1";
+            this.checkBox1.Size = new System.Drawing.Size(15, 14);
+            this.checkBox1.TabIndex = 9;
+            this.toolTipAnimations.SetToolTip(this.checkBox1, "las animaciones pueden aumentar el tiempo y pueden ser molestas, no se recomienda" +
+        "n si quiere resolverlo con un mejor tiempo");
+            this.checkBox1.UseVisualStyleBackColor = true;
+            this.checkBox1.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
+            // 
+            // lblKeys
+            // 
+            this.lblKeys.AutoSize = true;
+            this.lblKeys.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblKeys.Location = new System.Drawing.Point(25, 45);
+            this.lblKeys.Name = "lblKeys";
+            this.lblKeys.Size = new System.Drawing.Size(141, 19);
+            this.lblKeys.TabIndex = 6;
+            this.lblKeys.Text = "Uso con las teclas:";
+            this.lblKeys.Click += new System.EventHandler(this.lblKeys_Click);
+            // 
+            // lblFile
+            // 
+            this.lblFile.AutoSize = true;
+            this.lblFile.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblFile.Location = new System.Drawing.Point(22, 103);
+            this.lblFile.Name = "lblFile";
+            this.lblFile.Size = new System.Drawing.Size(260, 19);
+            this.lblFile.TabIndex = 8;
+            this.lblFile.Text = "Agregar una imágen personalizada:";
+            this.lblFile.Click += new System.EventHandler(this.lblFile_Click);
+            // 
+            // btnFile
+            // 
+            this.btnFile.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnFile.FlatAppearance.BorderSize = 0;
+            this.btnFile.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnFile.Image = ((System.Drawing.Image)(resources.GetObject("btnFile.Image")));
+            this.btnFile.Location = new System.Drawing.Point(41, 138);
+            this.btnFile.Name = "btnFile";
+            this.btnFile.Size = new System.Drawing.Size(172, 60);
+            this.btnFile.TabIndex = 0;
+            this.btnFile.UseVisualStyleBackColor = true;
+            this.btnFile.Click += new System.EventHandler(this.btnFile_Click);
+            this.btnFile.MouseEnter += new System.EventHandler(this.btnFile_MouseEnter);
+            this.btnFile.MouseLeave += new System.EventHandler(this.btnFile_MouseLeave);
+            // 
+            // lblPreview
+            // 
+            this.lblPreview.AutoSize = true;
+            this.lblPreview.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPreview.Location = new System.Drawing.Point(22, 215);
+            this.lblPreview.Name = "lblPreview";
+            this.lblPreview.Size = new System.Drawing.Size(96, 19);
+            this.lblPreview.TabIndex = 11;
+            this.lblPreview.Text = "Vista previa:";
+            this.lblPreview.Click += new System.EventHandler(this.lblPreview_Click);
+            // 
+            // btnLoadDefault
+            // 
+            this.btnLoadDefault.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnLoadDefault.FlatAppearance.BorderSize = 0;
+            this.btnLoadDefault.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnLoadDefault.Image = ((System.Drawing.Image)(resources.GetObject("btnLoadDefault.Image")));
+            this.btnLoadDefault.Location = new System.Drawing.Point(209, 138);
+            this.btnLoadDefault.Name = "btnLoadDefault";
+            this.btnLoadDefault.Size = new System.Drawing.Size(182, 60);
+            this.btnLoadDefault.TabIndex = 9;
+            this.btnLoadDefault.UseVisualStyleBackColor = true;
+            this.btnLoadDefault.Click += new System.EventHandler(this.btnLoadDefault_Click);
+            this.btnLoadDefault.MouseEnter += new System.EventHandler(this.btnLoadDefault_MouseEnter);
+            this.btnLoadDefault.MouseLeave += new System.EventHandler(this.btnLoadDefault_MouseLeave);
+            // 
+            // btnVolver
+            // 
+            this.btnVolver.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnVolver.FlatAppearance.BorderSize = 0;
+            this.btnVolver.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnVolver.Image = ((System.Drawing.Image)(resources.GetObject("btnVolver.Image")));
+            this.btnVolver.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnVolver.Location = new System.Drawing.Point(14, 12);
+            this.btnVolver.Name = "btnVolver";
+            this.btnVolver.Size = new System.Drawing.Size(43, 47);
+            this.btnVolver.TabIndex = 12;
+            this.btnVolver.UseVisualStyleBackColor = true;
+            this.btnVolver.Click += new System.EventHandler(this.button1_Click);
+            this.btnVolver.MouseEnter += new System.EventHandler(this.btnVolver_MouseEnter);
+            this.btnVolver.MouseLeave += new System.EventHandler(this.btnVolver_MouseLeave);
+            // 
+            // grpControls
+            // 
+            this.grpControls.Controls.Add(this.lblMulti);
+            this.grpControls.Controls.Add(this.checkBox1);
+            this.grpControls.Controls.Add(this.lblKeys);
+            this.grpControls.Controls.Add(this.chkKeys);
+            this.grpControls.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.grpControls.Location = new System.Drawing.Point(73, 62);
+            this.grpControls.Name = "grpControls";
+            this.grpControls.Size = new System.Drawing.Size(430, 73);
+            this.grpControls.TabIndex = 13;
+            this.grpControls.TabStop = false;
+            this.grpControls.Text = "Controles";
+            this.grpControls.Paint += new System.Windows.Forms.PaintEventHandler(this.grpControls_Paint);
+            this.grpControls.Enter += new System.EventHandler(this.grpControls_Enter);
+            // 
+            // lblMulti
+            // 
+            this.lblMulti.AutoSize = true;
+            this.lblMulti.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblMulti.Location = new System.Drawing.Point(215, 45);
+            this.lblMulti.Name = "lblMulti";
+            this.lblMulti.Size = new System.Drawing.Size(158, 19);
+            this.lblMulti.TabIndex = 8;
+            this.lblMulti.Text = "Movimiento múltiple:";
+            this.lblMulti.Click += new System.EventHandler(this.lblMulti_Click);
+            // 
+            // grpTab
+            // 
+            this.grpTab.Controls.Add(this.lblFile);
+            this.grpTab.Controls.Add(this.btnFile);
+            this.grpTab.Controls.Add(this.btnLoadDefault);
+            this.grpTab.Controls.Add(this.lblPreview);
+            this.grpTab.Controls.Add(this.cboSize);
+            this.grpTab.Controls.Add(this.lblSize);
+            this.grpTab.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.grpTab.Location = new System.Drawing.Point(73, 364);
+            this.grpTab.Name = "grpTab";
+            this.grpTab.Size = new System.Drawing.Size(430, 524);
+            this.grpTab.TabIndex = 14;
+            this.grpTab.TabStop = false;
+            this.grpTab.Text = "Imagen";
+            this.grpTab.Paint += new System.Windows.Forms.PaintEventHandler(this.grpTab_Paint);
+            this.grpTab.Enter += new System.EventHandler(this.grpTab_Enter);
+            // 
+            // notifyIcon1
+            // 
+            this.notifyIcon1.Text = "notifyIcon1";
+            this.notifyIcon1.Visible = true;
             // 
             // colorSlider2
             // 
-            this.colorSlider2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(233)))), ((int)(((byte)(165)))));
+            this.colorSlider2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.colorSlider2.BarInnerColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(162)))), ((int)(((byte)(38)))));
             this.colorSlider2.BarPenColorBottom = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(162)))), ((int)(((byte)(38)))));
             this.colorSlider2.BarPenColorTop = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(162)))), ((int)(((byte)(38)))));
             this.colorSlider2.BorderRoundRectSize = new System.Drawing.Size(8, 8);
-            this.colorSlider2.ElapsedInnerColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(135)))), ((int)(((byte)(7)))));
-            this.colorSlider2.ElapsedPenColorBottom = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(135)))), ((int)(((byte)(7)))));
-            this.colorSlider2.ElapsedPenColorTop = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(135)))), ((int)(((byte)(7)))));
+            this.colorSlider2.ElapsedInnerColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(90)))), ((int)(((byte)(8)))));
+            this.colorSlider2.ElapsedPenColorBottom = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(90)))), ((int)(((byte)(8)))));
+            this.colorSlider2.ElapsedPenColorTop = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(90)))), ((int)(((byte)(8)))));
             this.colorSlider2.Font = new System.Drawing.Font("Microsoft Sans Serif", 6F);
             this.colorSlider2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(90)))), ((int)(((byte)(8)))));
             this.colorSlider2.LargeChange = ((uint)(5u));
-            this.colorSlider2.Location = new System.Drawing.Point(36, 96);
+            this.colorSlider2.Location = new System.Drawing.Point(34, 115);
             this.colorSlider2.Maximum = 10;
             this.colorSlider2.Minimum = 1;
             this.colorSlider2.Name = "colorSlider2";
@@ -137,245 +338,22 @@
             this.colorSlider2.Value = 5;
             this.colorSlider2.Scroll += new System.Windows.Forms.ScrollEventHandler(this.colorSlider2_Scroll);
             // 
-            // trkAnimations
-            // 
-            this.trkAnimations.AutoSize = false;
-            this.trkAnimations.Location = new System.Drawing.Point(27, 101);
-            this.trkAnimations.Minimum = 1;
-            this.trkAnimations.Name = "trkAnimations";
-            this.trkAnimations.Size = new System.Drawing.Size(364, 35);
-            this.trkAnimations.TabIndex = 1;
-            this.trkAnimations.Value = 5;
-            this.trkAnimations.Visible = false;
-            this.trkAnimations.Scroll += new System.EventHandler(this.trkAnimations_Scroll);
-            // 
-            // lblVel
-            // 
-            this.lblVel.AutoSize = true;
-            this.lblVel.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblVel.Location = new System.Drawing.Point(25, 78);
-            this.lblVel.Name = "lblVel";
-            this.lblVel.Size = new System.Drawing.Size(83, 19);
-            this.lblVel.TabIndex = 0;
-            this.lblVel.Text = "Velocidad:";
-            this.lblVel.Click += new System.EventHandler(this.lblVel_Click);
-            // 
-            // lblSize
-            // 
-            this.lblSize.AutoSize = true;
-            this.lblSize.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblSize.Location = new System.Drawing.Point(22, 47);
-            this.lblSize.Name = "lblSize";
-            this.lblSize.Size = new System.Drawing.Size(150, 19);
-            this.lblSize.TabIndex = 4;
-            this.lblSize.Text = "Tamaño del tablero:";
-            this.lblSize.Click += new System.EventHandler(this.lblSize_Click);
-            // 
-            // cboSize
-            // 
-            this.cboSize.Cursor = System.Windows.Forms.Cursors.Default;
-            this.cboSize.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cboSize.FormattingEnabled = true;
-            this.cboSize.Items.AddRange(new object[] {
-            "3x3",
-            "4x4",
-            "5x5"});
-            this.cboSize.Location = new System.Drawing.Point(178, 44);
-            this.cboSize.Name = "cboSize";
-            this.cboSize.Size = new System.Drawing.Size(72, 27);
-            this.cboSize.TabIndex = 5;
-            this.cboSize.SelectedIndexChanged += new System.EventHandler(this.cboSize_SelectedIndexChanged);
-            // 
-            // toolTipAnimations
-            // 
-            this.toolTipAnimations.AutomaticDelay = 200;
-            this.toolTipAnimations.AutoPopDelay = 5000;
-            this.toolTipAnimations.InitialDelay = 200;
-            this.toolTipAnimations.ReshowDelay = 40;
-            this.toolTipAnimations.ToolTipTitle = "Animaciones";
-            // 
-            // chkKeys
-            // 
-            this.chkKeys.AutoSize = true;
-            this.chkKeys.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.chkKeys.Checked = true;
-            this.chkKeys.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.chkKeys.Location = new System.Drawing.Point(172, 31);
-            this.chkKeys.Name = "chkKeys";
-            this.chkKeys.Size = new System.Drawing.Size(15, 14);
-            this.chkKeys.TabIndex = 7;
-            this.toolTipAnimations.SetToolTip(this.chkKeys, "las animaciones pueden aumentar el tiempo y pueden ser molestas, no se recomienda" +
-        "n si quiere resolverlo con un mejor tiempo");
-            this.chkKeys.UseVisualStyleBackColor = true;
-            this.chkKeys.CheckedChanged += new System.EventHandler(this.chkKeys_CheckedChanged);
-            // 
-            // checkBox1
-            // 
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.checkBox1.Checked = true;
-            this.checkBox1.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.checkBox1.Location = new System.Drawing.Point(379, 31);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(15, 14);
-            this.checkBox1.TabIndex = 9;
-            this.toolTipAnimations.SetToolTip(this.checkBox1, "las animaciones pueden aumentar el tiempo y pueden ser molestas, no se recomienda" +
-        "n si quiere resolverlo con un mejor tiempo");
-            this.checkBox1.UseVisualStyleBackColor = true;
-            this.checkBox1.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
-            // 
-            // lblKeys
-            // 
-            this.lblKeys.AutoSize = true;
-            this.lblKeys.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblKeys.Location = new System.Drawing.Point(25, 29);
-            this.lblKeys.Name = "lblKeys";
-            this.lblKeys.Size = new System.Drawing.Size(141, 19);
-            this.lblKeys.TabIndex = 6;
-            this.lblKeys.Text = "Uso con las teclas:";
-            this.lblKeys.Click += new System.EventHandler(this.lblKeys_Click);
-            // 
-            // lblFile
-            // 
-            this.lblFile.AutoSize = true;
-            this.lblFile.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblFile.Location = new System.Drawing.Point(22, 93);
-            this.lblFile.Name = "lblFile";
-            this.lblFile.Size = new System.Drawing.Size(260, 19);
-            this.lblFile.TabIndex = 8;
-            this.lblFile.Text = "Agregar una imágen personalizada:";
-            this.lblFile.Click += new System.EventHandler(this.lblFile_Click);
-            // 
-            // btnFile
-            // 
-            this.btnFile.Location = new System.Drawing.Point(48, 132);
-            this.btnFile.Name = "btnFile";
-            this.btnFile.Size = new System.Drawing.Size(164, 41);
-            this.btnFile.TabIndex = 0;
-            this.btnFile.Text = "Seleccionar imagen";
-            this.btnFile.UseVisualStyleBackColor = true;
-            this.btnFile.Click += new System.EventHandler(this.btnFile_Click);
-            // 
-            // lblPreview
-            // 
-            this.lblPreview.AutoSize = true;
-            this.lblPreview.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPreview.Location = new System.Drawing.Point(22, 205);
-            this.lblPreview.Name = "lblPreview";
-            this.lblPreview.Size = new System.Drawing.Size(96, 19);
-            this.lblPreview.TabIndex = 11;
-            this.lblPreview.Text = "Vista previa:";
-            this.lblPreview.Click += new System.EventHandler(this.lblPreview_Click);
-            // 
-            // btnLoadDefault
-            // 
-            this.btnLoadDefault.Location = new System.Drawing.Point(218, 132);
-            this.btnLoadDefault.Name = "btnLoadDefault";
-            this.btnLoadDefault.Size = new System.Drawing.Size(164, 41);
-            this.btnLoadDefault.TabIndex = 9;
-            this.btnLoadDefault.Text = "Cargar imagen default";
-            this.btnLoadDefault.UseVisualStyleBackColor = true;
-            this.btnLoadDefault.Click += new System.EventHandler(this.btnLoadDefault_Click);
-            // 
-            // btnVolver
-            // 
-            this.btnVolver.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnVolver.FlatAppearance.BorderSize = 0;
-            this.btnVolver.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnVolver.Image = ((System.Drawing.Image)(resources.GetObject("btnVolver.Image")));
-            this.btnVolver.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnVolver.Location = new System.Drawing.Point(9, 9);
-            this.btnVolver.Name = "btnVolver";
-            this.btnVolver.Size = new System.Drawing.Size(43, 47);
-            this.btnVolver.TabIndex = 12;
-            this.btnVolver.UseVisualStyleBackColor = true;
-            this.btnVolver.Click += new System.EventHandler(this.button1_Click);
-            this.btnVolver.MouseEnter += new System.EventHandler(this.btnVolver_MouseEnter);
-            this.btnVolver.MouseLeave += new System.EventHandler(this.btnVolver_MouseLeave);
-            // 
-            // grpControls
-            // 
-            this.grpControls.Controls.Add(this.lblMulti);
-            this.grpControls.Controls.Add(this.checkBox1);
-            this.grpControls.Controls.Add(this.lblKeys);
-            this.grpControls.Controls.Add(this.chkKeys);
-            this.grpControls.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.grpControls.Location = new System.Drawing.Point(68, 35);
-            this.grpControls.Name = "grpControls";
-            this.grpControls.Size = new System.Drawing.Size(430, 64);
-            this.grpControls.TabIndex = 13;
-            this.grpControls.TabStop = false;
-            this.grpControls.Text = "Controles";
-            this.grpControls.Paint += new System.Windows.Forms.PaintEventHandler(this.grpControls_Paint);
-            this.grpControls.Enter += new System.EventHandler(this.grpControls_Enter);
-            // 
-            // lblMulti
-            // 
-            this.lblMulti.AutoSize = true;
-            this.lblMulti.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblMulti.Location = new System.Drawing.Point(215, 29);
-            this.lblMulti.Name = "lblMulti";
-            this.lblMulti.Size = new System.Drawing.Size(158, 19);
-            this.lblMulti.TabIndex = 8;
-            this.lblMulti.Text = "Movimiento múltiple:";
-            this.lblMulti.Click += new System.EventHandler(this.lblMulti_Click);
-            // 
-            // grpTab
-            // 
-            this.grpTab.Controls.Add(this.cusCboSize);
-            this.grpTab.Controls.Add(this.lblFile);
-            this.grpTab.Controls.Add(this.btnFile);
-            this.grpTab.Controls.Add(this.btnLoadDefault);
-            this.grpTab.Controls.Add(this.lblPreview);
-            this.grpTab.Controls.Add(this.cboSize);
-            this.grpTab.Controls.Add(this.lblSize);
-            this.grpTab.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.grpTab.Location = new System.Drawing.Point(68, 278);
-            this.grpTab.Name = "grpTab";
-            this.grpTab.Size = new System.Drawing.Size(430, 515);
-            this.grpTab.TabIndex = 14;
-            this.grpTab.TabStop = false;
-            this.grpTab.Text = "Imagen:";
-            this.grpTab.Enter += new System.EventHandler(this.grpTab_Enter);
-            // 
-            // cusCboSize
-            // 
-            this.cusCboSize.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(90)))), ((int)(((byte)(8)))));
-            this.cusCboSize.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(90)))), ((int)(((byte)(8)))));
-            this.cusCboSize.BorderStyle = System.Windows.Forms.ButtonBorderStyle.Solid;
-            this.cusCboSize.ButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(90)))), ((int)(((byte)(8)))));
-            this.cusCboSize.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cusCboSize.ForeColor = System.Drawing.Color.White;
-            this.cusCboSize.FormattingEnabled = true;
-            this.cusCboSize.Items.AddRange(new object[] {
-            "3x3",
-            "4x4",
-            "5x5"});
-            this.cusCboSize.Location = new System.Drawing.Point(261, 44);
-            this.cusCboSize.Name = "cusCboSize";
-            this.cusCboSize.Size = new System.Drawing.Size(65, 27);
-            this.cusCboSize.TabIndex = 13;
-            // 
-            // notifyIcon1
-            // 
-            this.notifyIcon1.Text = "notifyIcon1";
-            this.notifyIcon1.Visible = true;
-            // 
             // frmOptions
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
             this.AutoScrollMargin = new System.Drawing.Size(0, 25);
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(233)))), ((int)(((byte)(165)))));
-            this.ClientSize = new System.Drawing.Size(599, 440);
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.ClientSize = new System.Drawing.Size(565, 445);
             this.ControlBox = false;
             this.Controls.Add(this.grpTab);
             this.Controls.Add(this.grpControls);
             this.Controls.Add(this.btnVolver);
             this.Controls.Add(this.grpAnimations);
             this.Font = new System.Drawing.Font("Roboto", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.ForeColor = System.Drawing.Color.White;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.MaximizeBox = false;
             this.Name = "frmOptions";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -384,7 +362,6 @@
             this.Scroll += new System.Windows.Forms.ScrollEventHandler(this.frmOptions_Scroll);
             this.grpAnimations.ResumeLayout(false);
             this.grpAnimations.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.trkAnimations)).EndInit();
             this.grpControls.ResumeLayout(false);
             this.grpControls.PerformLayout();
             this.grpTab.ResumeLayout(false);
@@ -414,8 +391,6 @@
         private System.Windows.Forms.CheckBox checkBox1;
         private System.Windows.Forms.GroupBox grpTab;
         private ColorSlider.ColorSlider colorSlider2;
-        private System.Windows.Forms.TrackBar trkAnimations;
         private System.Windows.Forms.NotifyIcon notifyIcon1;
-        private FlattenCombo.CustomCombo cusCboSize;
     }
 }

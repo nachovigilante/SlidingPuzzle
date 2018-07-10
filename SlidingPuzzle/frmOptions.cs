@@ -122,7 +122,7 @@ namespace SlidingPuzzle
                     pbArray[x, y].Size = new Size(tileSize, tileSize);
                     pbArray[x, y].BackColor = Color.White;
                     pbArray[x, y].BackgroundImageLayout = ImageLayout.Stretch;
-                    pbArray[x, y].Location = new Point(grpTab.Location.X + tileSize * x + 5 * x + (grpTab.Width - tileSize * optObj.size)/2, grpTab.Location.Y + 250 + 5 * y + tileSize * y);
+                    pbArray[x, y].Location = new Point(grpTab.Location.X + tileSize * x + 5 * x + (grpTab.Width - (tileSize + 5) * optObj.size) /2, grpTab.Location.Y + 260 + 5 * y + tileSize * y);
                     pbArray[x, y].Anchor = AnchorStyles.Left;
                     pbArray[x, y].Visible = true;
                     pbArray[x, y].BringToFront();
@@ -163,7 +163,6 @@ namespace SlidingPuzzle
             updateFromTxt();
             loadDefault();
             cboSize.SelectedIndex = 0;
-            cusCboSize.SelectedIndex = 0;
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -179,11 +178,6 @@ namespace SlidingPuzzle
             menuForm.Show();
             //btnVolver.Image = new Bitmap("../../Images/back.png");
             Hide();
-        }
-
-        private void trkAnimations_Scroll(object sender, EventArgs e)
-        {
-            optObj.animationSpeed = 55 - 5 * trkAnimations.Value;
         }
 
         private void chkKeys_CheckedChanged(object sender, EventArgs e)
@@ -266,7 +260,7 @@ namespace SlidingPuzzle
         private void grpControls_Paint(object sender, PaintEventArgs e)
         {
             GroupBox box = sender as GroupBox;
-            DrawGroupBox(box, e.Graphics, Color.Black, Color.FromArgb(255, 233, 165));
+            DrawGroupBox(box, e.Graphics, Color.White, Color.FromArgb(255, 233, 165));
         }
 
         private void DrawGroupBox(GroupBox box, Graphics g, Color textColor, Color borderColor)
@@ -274,8 +268,8 @@ namespace SlidingPuzzle
             if (box != null)
             {
                 Brush textBrush = new SolidBrush(textColor);
-                Brush borderBrush = new SolidBrush(Color.FromArgb(255, 136, 16));
-                Pen borderPen = new Pen(borderBrush);
+                Brush borderBrush = new SolidBrush(Color.FromArgb(232, 90, 8));
+                Pen borderPen = new Pen(borderBrush, 3);
                 SizeF strSize = g.MeasureString(box.Text, box.Font);
                 Rectangle rect = new Rectangle(box.ClientRectangle.X,
                                                box.ClientRectangle.Y + (int)(strSize.Height / 2),
@@ -287,10 +281,13 @@ namespace SlidingPuzzle
 
                 //g.FillPath(borderBrush, RoundedRect(rect, 10));
 
-                // Draw text
-                g.DrawString(box.Text, box.Font, textBrush, box.Padding.Left, 0);
+                int paddingLeft = 10;
+                int yOffset = 15;
 
-                
+                // Draw text
+                g.DrawString(box.Text, box.Font, textBrush, paddingLeft, 0);
+                // Draw line
+                g.DrawLine(borderPen, new Point(rect.X, rect.Y + yOffset), new Point(rect.X + rect.Width, rect.Y + yOffset));
 
                 // Drawing Border
                 //Left
@@ -300,9 +297,9 @@ namespace SlidingPuzzle
                 //Bottom
                 //g.DrawLine(borderPen, new Point(rect.X, rect.Y + rect.Height), new Point(rect.X + rect.Width, rect.Y + rect.Height));
                 //Top1
-                g.DrawLine(borderPen, new Point(rect.X, rect.Y), new Point(rect.X + box.Padding.Left, rect.Y));
+                //g.DrawLine(borderPen, new Point(rect.X, rect.Y + yOffset), new Point(rect.X + paddingLeft, rect.Y + yOffset));
                 //Top2
-                g.DrawLine(borderPen, new Point(rect.X + box.Padding.Left + (int)(strSize.Width), rect.Y), new Point(rect.X + rect.Width, rect.Y));
+                //g.DrawLine(borderPen, new Point(rect.X + paddingLeft + (int)(strSize.Width), rect.Y), new Point(rect.X + rect.Width, rect.Y));
             }
         }
 
@@ -346,6 +343,38 @@ namespace SlidingPuzzle
         private void btnVolver_MouseLeave(object sender, EventArgs e)
         {
             btnVolver.Image = Image.FromFile("../../Images/back.png");
+        }
+
+        private void btnFile_MouseEnter(object sender, EventArgs e)
+        {
+            btnFile.Image = Image.FromFile("../../Images/imagen-h.png");
+        }
+
+        private void btnFile_MouseLeave(object sender, EventArgs e)
+        {
+            btnFile.Image = Image.FromFile("../../Images/imagen.png");
+        }
+
+        private void btnLoadDefault_MouseEnter(object sender, EventArgs e)
+        {
+            btnLoadDefault.Image = Image.FromFile("../../Images/default-h.png");
+        }
+
+        private void btnLoadDefault_MouseLeave(object sender, EventArgs e)
+        {
+            btnLoadDefault.Image = Image.FromFile("../../Images/default.png");
+        }
+
+        private void grpAnimations_Paint(object sender, PaintEventArgs e)
+        {
+            GroupBox box = sender as GroupBox;
+            DrawGroupBox(box, e.Graphics, Color.White, Color.FromArgb(255, 233, 165));
+        }
+
+        private void grpTab_Paint(object sender, PaintEventArgs e)
+        {
+            GroupBox box = sender as GroupBox;
+            DrawGroupBox(box, e.Graphics, Color.White, Color.FromArgb(255, 233, 165));
         }
     }
 }
