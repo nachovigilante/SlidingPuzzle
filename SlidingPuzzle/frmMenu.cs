@@ -87,5 +87,35 @@ namespace SlidingPuzzle
         {
             btnPlay.Image = Image.FromFile("../../Images/jugar.png");
         }
+
+        private void btnOptions_MouseEnter(object sender, EventArgs e)
+        {
+            btnOptions.Image = Image.FromFile("../../Images/opciones-h.png");
+        }
+
+        private void btnOptions_MouseLeave(object sender, EventArgs e)
+        {
+            btnOptions.Image = Image.FromFile("../../Images/opciones.png");
+        }
+
+        private void btnScore_MouseEnter(object sender, EventArgs e)
+        {
+            btnScore.Image = Image.FromFile("../../Images/highscores-h.png");
+        }
+
+        private void btnScore_MouseLeave(object sender, EventArgs e)
+        {
+            btnScore.Image = Image.FromFile("../../Images/highscores.png");
+        }
+
+        private void btnOut_MouseEnter(object sender, EventArgs e)
+        {
+            btnOut.Image = Image.FromFile("../../Images/out-big-h.png");
+        }
+
+        private void btnOut_MouseLeave(object sender, EventArgs e)
+        {
+            btnOut.Image = Image.FromFile("../../Images/out-big.png");
+        }
     }
 }

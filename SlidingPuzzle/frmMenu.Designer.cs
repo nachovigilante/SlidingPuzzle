@@ -66,6 +66,8 @@
             this.btnScore.TabIndex = 2;
             this.btnScore.UseVisualStyleBackColor = true;
             this.btnScore.Click += new System.EventHandler(this.btnScore_Click);
+            this.btnScore.MouseEnter += new System.EventHandler(this.btnScore_MouseEnter);
+            this.btnScore.MouseLeave += new System.EventHandler(this.btnScore_MouseLeave);
             // 
             // btnOptions
             // 
@@ -80,6 +82,8 @@
             this.btnOptions.TabIndex = 3;
             this.btnOptions.UseVisualStyleBackColor = true;
             this.btnOptions.Click += new System.EventHandler(this.btnOptions_Click);
+            this.btnOptions.MouseEnter += new System.EventHandler(this.btnOptions_MouseEnter);
+            this.btnOptions.MouseLeave += new System.EventHandler(this.btnOptions_MouseLeave);
             // 
             // pictureBox1
             // 
@@ -103,6 +107,8 @@
             this.btnOut.TabIndex = 5;
             this.btnOut.UseVisualStyleBackColor = true;
             this.btnOut.Click += new System.EventHandler(this.btnOut_Click);
+            this.btnOut.MouseEnter += new System.EventHandler(this.btnOut_MouseEnter);
+            this.btnOut.MouseLeave += new System.EventHandler(this.btnOut_MouseLeave);
             // 
             // frmMenu
             // 

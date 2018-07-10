@@ -191,5 +191,21 @@ namespace SlidingPuzzle
         {
 
         }
+
+        private void btnBegin_MouseEnter(object sender, EventArgs e)
+        {
+            if (!b.playing)
+                btnBegin.Image = Image.FromFile("../../Images/empezar-debil-h.png");
+            else
+                btnBegin.Image = Image.FromFile("../../Images/rendirse-debil-h.png");
+        }
+
+        private void btnBegin_MouseLeave(object sender, EventArgs e)
+        {
+            if(!b.playing)
+                btnBegin.Image = Image.FromFile("../../Images/empezar-debil.png");
+            else
+                btnBegin.Image = Image.FromFile("../../Images/rendirse-debil.png");
+        }
     }
 }

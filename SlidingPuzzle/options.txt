@@ -1,5 +1,5 @@
 True
 True
 True
-40
+25
 3

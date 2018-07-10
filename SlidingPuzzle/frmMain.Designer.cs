@@ -88,6 +88,8 @@
             this.btnBegin.UseVisualStyleBackColor = false;
             this.btnBegin.Click += new System.EventHandler(this.btnBegin_Click);
             this.btnBegin.KeyDown += new System.Windows.Forms.KeyEventHandler(this.btnBegin_KeyDown);
+            this.btnBegin.MouseEnter += new System.EventHandler(this.btnBegin_MouseEnter);
+            this.btnBegin.MouseLeave += new System.EventHandler(this.btnBegin_MouseLeave);
             this.btnBegin.PreviewKeyDown += new System.Windows.Forms.PreviewKeyDownEventHandler(this.btnBegin_PreviewKeyDown);
             // 
             // lblMoves
