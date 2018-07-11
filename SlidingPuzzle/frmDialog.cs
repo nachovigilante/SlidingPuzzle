@@ -25,6 +25,8 @@ namespace SlidingPuzzle
 
         private void frmDialog_Load(object sender, EventArgs e)
         {
+            btnVolver.FlatAppearance.MouseDownBackColor = Color.Transparent;
+            btnVolver.FlatAppearance.MouseOverBackColor = Color.Transparent;
             txtName.MaxLength = 8;
             // Me fijo si todavía no se lleno el top ten.
             int i = File.ReadAllLines("../../scores.txt").Count();
@@ -89,6 +91,11 @@ namespace SlidingPuzzle
         private void btnNo_Click(object sender, EventArgs e)
         {
             this.Hide();
+        }
+
+        private void btnVolver_Click(object sender, EventArgs e)
+        {
+            Hide();
         }
     }
 
