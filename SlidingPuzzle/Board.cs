@@ -21,7 +21,7 @@ namespace SlidingPuzzle
 
         public void shuffle()
         {
-            for (int i = 0; i < 200 * size; i++)
+            for (int i = 0; i < 200 * size * size; i++)
             {
                 int pieceX = r.Next(0, size);
                 int pieceY = r.Next(0, size);
