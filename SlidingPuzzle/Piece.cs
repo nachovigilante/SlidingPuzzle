@@ -22,7 +22,7 @@ namespace SlidingPuzzle
             form.Controls.Add(this.pb);
         }
 
-        public Piece(int v, int x, int y, Board b, int gap, int offset, int squareSize, bool animationsActive)
+        public Piece(int v, int x, int y, Board b, int gap, int offset, int yOffset, int squareSize, bool animationsActive)
         {
             value = v;
             this.x = x;
@@ -34,7 +34,7 @@ namespace SlidingPuzzle
             pb.Size = new Size(squareSize, squareSize);
             pb.BackColor = Color.White;
             pb.BackgroundImageLayout = ImageLayout.Stretch;
-            pb.Location = new Point(this.x * gap + offset, this.y * gap + offset);
+            pb.Location = new Point(this.x * gap + offset, this.y * gap + yOffset - 37);
             pb.Anchor = AnchorStyles.Left;
             loadRightImage(pb, v);
             this.animationsActive = animationsActive;

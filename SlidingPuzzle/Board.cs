@@ -181,7 +181,7 @@ namespace SlidingPuzzle
             return moves.ToString();
         }
 
-        public Board(int s, int gap, int offset, int squareSize, Bitmap[,] bmpArray, bool animationsActive, int animationSpeed, bool multiMoves)
+        public Board(int s, int gap, int offset, int yOffset, int squareSize, Bitmap[,] bmpArray, bool animationsActive, int animationSpeed, bool multiMoves)
         {
             this.multiMoves = multiMoves;
             this.animationSpeed = animationSpeed;
@@ -202,9 +202,9 @@ namespace SlidingPuzzle
                 for (int j = 0; j < size; j++)
                 {
                     if (valueI == size * size)
-                        pieceArray[j, i] = new Piece(0, j, i, this, gap, offset, squareSize, animationsActive);
+                        pieceArray[j, i] = new Piece(0, j, i, this, gap, offset, yOffset, squareSize, animationsActive);
                     else
-                        pieceArray[j, i] = new Piece(valueI, j, i, this, gap, offset, squareSize, animationsActive);
+                        pieceArray[j, i] = new Piece(valueI, j, i, this, gap, offset, yOffset, squareSize, animationsActive);
                     valueI++;
                 }
             }
