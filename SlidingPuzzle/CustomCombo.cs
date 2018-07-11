@@ -44,7 +44,7 @@ namespace FlattenCombo
             set
             {
                 _borderColor = value;
-                this.Invalidate(); // causes control to be redrawn
+                this.Invalidate();
             }
         }
 
@@ -75,9 +75,6 @@ namespace FlattenCombo
             switch (m.Msg)
             {
                 case 0xf:
-                    //Paint the background. Only the borders
-                    //will show up because the edit
-                    //box will be overlayed
                     //Graphics g = Graphics.FromHwnd(Handle);
                     Graphics g = this.CreateGraphics();
                     Rectangle bounds = new Rectangle(0, 0, Width, Height);
@@ -86,12 +83,10 @@ namespace FlattenCombo
                     //Pen p = new Pen(Color.White, 2);
                     g.FillRectangle(BorderBrush, this.ClientRectangle);
 
-                    //Draw the background of the dropdown button
                     Rectangle rect = new Rectangle(this.Width - 18, 0, 18, this.Height);
                     g.FillRectangle(DropButtonBrush, rect);
                     //g.FillPath(DropButtonBrush, RoundedRect(rect, 7));
 
-                    //Create the path for the arrow
                     System.Drawing.Drawing2D.GraphicsPath pth = new System.Drawing.Drawing2D.GraphicsPath();
                     PointF TopLeft = new PointF(this.Width - 13, (this.Height - 5) / 2);
                     PointF TopRight = new PointF(this.Width - 6, (this.Height - 5) / 2);
@@ -101,7 +96,6 @@ namespace FlattenCombo
 
                     g.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
 
-                    //Determine the arrow's color.
                     /*if (this.DroppedDown)
                     {
                         ArrowBrush = new SolidBrush(SystemColors.HighlightText);
@@ -111,7 +105,6 @@ namespace FlattenCombo
                         ArrowBrush = new SolidBrush(SystemColors.ControlText);
                     }*/
 
-                    //Draw the arrow
                     g.FillPath(ArrowBrush, pth);
 
                     g.Dispose();
@@ -120,10 +113,6 @@ namespace FlattenCombo
             }
         }
 
-        //Override mouse and focus events to draw
-        //proper borders. Basically, set the color and Invalidate(),
-        //In general, Invalidate causes a control to redraw itself.
-        //#region "Mouse and focus Overrides"
         protected override void OnMouseEnter(System.EventArgs e)
         {
             base.OnMouseEnter(e);
@@ -165,7 +154,6 @@ namespace FlattenCombo
             //EnableDoubleBuffering();
             this.Invalidate();
         }
-        //#endregion
 
         public static GraphicsPath RoundedRect(Rectangle bounds, int radius)
         {
@@ -179,19 +167,15 @@ namespace FlattenCombo
                 path.AddRectangle(bounds);
                 return path;
             }
-
-            // top left arc  
+            
             path.AddArc(arc, 180, 90);
-
-            // top right arc  
+            
             arc.X = bounds.Right - diameter;
             path.AddArc(arc, 270, 90);
-
-            // bottom right arc  
+            
             arc.Y = bounds.Bottom - diameter;
             path.AddArc(arc, 0, 90);
-
-            // bottom left arc 
+            
             arc.X = bounds.Left;
             path.AddArc(arc, 90, 90);
 

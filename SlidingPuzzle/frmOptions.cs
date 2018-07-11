@@ -46,6 +46,7 @@ namespace SlidingPuzzle
         private void chkAnimations_CheckedChanged(object sender, EventArgs e)
         {
             optObj.animationsActive = chkAnimations.Checked;
+            //Console.WriteLine(chkAnimations.Checked);
         }
 
         public void updateFromTxt()
@@ -54,6 +55,18 @@ namespace SlidingPuzzle
             chkKeys.Checked = optObj.keyMoves;
             checkBox1.Checked = optObj.multiMoves;
             chkAnimations.Checked = optObj.animationsActive;
+            if (checkBox1.Checked)
+                pbChkMulti.BackgroundImage = new Bitmap("../../Images/check.png");
+            else
+                pbChkMulti.BackgroundImage = new Bitmap("../../Images/check-n.png");
+            if (chkKeys.Checked)
+                pbChkKeys.BackgroundImage = new Bitmap("../../Images/check.png");
+            else
+                pbChkKeys.BackgroundImage = new Bitmap("../../Images/check-n.png");
+            if (chkAnimations.Checked)
+                pbChkAnimations.BackgroundImage = new Bitmap("../../Images/check.png");
+            else
+                pbChkAnimations.BackgroundImage = new Bitmap("../../Images/check-n.png");
             colorSlider2.Value = (optObj.animationSpeed - 55) / (-5);
         }
 
@@ -276,29 +289,20 @@ namespace SlidingPuzzle
                                                box.ClientRectangle.Width - 1,
                                                box.ClientRectangle.Height - (int)(strSize.Height / 2) - 1);
 
-                // Clear text and border
                 g.Clear(this.BackColor);
 
-                //g.FillPath(borderBrush, RoundedRect(rect, 10));
 
                 int paddingLeft = 10;
                 int yOffset = 15;
 
-                // Draw text
                 g.DrawString(box.Text, box.Font, textBrush, paddingLeft, 0);
-                // Draw line
                 g.DrawLine(borderPen, new Point(rect.X, rect.Y + yOffset), new Point(rect.X + rect.Width, rect.Y + yOffset));
 
-                // Drawing Border
-                //Left
+               
                 //g.DrawLine(borderPen, rect.Location, new Point(rect.X, rect.Y + rect.Height));
-                //Right
                 //g.DrawLine(borderPen, new Point(rect.X + rect.Width, rect.Y), new Point(rect.X + rect.Width, rect.Y + rect.Height));
-                //Bottom
                 //g.DrawLine(borderPen, new Point(rect.X, rect.Y + rect.Height), new Point(rect.X + rect.Width, rect.Y + rect.Height));
-                //Top1
                 //g.DrawLine(borderPen, new Point(rect.X, rect.Y + yOffset), new Point(rect.X + paddingLeft, rect.Y + yOffset));
-                //Top2
                 //g.DrawLine(borderPen, new Point(rect.X + paddingLeft + (int)(strSize.Width), rect.Y), new Point(rect.X + rect.Width, rect.Y));
             }
         }
@@ -375,6 +379,33 @@ namespace SlidingPuzzle
         {
             GroupBox box = sender as GroupBox;
             DrawGroupBox(box, e.Graphics, Color.White, Color.FromArgb(255, 233, 165));
+        }
+
+        private void pbChkKeys_Click(object sender, EventArgs e)
+        {
+            chkKeys.Checked = !chkKeys.Checked;
+            if (chkKeys.Checked)
+                pbChkKeys.BackgroundImage = new Bitmap("../../Images/check.png");
+            else
+                pbChkKeys.BackgroundImage = new Bitmap("../../Images/check-n.png");
+        }
+
+        private void pbChkMulti_Click(object sender, EventArgs e)
+        {
+            checkBox1.Checked = !checkBox1.Checked;
+            if (checkBox1.Checked)
+                pbChkMulti.BackgroundImage = new Bitmap("../../Images/check.png");
+            else
+                pbChkMulti.BackgroundImage = new Bitmap("../../Images/check-n.png");
+        }
+
+        private void pbChkAnimations_Click(object sender, EventArgs e)
+        {
+            chkAnimations.Checked = !chkAnimations.Checked;
+            if (chkAnimations.Checked)
+                pbChkAnimations.BackgroundImage = new Bitmap("../../Images/check.png");
+            else
+                pbChkAnimations.BackgroundImage = new Bitmap("../../Images/check-n.png");
         }
     }
 }
