@@ -58,9 +58,10 @@ namespace SlidingPuzzle
                 }
                 else
                 {
+                    this.Height = 195;
                     lblWin.Text = "¡Ganaste en " + time + " minutos y en " + moves + " movimientos!. Pero no pudiste entrar al top ten. ¡Seguí intentandolo!.";
-                    btnOk.Visible = false;
-                    txtName.Visible = false;
+                    btnOk.Enabled = false;
+                    txtName.Enabled = false;
                 }
             }
         }

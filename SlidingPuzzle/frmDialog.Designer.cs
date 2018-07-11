@@ -38,11 +38,11 @@
             // 
             // lblWin
             // 
-            this.lblWin.Font = new System.Drawing.Font("Roboto", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblWin.Location = new System.Drawing.Point(57, 108);
+            this.lblWin.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblWin.Location = new System.Drawing.Point(15, 104);
             this.lblWin.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.lblWin.Name = "lblWin";
-            this.lblWin.Size = new System.Drawing.Size(567, 73);
+            this.lblWin.Size = new System.Drawing.Size(650, 81);
             this.lblWin.TabIndex = 0;
             this.lblWin.Text = "lblWin";
             this.lblWin.TextAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -64,12 +64,12 @@
             this.txtName.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
             this.txtName.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtName.Cursor = System.Windows.Forms.Cursors.Arrow;
-            this.txtName.Font = new System.Drawing.Font("Roboto", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtName.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtName.ForeColor = System.Drawing.Color.White;
             this.txtName.Location = new System.Drawing.Point(219, 198);
             this.txtName.Margin = new System.Windows.Forms.Padding(6, 4, 6, 4);
             this.txtName.Name = "txtName";
-            this.txtName.Size = new System.Drawing.Size(242, 26);
+            this.txtName.Size = new System.Drawing.Size(242, 24);
             this.txtName.TabIndex = 3;
             // 
             // btnVolver
@@ -80,7 +80,7 @@
             this.btnVolver.Image = ((System.Drawing.Image)(resources.GetObject("btnVolver.Image")));
             this.btnVolver.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnVolver.Location = new System.Drawing.Point(13, 13);
-            this.btnVolver.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnVolver.Margin = new System.Windows.Forms.Padding(4);
             this.btnVolver.Name = "btnVolver";
             this.btnVolver.Size = new System.Drawing.Size(45, 48);
             this.btnVolver.TabIndex = 13;
@@ -90,16 +90,16 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Roboto", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(227, 23);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(226, 58);
+            this.label1.Size = new System.Drawing.Size(232, 55);
             this.label1.TabIndex = 14;
             this.label1.Text = "¡Ganaste!";
             // 
             // frmDialog
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 19F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
@@ -112,7 +112,7 @@
             this.Controls.Add(this.lblWin);
             this.Cursor = System.Windows.Forms.Cursors.Default;
             this.DoubleBuffered = true;
-            this.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ForeColor = System.Drawing.Color.White;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
