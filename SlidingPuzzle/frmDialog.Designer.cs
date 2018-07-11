@@ -44,11 +44,7 @@
             this.lblWin.Location = new System.Drawing.Point(15, 104);
             this.lblWin.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.lblWin.Name = "lblWin";
-<<<<<<< HEAD
-            this.lblWin.Size = new System.Drawing.Size(650, 81);
-=======
             this.lblWin.Size = new System.Drawing.Size(567, 98);
->>>>>>> Esthetics
             this.lblWin.TabIndex = 0;
             this.lblWin.Text = "lblWin";
             this.lblWin.TextAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -80,11 +76,7 @@
             this.txtName.Location = new System.Drawing.Point(6, 5);
             this.txtName.Margin = new System.Windows.Forms.Padding(6, 4, 6, 4);
             this.txtName.Name = "txtName";
-<<<<<<< HEAD
-            this.txtName.Size = new System.Drawing.Size(242, 24);
-=======
             this.txtName.Size = new System.Drawing.Size(334, 26);
->>>>>>> Esthetics
             this.txtName.TabIndex = 3;
             this.txtName.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
