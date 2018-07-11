@@ -48,6 +48,10 @@ namespace SlidingPuzzle
             }
             btnVolver.FlatAppearance.MouseDownBackColor = Color.Transparent;
             btnVolver.FlatAppearance.MouseOverBackColor = Color.Transparent;
+            lblPrev.FlatAppearance.MouseDownBackColor = Color.Transparent;
+            lblPrev.FlatAppearance.MouseOverBackColor = Color.Transparent;
+            lblNext.FlatAppearance.MouseDownBackColor = Color.Transparent;
+            lblNext.FlatAppearance.MouseOverBackColor = Color.Transparent;
             image = resizeImage(Image.FromFile("../../Images/empty.png"), 16, 10);
             arrup = resizeImage(Image.FromFile("../../Images/arrow_up.png"), 16, 10);
             arrdown = resizeImage(Image.FromFile("../../Images/arrow_down.png"), 16, 10);
@@ -107,7 +111,7 @@ namespace SlidingPuzzle
             {
                 lblEmpty.Visible = true;
                 lblEmpty.Enabled = true;
-                lblEmpty.Text = "No hay scores de ningún jugador en este modo.";
+                lblEmpty.Text = "No hay puntajes de ningún jugador en este modo.";
                 int x = this.Width / 2 - lblEmpty.Width / 2;
                 int y = this.Height / 2 - lblEmpty.Height / 2;
                 lblEmpty.Location = new Point(x, y);
@@ -305,6 +309,68 @@ namespace SlidingPuzzle
                 lblTitle.Text = "HighScore 3x3";
             }
             chargeScores(scoreFile, false);
+        }
+
+        private void lblPrev_Click_1(object sender, EventArgs e)
+        {
+            string scoreFile = "";
+            if (lblTitle.Text == "HighScore 3x3")
+            {
+                scoreFile = "../../scores5x5.txt";
+                lblTitle.Text = "HighScore 5x5";
+            }
+            else if (lblTitle.Text == "HighScore 4x4")
+            {
+                scoreFile = "../../scores3x3.txt";
+                lblTitle.Text = "HighScore 3x3";
+            }
+            else
+            {
+                scoreFile = "../../scores4x4.txt";
+                lblTitle.Text = "HighScore 4x4";
+            }
+            chargeScores(scoreFile, false);
+        }
+
+        private void lblNext_Click_1(object sender, EventArgs e)
+        {
+            string scoreFile = "";
+            if (lblTitle.Text == "HighScore 3x3")
+            {
+                scoreFile = "../../scores4x4.txt";
+                lblTitle.Text = "HighScore 4x4";
+            }
+            else if (lblTitle.Text == "HighScore 4x4")
+            {
+                scoreFile = "../../scores5x5.txt";
+                lblTitle.Text = "HighScore 5x5";
+            }
+            else
+            {
+                scoreFile = "../../scores3x3.txt";
+                lblTitle.Text = "HighScore 3x3";
+            }
+            chargeScores(scoreFile, false);
+        }
+
+        private void lblPrev_MouseEnter(object sender, EventArgs e)
+        {
+            lblPrev.Image = Image.FromFile("../../Images/up-h.png");
+        }
+
+        private void lblPrev_MouseLeave(object sender, EventArgs e)
+        {
+            lblPrev.Image = Image.FromFile("../../Images/up.png");
+        }
+
+        private void lblNext_MouseEnter(object sender, EventArgs e)
+        {
+            lblNext.Image = Image.FromFile("../../Images/down-h.png");
+        }
+
+        private void lblNext_MouseLeave(object sender, EventArgs e)
+        {
+            lblNext.Image = Image.FromFile("../../Images/down.png");
         }
 
         private void refreshScores()

@@ -99,7 +99,7 @@
             // 
             // lblMoves
             // 
-            this.lblMoves.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblMoves.Font = new System.Drawing.Font("Roboto", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblMoves.ForeColor = System.Drawing.Color.White;
             this.lblMoves.Location = new System.Drawing.Point(3, 222);
             this.lblMoves.Name = "lblMoves";
@@ -112,17 +112,17 @@
             // lblMovesTitle
             // 
             this.lblMovesTitle.AutoSize = true;
-            this.lblMovesTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblMovesTitle.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblMovesTitle.ForeColor = System.Drawing.Color.White;
             this.lblMovesTitle.Location = new System.Drawing.Point(35, 195);
             this.lblMovesTitle.Name = "lblMovesTitle";
-            this.lblMovesTitle.Size = new System.Drawing.Size(101, 20);
+            this.lblMovesTitle.Size = new System.Drawing.Size(105, 19);
             this.lblMovesTitle.TabIndex = 2;
             this.lblMovesTitle.Text = "Movimientos:";
             // 
             // lblTime
             // 
-            this.lblTime.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTime.Font = new System.Drawing.Font("Roboto", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTime.ForeColor = System.Drawing.Color.White;
             this.lblTime.Location = new System.Drawing.Point(3, 148);
             this.lblTime.Name = "lblTime";
@@ -135,11 +135,11 @@
             // lblTimeTitle
             // 
             this.lblTimeTitle.AutoSize = true;
-            this.lblTimeTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTimeTitle.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTimeTitle.ForeColor = System.Drawing.Color.White;
             this.lblTimeTitle.Location = new System.Drawing.Point(15, 120);
             this.lblTimeTitle.Name = "lblTimeTitle";
-            this.lblTimeTitle.Size = new System.Drawing.Size(140, 20);
+            this.lblTimeTitle.Size = new System.Drawing.Size(142, 19);
             this.lblTimeTitle.TabIndex = 0;
             this.lblTimeTitle.Text = "Tiempo en partida:";
             // 

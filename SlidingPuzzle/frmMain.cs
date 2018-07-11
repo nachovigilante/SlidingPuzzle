@@ -43,6 +43,7 @@ namespace SlidingPuzzle
             int formSizeY = yOffset + offset + squareSize * size;
             b = new Board(size, squareSize, offset, yOffset, squareSize, bmpArray, animationsActive, animationSpeed, multiMoves);
             Size = new Size(formSizeX - 40, formSizeY - 40);
+            CenterToScreen();
             int p = pictureBox1.Location.Y;
             pictureBox1.Location = new Point(((formSizeX - pictureBox1.Width) / 2) - 22, p);
             b.showPieces(this);
