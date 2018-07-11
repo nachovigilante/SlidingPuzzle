@@ -14,8 +14,10 @@ namespace SlidingPuzzle
         public string Time { get; set; }
         public int Points { get; set; }
         public int Edit { get; set; }
+        public string ScoreFile { get; set; }
 
         public Player() { }
+
         public Player(string name, string time, int moves, int points)
         {
             this.Name = name;
@@ -29,11 +31,11 @@ namespace SlidingPuzzle
             string toWrite = this.Name + "; " + this.Moves + "; " + this.Time + "; " + this.Points + Environment.NewLine;
             if (edit)
             {
-                List<string> linesList = File.ReadAllLines("../../scores.txt").ToList();
+                List<string> linesList = File.ReadAllLines(ScoreFile).ToList();
                 linesList.RemoveAt(this.Edit);
-                File.WriteAllLines("../../scores.txt", linesList.ToArray());
+                File.WriteAllLines(ScoreFile, linesList.ToArray());
             }
-            File.AppendAllText("../../scores.txt", toWrite);
+            File.AppendAllText(ScoreFile, toWrite);
         }
 
         public void createFromLine(string line)

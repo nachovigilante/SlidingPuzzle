@@ -21,7 +21,7 @@ namespace SlidingPuzzle
 
         public void shuffle()
         {
-            for (int i = 0; i < 200 * size; i++)
+            for (int i = 0; i < 200 * size * size; i++)
             {
                 int pieceX = r.Next(0, size);
                 int pieceY = r.Next(0, size);
@@ -139,6 +139,7 @@ namespace SlidingPuzzle
                     tmrTick.Enabled = false;
                     pieceArray[size - 1, size - 1].pb.Visible = true;
                     frmDialog form = new frmDialog();
+                    form.mode = this.size;
                     form.moves = this.getMoves();
                     form.time = this.getPlayTime();
                     form.points = (10000 - this.moves - this.time).ToString();
@@ -181,7 +182,7 @@ namespace SlidingPuzzle
             return moves.ToString();
         }
 
-        public Board(int s, int gap, int offset, int squareSize, Bitmap[,] bmpArray, bool animationsActive, int animationSpeed, bool multiMoves)
+        public Board(int s, int gap, int offset, int yOffset, int squareSize, Bitmap[,] bmpArray, bool animationsActive, int animationSpeed, bool multiMoves)
         {
             this.multiMoves = multiMoves;
             this.animationSpeed = animationSpeed;
@@ -202,9 +203,9 @@ namespace SlidingPuzzle
                 for (int j = 0; j < size; j++)
                 {
                     if (valueI == size * size)
-                        pieceArray[j, i] = new Piece(0, j, i, this, gap, offset, squareSize, animationsActive);
+                        pieceArray[j, i] = new Piece(0, j, i, this, gap, offset, yOffset, squareSize, animationsActive);
                     else
-                        pieceArray[j, i] = new Piece(valueI, j, i, this, gap, offset, squareSize, animationsActive);
+                        pieceArray[j, i] = new Piece(valueI, j, i, this, gap, offset, yOffset, squareSize, animationsActive);
                     valueI++;
                 }
             }

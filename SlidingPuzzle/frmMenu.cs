@@ -49,6 +49,14 @@ namespace SlidingPuzzle
 
         private void frmMenu_Load(object sender, EventArgs e)
         {
+            btnPlay.FlatAppearance.MouseDownBackColor = Color.Transparent;
+            btnPlay.FlatAppearance.MouseOverBackColor = Color.Transparent;
+            btnOptions.FlatAppearance.MouseDownBackColor = Color.Transparent;
+            btnOptions.FlatAppearance.MouseOverBackColor = Color.Transparent;
+            btnScore.FlatAppearance.MouseDownBackColor = Color.Transparent;
+            btnScore.FlatAppearance.MouseOverBackColor = Color.Transparent;
+            btnOut.FlatAppearance.MouseDownBackColor = Color.Transparent;
+            btnOut.FlatAppearance.MouseOverBackColor = Color.Transparent;
             bmpArray = new Bitmap[size, size];
             Bitmap resizedImage = new Bitmap(imageToUse, new Size(300, 300));
             bmpArray = new Bitmap[size, size];
@@ -63,6 +71,51 @@ namespace SlidingPuzzle
                     bmpArray[x, y] = tile;
                 }
             }
+        }
+
+        private void btnOut_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
+
+        private void btnPlay_MouseEnter(object sender, EventArgs e)
+        {
+            btnPlay.Image = Image.FromFile("../../Images/jugar-h.png");
+        }
+
+        private void btnPlay_MouseLeave(object sender, EventArgs e)
+        {
+            btnPlay.Image = Image.FromFile("../../Images/jugar.png");
+        }
+
+        private void btnOptions_MouseEnter(object sender, EventArgs e)
+        {
+            btnOptions.Image = Image.FromFile("../../Images/opciones-h.png");
+        }
+
+        private void btnOptions_MouseLeave(object sender, EventArgs e)
+        {
+            btnOptions.Image = Image.FromFile("../../Images/opciones.png");
+        }
+
+        private void btnScore_MouseEnter(object sender, EventArgs e)
+        {
+            btnScore.Image = Image.FromFile("../../Images/highscores-h.png");
+        }
+
+        private void btnScore_MouseLeave(object sender, EventArgs e)
+        {
+            btnScore.Image = Image.FromFile("../../Images/highscores.png");
+        }
+
+        private void btnOut_MouseEnter(object sender, EventArgs e)
+        {
+            btnOut.Image = Image.FromFile("../../Images/out-big-h.png");
+        }
+
+        private void btnOut_MouseLeave(object sender, EventArgs e)
+        {
+            btnOut.Image = Image.FromFile("../../Images/out-big.png");
         }
     }
 }

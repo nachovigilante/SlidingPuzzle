@@ -14,6 +14,7 @@ namespace SlidingPuzzle
     {
         //static int gap = 100;
         static int offset = 40;
+        static int yOffset = 200;
         public int squareSize = 100;
         public int size;
         static int buttonGap = 200;
@@ -39,31 +40,38 @@ namespace SlidingPuzzle
         {
             squareSize = bmpArray[0,0].Height;
             int formSizeX = offset * 2 + squareSize * size + buttonGap;
-            int formSizeY = offset * 2 + squareSize * size + offset;
-            b = new Board(size, squareSize, offset, squareSize, bmpArray, animationsActive, animationSpeed, multiMoves);
-            Size = new Size(formSizeX, formSizeY);
+            int formSizeY = yOffset + offset + squareSize * size;
+            b = new Board(size, squareSize, offset, yOffset, squareSize, bmpArray, animationsActive, animationSpeed, multiMoves);
+            Size = new Size(formSizeX - 40, formSizeY - 40);
+            CenterToScreen();
+            int p = pictureBox1.Location.Y;
+            pictureBox1.Location = new Point(((formSizeX - pictureBox1.Width) / 2) - 22, p);
             b.showPieces(this);
             b.checkPosiblePlays();
-            grpControls.Location = new Point(formSizeX - (buttonGap + 20), (formSizeY - grpControls.Size.Height) / 2 - 22);
+            grpControls.Location = new Point(formSizeX - (buttonGap + 20), (formSizeY - grpControls.Size.Height) / 2 + yOffset/2 - 57);
+            btnBegin.FlatAppearance.MouseDownBackColor = Color.Transparent;
+            btnBegin.FlatAppearance.MouseOverBackColor = Color.Transparent;
+            btnVolver.FlatAppearance.MouseDownBackColor = Color.Transparent;
+            btnVolver.FlatAppearance.MouseOverBackColor = Color.Transparent;
         }
 
         private void btnBegin_Click(object sender, EventArgs e)
         {
-            if (btnBegin.Text == "Empezar")
+            if (!b.playing)
             {
-                btnBegin.Text = "Rendirse";
                 b.pieceArray[b.zeroX, b.zeroY].pb.Visible = false;
                 b.shuffle();
                 b.playing = true;
+                btnBegin.Image = new Bitmap("../../Images/rendirse-debil.png");
             }
             else
             {
-                btnBegin.Text = "Empezar";
+                btnBegin.Image = new Bitmap("../../Images/empezar-debil.png");
                 b.playing = false;
             }
             b.time = 0;
             b.moves = 0;
-
+            
             b.tmrTick.Enabled = !b.tmrTick.Enabled;
         }
 
@@ -71,8 +79,8 @@ namespace SlidingPuzzle
         {
             lblTime.Text = b.getPlayTime();
             lblMoves.Text = b.getMoves();
-            if (!b.playing)
-                btnBegin.Text = "Empezar";
+            /*if (b.playing)
+                btnBegin.Image = new Bitmap("../../Images/rendirse-debil.png");*/
         }
 
         private void frmMain_KeyDown(object sender, KeyEventArgs e)
@@ -181,6 +189,57 @@ namespace SlidingPuzzle
         {
             formMenu.Show();
             Hide();
+        }
+
+        private void grpControls_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnBegin_MouseEnter(object sender, EventArgs e)
+        {
+            if (!b.playing)
+                btnBegin.Image = Image.FromFile("../../Images/empezar-debil-h.png");
+            else
+                btnBegin.Image = Image.FromFile("../../Images/rendirse-debil-h.png");
+        }
+
+        private void btnBegin_MouseLeave(object sender, EventArgs e)
+        {
+            if(!b.playing)
+                btnBegin.Image = Image.FromFile("../../Images/empezar-debil.png");
+            else
+                btnBegin.Image = Image.FromFile("../../Images/rendirse-debil.png");
+        }
+
+        private void btnVolver_MouseEnter(object sender, EventArgs e)
+        {
+            btnVolver.Image = Image.FromFile("../../Images/menu-h.png");
+        }
+
+        private void btnVolver_MouseLeave(object sender, EventArgs e)
+        {
+            btnVolver.Image = Image.FromFile("../../Images/menu.png");
+        }
+
+        private void grpControls_Paint(object sender, PaintEventArgs e)
+        {
+            Brush b = new SolidBrush(Color.FromArgb(64, 64, 64));
+            SizeF strSize = e.Graphics.MeasureString(grpControls.Text, grpControls.Font);
+            Rectangle rect = new Rectangle(grpControls.ClientRectangle.X,
+                                               grpControls.ClientRectangle.Y + (int)(strSize.Height / 2),
+                                               grpControls.ClientRectangle.Width - 1,
+                                               grpControls.ClientRectangle.Height - (int)(strSize.Height / 2) - 1);
+
+            e.Graphics.Clear(this.BackColor);
+
+            e.Graphics.FillRectangle(b, rect);
+            //e.Graphics.DrawRectangle(new Pen(Color.Gray), rect);
+            //int paddingLeft = 10;
+            //int yOffset = 15;
+
+            //g.DrawString(box.Text, box.Font, textBrush, paddingLeft, 0);
+            //g.DrawLine(borderPen, new Point(rect.X, rect.Y + yOffset), new Point(rect.X + rect.Width, rect.Y + yOffset));
         }
     }
 }
