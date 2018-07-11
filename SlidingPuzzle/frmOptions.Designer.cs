@@ -392,7 +392,7 @@
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(599, 537);
+            this.ClientSize = new System.Drawing.Size(616, 537);
             this.ControlBox = false;
             this.Controls.Add(this.grpTab);
             this.Controls.Add(this.grpControls);
