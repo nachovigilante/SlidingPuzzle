@@ -33,7 +33,7 @@ namespace SlidingPuzzle
         //public bool keyMoves = true;
         //public bool multiMoves = true;
 
-        protected override CreateParams CreateParams
+        /*protected override CreateParams CreateParams
         {
             get
             {
@@ -41,7 +41,7 @@ namespace SlidingPuzzle
                 cp.ExStyle |= 0x02000000;  // Turn on WS_EX_COMPOSITED
                 return cp;
             }
-        }
+        }*/
 
         private void chkAnimations_CheckedChanged(object sender, EventArgs e)
         {
