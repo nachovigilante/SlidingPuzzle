@@ -20,8 +20,10 @@ namespace SlidingPuzzle
         public string time;
         public string moves;
         public string points;
+        public int mode;
         public bool higher;
         public int edit;
+        public string scoreFile;
 
         private void frmDialog_Load(object sender, EventArgs e)
         {
@@ -29,7 +31,22 @@ namespace SlidingPuzzle
             btnVolver.FlatAppearance.MouseOverBackColor = Color.Transparent;
             txtName.MaxLength = 8;
             // Me fijo si todavía no se lleno el top ten.
-            int i = File.ReadAllLines("../../scores.txt").Count();
+            switch (mode)
+            {
+                case 3:
+                    scoreFile = "../../scores3x3.txt";
+                    break;
+                case 4:
+                    scoreFile = "../../scores4x4.txt";
+                    break;
+                case 5:
+                    scoreFile = "../../scores5x5.txt";
+                    break;
+                default:
+                    scoreFile = "../../scores3x3.txt";
+                    break;
+            }
+            int i = File.ReadAllLines(scoreFile).Count();
             if (i < 10) { 
                 // Si todavía hay lugares en el highscore, puede agregarse.
                 lblWin.Text = "¡Ganaste en " + time + " minutos y " + moves + " movimientos!. Podés guardar tu partida así aparecera en el highscore.";
@@ -39,7 +56,7 @@ namespace SlidingPuzzle
                 // Veo si el puntaje obtenido supera a alguno del highscore.
                 higher = false;
                 List<Player> pList = new List<Player>();
-                using (StreamReader sr = File.OpenText("../../scores.txt"))
+                using (StreamReader sr = File.OpenText(scoreFile))
                 {
                     string line;
                     while ((line = sr.ReadLine()) != null)
@@ -70,6 +87,7 @@ namespace SlidingPuzzle
         {
             if (txtName.Text.Trim() != "") {
                 Player winner = new Player(txtName.Text.Trim(), time, int.Parse(moves), int.Parse(points));
+                winner.ScoreFile = scoreFile;
                 if (higher)
                 {
                     winner.Edit = edit;
@@ -80,6 +98,7 @@ namespace SlidingPuzzle
                     winner.writeToTxt(false);
                 }
                 frmScore form = new frmScore();
+                form.mode = this.mode;
                 form.Show();
                 this.Hide();
             }

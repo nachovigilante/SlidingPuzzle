@@ -139,6 +139,7 @@ namespace SlidingPuzzle
                     tmrTick.Enabled = false;
                     pieceArray[size - 1, size - 1].pb.Visible = true;
                     frmDialog form = new frmDialog();
+                    form.mode = this.size;
                     form.moves = this.getMoves();
                     form.time = this.getPlayTime();
                     form.points = (10000 - this.moves - this.time).ToString();

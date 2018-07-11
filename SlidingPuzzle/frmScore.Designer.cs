@@ -31,6 +31,10 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmScore));
             this.tlpScore = new System.Windows.Forms.TableLayoutPanel();
             this.btnVolver = new System.Windows.Forms.Button();
+            this.lblTitle = new System.Windows.Forms.Label();
+            this.lblPrev = new System.Windows.Forms.Label();
+            this.lblNext = new System.Windows.Forms.Label();
+            this.lblEmpty = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // tlpScore
@@ -78,6 +82,45 @@
             this.btnVolver.MouseEnter += new System.EventHandler(this.btnVolver_MouseEnter);
             this.btnVolver.MouseLeave += new System.EventHandler(this.btnVolver_MouseLeave);
             // 
+            // lblTitle
+            // 
+            this.lblTitle.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTitle.Location = new System.Drawing.Point(113, 12);
+            this.lblTitle.Name = "lblTitle";
+            this.lblTitle.Size = new System.Drawing.Size(368, 87);
+            this.lblTitle.TabIndex = 35;
+            this.lblTitle.Text = "Título";
+            this.lblTitle.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lblPrev
+            // 
+            this.lblPrev.AutoSize = true;
+            this.lblPrev.Location = new System.Drawing.Point(505, 35);
+            this.lblPrev.Name = "lblPrev";
+            this.lblPrev.Size = new System.Drawing.Size(29, 13);
+            this.lblPrev.TabIndex = 36;
+            this.lblPrev.Text = "prev";
+            this.lblPrev.Click += new System.EventHandler(this.lblPrev_Click);
+            // 
+            // lblNext
+            // 
+            this.lblNext.AutoSize = true;
+            this.lblNext.Location = new System.Drawing.Point(505, 68);
+            this.lblNext.Name = "lblNext";
+            this.lblNext.Size = new System.Drawing.Size(29, 13);
+            this.lblNext.TabIndex = 37;
+            this.lblNext.Text = "next";
+            this.lblNext.Click += new System.EventHandler(this.lblNext_Click);
+            // 
+            // lblEmpty
+            // 
+            this.lblEmpty.AutoSize = true;
+            this.lblEmpty.Location = new System.Drawing.Point(339, 539);
+            this.lblEmpty.Name = "lblEmpty";
+            this.lblEmpty.Size = new System.Drawing.Size(47, 13);
+            this.lblEmpty.TabIndex = 38;
+            this.lblEmpty.Text = "lblEmpty";
+            // 
             // frmScore
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -86,6 +129,10 @@
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(724, 559);
+            this.Controls.Add(this.lblEmpty);
+            this.Controls.Add(this.lblNext);
+            this.Controls.Add(this.lblPrev);
+            this.Controls.Add(this.lblTitle);
             this.Controls.Add(this.btnVolver);
             this.Controls.Add(this.tlpScore);
             this.DoubleBuffered = true;
@@ -97,6 +144,7 @@
             this.Text = "frmScore";
             this.Load += new System.EventHandler(this.frmScore_Load);
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -104,5 +152,9 @@
 
         private System.Windows.Forms.TableLayoutPanel tlpScore;
         private System.Windows.Forms.Button btnVolver;
+        private System.Windows.Forms.Label lblTitle;
+        private System.Windows.Forms.Label lblPrev;
+        private System.Windows.Forms.Label lblNext;
+        private System.Windows.Forms.Label lblEmpty;
     }
 }

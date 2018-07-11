@@ -23,9 +23,29 @@ namespace SlidingPuzzle
         List<Player> pList = new List<Player>();
         Image image, arrup, arrdown, empty;
         List<Button> bList = new List<Button>();
+        public int mode;
 
         private void frmScore_Load(object sender, EventArgs e)
         {
+            string scoreFile = "";
+            switch (mode) {
+                case 3:
+                    scoreFile = "../../scores3x3.txt";
+                    lblTitle.Text = "HighScore 3x3";
+                    break;
+                case 4:
+                    scoreFile = "../../scores4x4.txt";
+                    lblTitle.Text = "HighScore 4x4";
+                    break;
+                case 5:
+                    scoreFile = "../../scores5x5.txt";
+                    lblTitle.Text = "HighScore 5x5";
+                    break;
+                default:
+                    scoreFile = "../../scores3x3.txt";
+                    lblTitle.Text = "HighScore 3x3";
+                    break;
+            }
             btnVolver.FlatAppearance.MouseDownBackColor = Color.Transparent;
             btnVolver.FlatAppearance.MouseOverBackColor = Color.Transparent;
             image = resizeImage(Image.FromFile("../../Images/empty.png"), 16, 10);
@@ -67,7 +87,13 @@ namespace SlidingPuzzle
                 bList.Add(b);
                 tlpScore.Controls.Add(b, i, 0);
             }
-            using (StreamReader sr = File.OpenText("../../scores.txt"))
+            chargeScores(scoreFile, true);
+        }
+
+        private void chargeScores(string scoreFile, bool first)
+        {
+            pList.Clear();
+            using (StreamReader sr = File.OpenText(scoreFile))
             {
                 string line;
                 while ((line = sr.ReadLine()) != null)
@@ -77,36 +103,68 @@ namespace SlidingPuzzle
                     pList.Add(p);
                 }
             }
-            pList.Sort((b, a) => a.Points.CompareTo(b.Points));
-            for (int i = 0; i < tlpScore.ColumnCount; i++)
+            if (pList.Count == 0)
             {
-                for (int j = 0; j < pList.Count; j++)
-                {
-                    tlpScore.Controls.Remove(tlpScore.GetControlFromPosition(i, j +1));
-                    Label l = new Label();
-                    l.Size = tlpScore.Size;
-                    l.TextAlign = ContentAlignment.MiddleCenter;
-                    l.Font = new Font("Arial", 12.0F);
-                    switch (i)
+                lblEmpty.Visible = true;
+                lblEmpty.Enabled = true;
+                lblEmpty.Text = "No hay scores de ningún jugador en este modo.";
+                int x = this.Width / 2 - lblEmpty.Width / 2;
+                int y = this.Height / 2 - lblEmpty.Height / 2;
+                lblEmpty.Location = new Point(x, y);
+                tlpScore.Visible = false;
+                tlpScore.Enabled = false;
+            }
+            else
+            {
+                lblEmpty.Visible = false;
+                lblEmpty.Enabled = false;
+                pList.Sort((b, a) => a.Points.CompareTo(b.Points));
+                if (first) { 
+                    for (int i = 0; i < tlpScore.ColumnCount; i++)
                     {
-                        case 0:
-                            l.Text = pList[j].Name;
-                            break;
-                        case 1:
-                            l.Text = pList[j].Moves.ToString();
-                            break;
-                        case 2:
-                            l.Text = pList[j].Time;
-                            break;
-                        case 3:
-                            l.Text = pList[j].Points.ToString();
-                            break;
+                        for (int j = 0; j < pList.Count; j++)
+                        {
+                            tlpScore.Controls.Remove(tlpScore.GetControlFromPosition(i, j + 1));
+                            Label l = new Label();
+                            l.Size = tlpScore.Size;
+                            l.TextAlign = ContentAlignment.MiddleCenter;
+                            l.Font = new Font("Arial", 12.0F);
+                            switch (i)
+                            {
+                                case 0:
+                                    l.Text = pList[j].Name;
+                                    break;
+                                case 1:
+                                    l.Text = pList[j].Moves.ToString();
+                                    break;
+                                case 2:
+                                    l.Text = pList[j].Time;
+                                    break;
+                                case 3:
+                                    l.Text = pList[j].Points.ToString();
+                                    break;
+                            }
+                            tlpScore.Controls.Add(l, i, j + 1);
+                        }
                     }
-                    tlpScore.Controls.Add(l, i, j + 1);
                 }
+                else
+                {
+                    for (int i = 0; i < tlpScore.ColumnCount; i++)
+                    {
+                        for (int j = 1; j < tlpScore.RowCount; j++)
+                        {
+                            if(tlpScore.GetControlFromPosition(i, j) != null)
+                                tlpScore.GetControlFromPosition(i, j).Text = "";
+                        }
+                    }
+                    refreshScores();
+                }
+                tlpScore.Visible = true;
+                tlpScore.Enabled = true;
             }
         }
-
+        
         private void btnName_Click(object sender, EventArgs e)
         {
             Button btn = sender as Button;
@@ -207,6 +265,48 @@ namespace SlidingPuzzle
             btnVolver.Image = Image.FromFile("../../Images/back.png");
         }
 
+        private void lblPrev_Click(object sender, EventArgs e)
+        {
+            string scoreFile = "";
+            if (lblTitle.Text == "HighScore 3x3")
+            {
+                scoreFile = "../../scores5x5.txt";
+                lblTitle.Text = "HighScore 5x5";
+            }
+            else if (lblTitle.Text == "HighScore 4x4")
+            {
+                scoreFile = "../../scores3x3.txt";
+                lblTitle.Text = "HighScore 3x3";
+            }
+            else
+            {
+                scoreFile = "../../scores4x4.txt";
+                lblTitle.Text = "HighScore 4x4";
+            }
+            chargeScores(scoreFile, false);
+        }
+
+        private void lblNext_Click(object sender, EventArgs e)
+        {
+            string scoreFile = "";
+            if (lblTitle.Text == "HighScore 3x3")
+            {
+                scoreFile = "../../scores4x4.txt";
+                lblTitle.Text = "HighScore 4x4";
+            }
+            else if (lblTitle.Text == "HighScore 4x4")
+            {
+                scoreFile = "../../scores5x5.txt";
+                lblTitle.Text = "HighScore 5x5";
+            }
+            else
+            {
+                scoreFile = "../../scores3x3.txt";
+                lblTitle.Text = "HighScore 3x3";
+            }
+            chargeScores(scoreFile, false);
+        }
+
         private void refreshScores()
         {
             for (int i = 0; i < tlpScore.ColumnCount; i++)
@@ -229,7 +329,10 @@ namespace SlidingPuzzle
                             text = pList[j].Points.ToString();
                             break;
                     }
-                    tlpScore.GetControlFromPosition(i, j + 1).Text = text;
+                    if(tlpScore.GetControlFromPosition(i, j + 1) != null)
+                    {
+                        tlpScore.GetControlFromPosition(i, j + 1).Text = text;
+                    }
                 }
             }
         }

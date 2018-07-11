@@ -70,7 +70,7 @@ namespace SlidingPuzzle
             }
             b.time = 0;
             b.moves = 0;
-
+            
             b.tmrTick.Enabled = !b.tmrTick.Enabled;
         }
 
