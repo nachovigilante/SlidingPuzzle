@@ -51,7 +51,7 @@ namespace SlidingPuzzle
             int i = File.ReadAllLines(scoreFile).Count();
             if (i < 10) { 
                 // Si todavía hay lugares en el highscore, puede agregarse.
-                lblWin.Text = "¡Ganaste en " + time + " minutos y " + moves + " movimientos!. Podés guardar tu partida así aparecera en el highscore.";
+                lblWin.Text = "¡Ganaste en " + time + " minutos y " + moves + " movimientos!. Podrás guardar tu partida si asi lo deseas con tu nombre aquí abajo.";
             }
             else
             {
@@ -78,7 +78,7 @@ namespace SlidingPuzzle
                 else
                 {
                     this.Height = 195;
-                    lblWin.Text = "¡Ganaste en " + time + " minutos y en " + moves + " movimientos!. Pero no pudiste entrar al top ten. ¡Seguí intentandolo!.";
+                    lblWin.Text = "¡Ganaste en " + time + " minutos y en " + moves + " movimientos! Pero no pudiste entrar al top ten. ¡Seguí intentandolo!";
                     btnOk.Enabled = false;
                     txtName.Enabled = false;
                 }

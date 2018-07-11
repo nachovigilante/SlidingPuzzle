@@ -41,7 +41,7 @@
             // lblWin
             // 
             this.lblWin.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblWin.Location = new System.Drawing.Point(15, 104);
+            this.lblWin.Location = new System.Drawing.Point(57, 104);
             this.lblWin.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.lblWin.Name = "lblWin";
             this.lblWin.Size = new System.Drawing.Size(567, 98);
@@ -76,7 +76,7 @@
             this.txtName.Location = new System.Drawing.Point(6, 5);
             this.txtName.Margin = new System.Windows.Forms.Padding(6, 4, 6, 4);
             this.txtName.Name = "txtName";
-            this.txtName.Size = new System.Drawing.Size(334, 26);
+            this.txtName.Size = new System.Drawing.Size(334, 24);
             this.txtName.TabIndex = 3;
             this.txtName.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
