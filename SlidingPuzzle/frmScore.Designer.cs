@@ -86,11 +86,11 @@
             // lblTitle
             // 
             this.lblTitle.Font = new System.Drawing.Font("Roboto", 27.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTitle.Image = ((System.Drawing.Image)(resources.GetObject("lblTitle.Image")));
             this.lblTitle.Location = new System.Drawing.Point(155, 16);
             this.lblTitle.Name = "lblTitle";
             this.lblTitle.Size = new System.Drawing.Size(368, 87);
             this.lblTitle.TabIndex = 35;
-            this.lblTitle.Text = "Título";
             this.lblTitle.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // lblEmpty

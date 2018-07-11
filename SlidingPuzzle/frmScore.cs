@@ -24,6 +24,7 @@ namespace SlidingPuzzle
         Image image, arrup, arrdown, empty;
         List<Button> bList = new List<Button>();
         public int mode;
+        public int size;
 
         private void frmScore_Load(object sender, EventArgs e)
         {
@@ -31,21 +32,22 @@ namespace SlidingPuzzle
             switch (mode) {
                 case 3:
                     scoreFile = "../../scores3x3.txt";
-                    lblTitle.Text = "HighScore 3x3";
+                    size = 3;
                     break;
                 case 4:
                     scoreFile = "../../scores4x4.txt";
-                    lblTitle.Text = "HighScore 4x4";
+                    size = 4;
                     break;
                 case 5:
                     scoreFile = "../../scores5x5.txt";
-                    lblTitle.Text = "HighScore 5x5";
+                    size = 5;
                     break;
                 default:
                     scoreFile = "../../scores3x3.txt";
-                    lblTitle.Text = "HighScore 3x3";
+                    size = 3;
                     break;
             }
+            lblTitle.Image = new Bitmap("../../Images/hs" + size + ".png");
             btnVolver.FlatAppearance.MouseDownBackColor = Color.Transparent;
             btnVolver.FlatAppearance.MouseOverBackColor = Color.Transparent;
             lblPrev.FlatAppearance.MouseDownBackColor = Color.Transparent;
@@ -314,42 +316,44 @@ namespace SlidingPuzzle
         private void lblPrev_Click_1(object sender, EventArgs e)
         {
             string scoreFile = "";
-            if (lblTitle.Text == "HighScore 3x3")
+            if (size == 3)
             {
                 scoreFile = "../../scores5x5.txt";
-                lblTitle.Text = "HighScore 5x5";
+                size = 5;
             }
-            else if (lblTitle.Text == "HighScore 4x4")
+            else if (size == 4)
             {
                 scoreFile = "../../scores3x3.txt";
-                lblTitle.Text = "HighScore 3x3";
+                size = 3;
             }
             else
             {
                 scoreFile = "../../scores4x4.txt";
-                lblTitle.Text = "HighScore 4x4";
+                size = 4;
             }
+            lblTitle.Image = new Bitmap("../../Images/hs" + size + ".png");
             chargeScores(scoreFile, false);
         }
 
         private void lblNext_Click_1(object sender, EventArgs e)
         {
             string scoreFile = "";
-            if (lblTitle.Text == "HighScore 3x3")
+            if (size == 3)
             {
                 scoreFile = "../../scores4x4.txt";
-                lblTitle.Text = "HighScore 4x4";
+                size = 4;
             }
-            else if (lblTitle.Text == "HighScore 4x4")
+            else if (size == 4)
             {
                 scoreFile = "../../scores5x5.txt";
-                lblTitle.Text = "HighScore 5x5";
+                size = 5;
             }
             else
             {
                 scoreFile = "../../scores3x3.txt";
-                lblTitle.Text = "HighScore 3x3";
+                size = 3;
             }
+            lblTitle.Image = new Bitmap("../../Images/hs" + size + ".png");
             chargeScores(scoreFile, false);
         }
 
