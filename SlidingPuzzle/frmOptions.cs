@@ -68,6 +68,7 @@ namespace SlidingPuzzle
             else
                 pbChkAnimations.BackgroundImage = new Bitmap("../../Images/check-n.png");
             colorSlider2.Value = (optObj.animationSpeed - 55) / (-5);
+            cboSize.SelectedIndex = optObj.size - 3;
         }
 
         public void loadImage()
@@ -175,7 +176,6 @@ namespace SlidingPuzzle
             btnLoadDefault.FlatAppearance.MouseOverBackColor = Color.Transparent;
             updateFromTxt();
             loadDefault();
-            cboSize.SelectedIndex = 0;
         }
 
         private void button1_Click(object sender, EventArgs e)
