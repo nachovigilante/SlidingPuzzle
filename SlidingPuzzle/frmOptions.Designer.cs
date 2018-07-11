@@ -47,12 +47,18 @@
             this.btnLoadDefault = new System.Windows.Forms.Button();
             this.btnVolver = new System.Windows.Forms.Button();
             this.grpControls = new System.Windows.Forms.GroupBox();
+            this.pbChkKeys = new System.Windows.Forms.PictureBox();
             this.lblMulti = new System.Windows.Forms.Label();
             this.grpTab = new System.Windows.Forms.GroupBox();
             this.notifyIcon1 = new System.Windows.Forms.NotifyIcon(this.components);
+            this.pbChkMulti = new System.Windows.Forms.PictureBox();
+            this.pbChkAnimations = new System.Windows.Forms.PictureBox();
             this.grpAnimations.SuspendLayout();
             this.grpControls.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbChkKeys)).BeginInit();
             this.grpTab.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbChkMulti)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbChkAnimations)).BeginInit();
             this.SuspendLayout();
             // 
             // chkAnimations
@@ -61,13 +67,14 @@
             this.chkAnimations.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.chkAnimations.Checked = true;
             this.chkAnimations.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.chkAnimations.Location = new System.Drawing.Point(188, 60);
+            this.chkAnimations.Location = new System.Drawing.Point(188, 35);
             this.chkAnimations.Name = "chkAnimations";
             this.chkAnimations.Size = new System.Drawing.Size(15, 14);
             this.chkAnimations.TabIndex = 0;
             this.toolTipAnimations.SetToolTip(this.chkAnimations, "las animaciones pueden aumentar el tiempo y pueden ser molestas, no se recomienda" +
         "n si quiere resolverlo con un mejor tiempo");
             this.chkAnimations.UseVisualStyleBackColor = true;
+            this.chkAnimations.Visible = false;
             this.chkAnimations.CheckedChanged += new System.EventHandler(this.chkAnimations_CheckedChanged);
             // 
             // lblAnimations
@@ -83,6 +90,7 @@
             // 
             // grpAnimations
             // 
+            this.grpAnimations.Controls.Add(this.pbChkAnimations);
             this.grpAnimations.Controls.Add(this.colorSlider2);
             this.grpAnimations.Controls.Add(this.lblVel);
             this.grpAnimations.Controls.Add(this.lblAnimations);
@@ -185,13 +193,14 @@
             this.chkKeys.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.chkKeys.Checked = true;
             this.chkKeys.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.chkKeys.Location = new System.Drawing.Point(172, 47);
+            this.chkKeys.Location = new System.Drawing.Point(178, 26);
             this.chkKeys.Name = "chkKeys";
             this.chkKeys.Size = new System.Drawing.Size(15, 14);
             this.chkKeys.TabIndex = 7;
             this.toolTipAnimations.SetToolTip(this.chkKeys, "las animaciones pueden aumentar el tiempo y pueden ser molestas, no se recomienda" +
         "n si quiere resolverlo con un mejor tiempo");
             this.chkKeys.UseVisualStyleBackColor = true;
+            this.chkKeys.Visible = false;
             this.chkKeys.CheckedChanged += new System.EventHandler(this.chkKeys_CheckedChanged);
             // 
             // checkBox1
@@ -200,13 +209,14 @@
             this.checkBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.checkBox1.Checked = true;
             this.checkBox1.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.checkBox1.Location = new System.Drawing.Point(379, 47);
+            this.checkBox1.Location = new System.Drawing.Point(386, 26);
             this.checkBox1.Name = "checkBox1";
             this.checkBox1.Size = new System.Drawing.Size(15, 14);
             this.checkBox1.TabIndex = 9;
             this.toolTipAnimations.SetToolTip(this.checkBox1, "las animaciones pueden aumentar el tiempo y pueden ser molestas, no se recomienda" +
         "n si quiere resolverlo con un mejor tiempo");
             this.checkBox1.UseVisualStyleBackColor = true;
+            this.checkBox1.Visible = false;
             this.checkBox1.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
             // 
             // lblKeys
@@ -290,6 +300,8 @@
             // 
             // grpControls
             // 
+            this.grpControls.Controls.Add(this.pbChkMulti);
+            this.grpControls.Controls.Add(this.pbChkKeys);
             this.grpControls.Controls.Add(this.lblMulti);
             this.grpControls.Controls.Add(this.checkBox1);
             this.grpControls.Controls.Add(this.lblKeys);
@@ -303,6 +315,17 @@
             this.grpControls.Text = "Controles";
             this.grpControls.Paint += new System.Windows.Forms.PaintEventHandler(this.grpControls_Paint);
             this.grpControls.Enter += new System.EventHandler(this.grpControls_Enter);
+            // 
+            // pbChkKeys
+            // 
+            this.pbChkKeys.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pbChkKeys.BackgroundImage")));
+            this.pbChkKeys.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.pbChkKeys.Location = new System.Drawing.Point(172, 39);
+            this.pbChkKeys.Name = "pbChkKeys";
+            this.pbChkKeys.Size = new System.Drawing.Size(31, 33);
+            this.pbChkKeys.TabIndex = 15;
+            this.pbChkKeys.TabStop = false;
+            this.pbChkKeys.Click += new System.EventHandler(this.pbChkKeys_Click);
             // 
             // lblMulti
             // 
@@ -338,6 +361,28 @@
             this.notifyIcon1.Text = "notifyIcon1";
             this.notifyIcon1.Visible = true;
             // 
+            // pbChkMulti
+            // 
+            this.pbChkMulti.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pbChkMulti.BackgroundImage")));
+            this.pbChkMulti.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.pbChkMulti.Location = new System.Drawing.Point(379, 39);
+            this.pbChkMulti.Name = "pbChkMulti";
+            this.pbChkMulti.Size = new System.Drawing.Size(31, 33);
+            this.pbChkMulti.TabIndex = 16;
+            this.pbChkMulti.TabStop = false;
+            this.pbChkMulti.Click += new System.EventHandler(this.pbChkMulti_Click);
+            // 
+            // pbChkAnimations
+            // 
+            this.pbChkAnimations.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pbChkAnimations.BackgroundImage")));
+            this.pbChkAnimations.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.pbChkAnimations.Location = new System.Drawing.Point(188, 50);
+            this.pbChkAnimations.Name = "pbChkAnimations";
+            this.pbChkAnimations.Size = new System.Drawing.Size(31, 33);
+            this.pbChkAnimations.TabIndex = 17;
+            this.pbChkAnimations.TabStop = false;
+            this.pbChkAnimations.Click += new System.EventHandler(this.pbChkAnimations_Click);
+            // 
             // frmOptions
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -367,8 +412,11 @@
             this.grpAnimations.PerformLayout();
             this.grpControls.ResumeLayout(false);
             this.grpControls.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbChkKeys)).EndInit();
             this.grpTab.ResumeLayout(false);
             this.grpTab.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbChkMulti)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbChkAnimations)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -395,5 +443,8 @@
         private System.Windows.Forms.GroupBox grpTab;
         private ColorSlider.ColorSlider colorSlider2;
         private System.Windows.Forms.NotifyIcon notifyIcon1;
+        private System.Windows.Forms.PictureBox pbChkKeys;
+        private System.Windows.Forms.PictureBox pbChkAnimations;
+        private System.Windows.Forms.PictureBox pbChkMulti;
     }
 }

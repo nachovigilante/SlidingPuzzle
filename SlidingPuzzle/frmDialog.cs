@@ -27,6 +27,8 @@ namespace SlidingPuzzle
         {
             btnVolver.FlatAppearance.MouseDownBackColor = Color.Transparent;
             btnVolver.FlatAppearance.MouseOverBackColor = Color.Transparent;
+            btnOk.FlatAppearance.MouseDownBackColor = Color.Transparent;
+            btnOk.FlatAppearance.MouseOverBackColor = Color.Transparent;
             txtName.MaxLength = 8;
             // Me fijo si todavía no se lleno el top ten.
             int i = File.ReadAllLines("../../scores.txt").Count();
@@ -52,13 +54,13 @@ namespace SlidingPuzzle
                 int lowest = pList.Min(a => a.Points);
                 if(int.Parse(points) > lowest)
                 {
-                    lblWin.Text = "¡Ganaste en " + time + " minutos y en " + moves + " movimientos!. ¡Lo hiciste tan bien, que entraste al top ten!. Podrás guardar tu partida si asi lo deseas.";
+                    lblWin.Text = "¡Ganaste en " + time + " minutos y en " + moves + " movimientos! ¡Lo hiciste tan bien, que entraste al top ten! Podrás guardar tu partida si asi lo deseas con tu nombre aquí abajo.";
                     edit = pList.FindIndex(a => a.Points == lowest);
                     higher = true;
                 }
                 else
                 {
-                    lblWin.Text = "¡Ganaste en " + time + " minutos y en " + moves + " movimientos!. Pero no pudiste entrar al top ten. ¡Seguí intentandolo!.";
+                    lblWin.Text = "¡Ganaste en " + time + " minutos y en " + moves + " movimientos!. Pero no pudiste entrar al top ten. ¡Seguí intentandolo!";
                     btnOk.Visible = false;
                     txtName.Visible = false;
                 }
@@ -96,6 +98,26 @@ namespace SlidingPuzzle
         private void btnVolver_Click(object sender, EventArgs e)
         {
             Hide();
+        }
+
+        private void btnOk_MouseEnter(object sender, EventArgs e)
+        {
+            btnOk.Image = Image.FromFile("../../Images/guardar-h.png");
+        }
+
+        private void btnOk_MouseLeave(object sender, EventArgs e)
+        {
+            btnOk.Image = Image.FromFile("../../Images/guardar.png");
+        }
+
+        private void btnVolver_MouseEnter(object sender, EventArgs e)
+        {
+            btnVolver.Image = Image.FromFile("../../Images/back-h.png");
+        }
+
+        private void btnVolver_MouseLeave(object sender, EventArgs e)
+        {
+            btnVolver.Image = Image.FromFile("../../Images/back.png");
         }
     }
 

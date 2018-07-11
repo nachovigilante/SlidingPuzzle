@@ -54,9 +54,6 @@
     <Compile Include="CustomCombo.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="FlattenCombo.cs">
-      <SubType>Component</SubType>
-    </Compile>
     <Compile Include="frmDialog.cs">
       <SubType>Form</SubType>
     </Compile>
